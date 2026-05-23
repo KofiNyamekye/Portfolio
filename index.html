@@ -31,6 +31,24 @@
       --font-body: 'DM Sans', sans-serif;
       --radius: 12px;
       --radius-lg: 20px;
+      --bg: #080e2a;
+      --text: #ffffff;
+      --toggle-track: rgba(255,255,255,0.1);
+    }
+
+    html[data-theme="light"] {
+      --navy-dark: #f4f6ff;
+      --navy: #e8ecfa;
+      --navy-light: #dce2f5;
+      --white: #111827;
+      --off-white: #1f2b4d;
+      --muted: #4b5680;
+      --border: rgba(0, 0, 0, 0.09);
+      --card-bg: rgba(0, 0, 0, 0.03);
+      --bg: #f4f6ff;
+      --text: #111827;
+      --toggle-track: rgba(0,0,0,0.1);
+      --green-glow: rgba(34, 197, 94, 0.12);
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -43,6 +61,7 @@
       color: var(--white);
       line-height: 1.7;
       overflow-x: hidden;
+      transition: background 0.35s ease, color 0.35s ease;
     }
 
     /* ── Noise texture overlay ── */
@@ -50,7 +69,7 @@
       content: '';
       position: fixed;
       inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
       pointer-events: none;
       z-index: 0;
     }
@@ -59,6 +78,45 @@
     ::-webkit-scrollbar { width: 4px; }
     ::-webkit-scrollbar-track { background: var(--navy-dark); }
     ::-webkit-scrollbar-thumb { background: var(--green-dim); border-radius: 2px; }
+
+    /* ── Theme toggle button ── */
+    .theme-toggle {
+      background: var(--toggle-track);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      width: 44px; height: 24px;
+      cursor: pointer;
+      position: relative;
+      transition: background 0.3s;
+      flex-shrink: 0;
+    }
+    .theme-toggle::after {
+      content: '';
+      position: absolute;
+      top: 3px; left: 3px;
+      width: 18px; height: 18px;
+      border-radius: 50%;
+      background: var(--green);
+      transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    html[data-theme="light"] .theme-toggle::after { transform: translateX(20px); }
+    .theme-icon { font-size: 0.95rem; color: var(--muted); transition: color 0.3s; }
+
+    /* ── Keyframe animations ── */
+    @keyframes fadeInUp   { from { opacity:0; transform:translateY(40px); } to { opacity:1; transform:translateY(0); } }
+    @keyframes fadeInLeft { from { opacity:0; transform:translateX(-40px); } to { opacity:1; transform:translateX(0); } }
+    @keyframes fadeInRight{ from { opacity:0; transform:translateX(40px); } to { opacity:1; transform:translateX(0); } }
+    @keyframes scaleIn    { from { opacity:0; transform:scale(0.85); } to { opacity:1; transform:scale(1); } }
+    @keyframes pulse      { 0%,100%{opacity:1;} 50%{opacity:0.3;} }
+    @keyframes float      { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-10px);} }
+    @keyframes shimmer    { 0%{background-position:-200% 0;} 100%{background-position:200% 0;} }
+    @keyframes ringPulse  { 0%,100%{box-shadow:0 0 0 0 rgba(34,197,94,0.4);} 70%{box-shadow:0 0 0 14px rgba(34,197,94,0);} }
+    @keyframes countUp    { from{opacity:0;transform:translateY(10px);} to{opacity:1;transform:translateY(0);} }
+
+    .animate-hero-text { animation: fadeInUp 0.8s cubic-bezier(0.16,1,0.3,1) both; }
+    .animate-hero-visual { animation: scaleIn 0.9s cubic-bezier(0.16,1,0.3,1) 0.2s both; }
+    .animate-float { animation: float 4s ease-in-out infinite; }
+    .avatar-ring { animation: ringPulse 2.5s ease-out infinite; }
 
     /* ── Nav ── */
     nav {
@@ -794,31 +852,93 @@
     /* ── ANIMATIONS ── */
     .fade-up {
       opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
+      transform: translateY(36px);
+      transition: opacity 0.65s cubic-bezier(0.16,1,0.3,1), transform 0.65s cubic-bezier(0.16,1,0.3,1);
+    }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    .fade-left {
+      opacity: 0;
+      transform: translateX(-36px);
+      transition: opacity 0.65s cubic-bezier(0.16,1,0.3,1), transform 0.65s cubic-bezier(0.16,1,0.3,1);
+    }
+    .fade-left.visible { opacity: 1; transform: translateX(0); }
+
+    .fade-right {
+      opacity: 0;
+      transform: translateX(36px);
+      transition: opacity 0.65s cubic-bezier(0.16,1,0.3,1), transform 0.65s cubic-bezier(0.16,1,0.3,1);
+    }
+    .fade-right.visible { opacity: 1; transform: translateX(0); }
+
+    .scale-in {
+      opacity: 0;
+      transform: scale(0.9);
+      transition: opacity 0.55s cubic-bezier(0.16,1,0.3,1), transform 0.55s cubic-bezier(0.16,1,0.3,1);
+    }
+    .scale-in.visible { opacity: 1; transform: scale(1); }
+
+    /* card lift on hover */
+    .project-card, .skill-card, .blog-card, .about-card {
+      transition: transform 0.25s cubic-bezier(0.16,1,0.3,1), border-color 0.2s, box-shadow 0.25s;
+    }
+    .project-card:hover, .skill-card:hover, .blog-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.25);
+    }
+    html[data-theme="light"] .project-card:hover,
+    html[data-theme="light"] .skill-card:hover,
+    html[data-theme="light"] .blog-card:hover {
+      box-shadow: 0 12px 32px rgba(14,23,68,0.12);
     }
 
-    .fade-up.visible {
-      opacity: 1;
-      transform: translateY(0);
+    /* ── CERTIFICATIONS ── */
+    #certifications { padding: 7rem 0; }
+    .cert-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+      margin-top: 3rem;
     }
+    .cert-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      transition: border-color 0.2s, transform 0.25s cubic-bezier(0.16,1,0.3,1);
+    }
+    .cert-card:hover { border-color: rgba(34,197,94,0.35); transform: translateY(-4px); }
+    .cert-icon {
+      width: 40px; height: 40px; min-width: 40px;
+      background: var(--green-glow);
+      border: 1px solid rgba(34,197,94,0.2);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--green); font-size: 1.1rem;
+    }
+    .cert-body { flex: 1; }
+    .cert-title {
+      font-family: var(--font-display);
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+      line-height: 1.35;
+    }
+    .cert-org { font-size: 0.8rem; color: var(--green); font-weight: 500; }
+    .cert-year { font-size: 0.75rem; color: var(--muted); margin-top: 0.2rem; }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
       .nav-links { display: none; }
       .hamburger { display: block; }
-
-      .hero-grid, .about-grid, .contact-wrap {
-        grid-template-columns: 1fr;
-        gap: 2.5rem;
-      }
-
+      .hero-grid, .about-grid, .contact-wrap { grid-template-columns: 1fr; gap: 2.5rem; }
       .hero-visual { display: none; }
       .form-row { grid-template-columns: 1fr; }
-
       h1 { font-size: 2.2rem; }
       h2 { font-size: 1.8rem; }
-
       nav { padding: 1rem; }
     }
   </style>
@@ -833,10 +953,15 @@
       <li><a href="#skills">Skills</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#experience">Experience</a></li>
+      <li><a href="#certifications">Certifications</a></li>
       <li><a href="#blog">Blog</a></li>
-      <li><a href="#contact" class="nav-cta">Hire Me</a></li>
+      <li><a href="#contact" class="nav-cta">Contact</a></li>
     </ul>
-    <button class="hamburger" aria-label="Menu"><i class="ti ti-menu-2"></i></button>
+    <div style="display:flex;align-items:center;gap:0.75rem;">
+      <i class="ti ti-sun theme-icon" id="theme-icon"></i>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode"></button>
+      <button class="hamburger" aria-label="Menu"><i class="ti ti-menu-2"></i></button>
+    </div>
   </nav>
 
   <!-- ── HERO ── -->
@@ -844,7 +969,7 @@
     <div class="hero-bg"></div>
     <div class="container">
       <div class="hero-grid">
-        <div class="hero-content fade-up">
+        <div class="hero-content animate-hero-text">
           <div class="hero-tag">Available for opportunities</div>
           <h1>
             Engineer.<br />
@@ -864,11 +989,11 @@
           </div>
         </div>
 
-        <div class="hero-visual fade-up" style="transition-delay: 0.2s;">
+        <div class="hero-visual animate-hero-visual">
           <div class="avatar-ring">
-            <div class="avatar-inner">
-              <!-- Replace the initials with your <img src="your-photo.jpg" alt="Nyamekye"> -->
-              NK
+            <div class="avatar-inner animate-float">
+              <!-- Add your photo: replace the img src with your actual photo filename after uploading to GitHub -->
+              <img src="photo.jpg" alt="Kofi Asa Nyamekye" onerror="this.style.display='none';this.parentNode.innerHTML='NK';" />
             </div>
           </div>
           <div class="hero-badges">
@@ -885,18 +1010,19 @@
   <section id="about">
     <div class="container">
       <div class="about-grid">
-        <div class="about-text fade-up">
+        <div class="about-text fade-left">
           <span class="section-label">About Me</span>
           <h2>A multidisciplinary mind at the intersection of tech, materials & creativity</h2>
-          <p>I'm a Graduate Materials Engineer from Ghana with a growing footprint in data science, AI, and content strategy. I've worked at the Electricity Company of Ghana in technical operations and safety compliance, built AI & data science skills through ALX AiCE and Thrive Africa, and led content production for CodeDevPay — Ghana's tech learning platform.</p>
-          <p>I'm currently pursuing an MSc in Advanced Materials Analysis at TU Bergakademie Freiberg, Germany — deepening my technical foundation while keeping one hand firmly in the digital world.</p>
+          <p>I'm Kofi Asa Nyamekye — a Graduate Materials Engineer from Ghana who refuses to stay in one lane. I hold a BSc in Materials Engineering from KNUST and have built deep expertise across data science, AI, and content strategy because the most interesting problems live at the edges where disciplines meet.</p>
+          <p>I've worked at the Electricity Company of Ghana as a National Service Personnel, handling meter operations, billing accuracy, and technical field support. I've trained in Advanced Data Science and Analytics through Thrive Africa, completed AI programmes with ALX and DataCamp, and earned certifications from institutions including the Asian Development Bank Institute and HP Life.</p>
+          <p>Alongside engineering and data, I lead content production for CodeDevPay — Ghana's homegrown tech learning platform — writing SQL tutorials, Generative AI course materials, email campaigns, and brand content. I also take on freelance creative work for startups across Africa and beyond.</p>
           <div class="about-stats">
             <div class="stat-box">
               <div class="stat-num">3+</div>
               <div class="stat-label">Years of experience</div>
             </div>
             <div class="stat-box">
-              <div class="stat-num">4+</div>
+              <div class="stat-num">5</div>
               <div class="stat-label">Domains of expertise</div>
             </div>
             <div class="stat-box">
@@ -904,39 +1030,39 @@
               <div class="stat-label">Content pieces created</div>
             </div>
             <div class="stat-box">
-              <div class="stat-num">GH🇬🇭</div>
-              <div class="stat-label">Based in Ghana</div>
+              <div class="stat-num">GH 🇬🇭</div>
+              <div class="stat-label">Based in Kumasi, Ghana</div>
             </div>
           </div>
         </div>
 
-        <div class="about-right fade-up" style="transition-delay: 0.15s;">
+        <div class="about-right fade-right" style="transition-delay: 0.15s;">
           <div class="about-card">
             <div class="about-card-icon"><i class="ti ti-atom"></i></div>
             <div>
               <h4>Materials Engineering</h4>
-              <p>Structural analysis, safety compliance, materials characterisation, and technical operations from my ECG and academic experience.</p>
+              <p>BSc graduate with hands-on experience in structural analysis, materials characterisation, crystallography, thermodynamics, and safety compliance at ECG.</p>
             </div>
           </div>
           <div class="about-card">
             <div class="about-card-icon"><i class="ti ti-chart-dots"></i></div>
             <div>
               <h4>Data Science & AI</h4>
-              <p>Machine learning, data analytics, Power BI/DAX, Python, SQL — trained through ALX AiCE and Thrive Africa programs.</p>
+              <p>Python, SQL, Power BI, DAX, and machine learning — trained through ALX AiCE and Thrive Africa. I build dashboards, debug data models, and teach others to do the same.</p>
             </div>
           </div>
           <div class="about-card">
             <div class="about-card-icon"><i class="ti ti-pencil"></i></div>
             <div>
-              <h4>Content & Marketing</h4>
-              <p>Email copywriting, social media content, blog articles, video campaigns, and digital flyers for tech brands.</p>
+              <h4>Content & Creative Strategy</h4>
+              <p>Email copywriting, LinkedIn content, SEO blog articles, video storyboards, ad creative packages, and digital flyers for tech brands in Ghana and beyond.</p>
             </div>
           </div>
           <div class="about-card">
             <div class="about-card-icon"><i class="ti ti-school"></i></div>
             <div>
               <h4>Tech Education</h4>
-              <p>Curriculum development for Generative AI, SQL, and data science courses reaching learners across Africa.</p>
+              <p>Built full Generative AI, SQL, and data science course materials for CodeDevPay Academy — lesson notes, quizzes, activities, and capstone projects.</p>
             </div>
           </div>
         </div>
@@ -1137,17 +1263,17 @@
             <span class="timeline-org">CodeDevPay</span>
           </div>
           <div class="timeline-title">Content & Marketing Specialist</div>
-          <div class="timeline-desc">Email copywriting, social media content, blog articles for AnyGist, digital flyers, and video campaigns across CodeDevPay's Academy, Flowpard, AnyGist, and Gamify platforms.</div>
+          <div class="timeline-desc">Email copywriting, social media content, blog articles for AnyGist, digital flyers, and video campaigns across CodeDevPay's Academy, Flowpard, AnyGist, and Gamify platforms. Built full Generative AI and SQL course curricula for the Academy.</div>
         </div>
 
         <div class="timeline-item fade-up" style="transition-delay: 0.1s;">
           <div class="timeline-dot"></div>
           <div class="timeline-meta">
-            <span class="timeline-date">2024 – Present</span>
+            <span class="timeline-date">2024 – 2025</span>
             <span class="timeline-org">ALX AiCE · Thrive Africa</span>
           </div>
-          <div class="timeline-title">Data Science & AI Trainee</div>
-          <div class="timeline-desc">Completed intensive training in data science, machine learning, and AI applications through two structured programmes, building proficiency in Python, SQL, and analytical tools.</div>
+          <div class="timeline-title">Data Science & AI Training</div>
+          <div class="timeline-desc">Completed the Advanced Data Science & Analytics programme at Thrive Africa (Excel, Power BI, SQL, MySQL, Python) and the AI Career Essentials programme at ALX, covering AI fundamentals, digital literacy, and professional development.</div>
         </div>
 
         <div class="timeline-item fade-up" style="transition-delay: 0.2s;">
@@ -1156,28 +1282,103 @@
             <span class="timeline-date">2023 – 2024</span>
             <span class="timeline-org">Electricity Company of Ghana</span>
           </div>
-          <div class="timeline-title">Technical Operations & Safety Officer</div>
-          <div class="timeline-desc">Managed technical operations, safety compliance, and data analytics at the ECG. Applied materials engineering principles in a live infrastructure environment.</div>
+          <div class="timeline-title">National Service Personnel — Technical Operations</div>
+          <div class="timeline-desc">Resolved faulty and unresolved meter cases to ensure accurate billing. Collected and validated readings from retired and replaced meters. Initiated replacement processes for damaged meters, supported disconnection team operations, and strengthened problem-solving skills in a high-demand technical environment.</div>
         </div>
 
         <div class="timeline-item fade-up" style="transition-delay: 0.3s;">
           <div class="timeline-dot"></div>
           <div class="timeline-meta">
             <span class="timeline-date">2019 – 2023</span>
-            <span class="timeline-org">University (Ghana)</span>
+            <span class="timeline-org">KNUST, Ghana</span>
           </div>
           <div class="timeline-title">BSc Materials Engineering</div>
-          <div class="timeline-desc">Graduated November 2023. Covered crystallography, structural analysis, thermodynamics, materials characterisation, and engineering safety.</div>
+          <div class="timeline-desc">Graduated from Kwame Nkrumah University of Science and Technology. Developed strong technical and problem-solving skills through coursework, research, and practical projects covering crystallography, structural analysis, thermodynamics, and materials characterisation.</div>
         </div>
 
-        <div class="timeline-item fade-up" style="transition-delay: 0.4s;">
-          <div class="timeline-dot" style="background: rgba(34,197,94,0.3); border-color: var(--green);"></div>
-          <div class="timeline-meta">
-            <span class="timeline-date">Upcoming — WS 2026/27</span>
-            <span class="timeline-org">TUBAF, Germany</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CERTIFICATIONS ── -->
+  <section id="certifications">
+    <div class="container">
+      <div class="fade-up">
+        <span class="section-label">Certifications</span>
+        <h2>Credentials & continuous learning</h2>
+      </div>
+      <div class="cert-grid">
+
+        <div class="cert-card fade-up">
+          <div class="cert-icon"><i class="ti ti-chart-bar"></i></div>
+          <div class="cert-body">
+            <div class="cert-title">Advanced Data Science & Analytics</div>
+            <div class="cert-org">Thrive Africa</div>
+            <div class="cert-year">2025 · Excel, Power BI, SQL, MySQL, Python</div>
           </div>
-          <div class="timeline-title">MSc Advanced Materials Analysis <span style="font-size:0.75rem; color: var(--green); font-weight:400;">(Admitted)</span></div>
-          <div class="timeline-desc">Pursuing a master's degree at TU Bergakademie Freiberg, Germany — deepening expertise in advanced materials analysis and characterisation techniques.</div>
+        </div>
+
+        <div class="cert-card fade-up" style="transition-delay:0.05s;">
+          <div class="cert-icon"><i class="ti ti-brain"></i></div>
+          <div class="cert-body">
+            <div class="cert-title">Generative AI & Advanced Prompt Engineering</div>
+            <div class="cert-org">Thrive Africa</div>
+            <div class="cert-year">2025 · 12-week · Transformers, GANs, DALL-E, Fine-tuning</div>
+          </div>
+        </div>
+
+        <div class="cert-card fade-up" style="transition-delay:0.1s;">
+          <div class="cert-icon"><i class="ti ti-certificate"></i></div>
+          <div class="cert-body">
+            <div class="cert-title">AI Career Essentials (AiCE)</div>
+            <div class="cert-org">ALX Africa</div>
+            <div class="cert-year">2024 · AI fundamentals, digital literacy, ethics</div>
+          </div>
+        </div>
+
+        <div class="cert-card fade-up" style="transition-delay:0.15s;">
+          <div class="cert-icon"><i class="ti ti-certificate"></i></div>
+          <div class="cert-body">
+            <div class="cert-title">Professional Foundations</div>
+            <div class="cert-org">ALX Africa</div>
+            <div class="cert-year">2025 · Communication, critical thinking, personal branding</div>
+          </div>
+        </div>
+
+        <div class="cert-card fade-up" style="transition-delay:0.2s;">
+          <div class="cert-icon"><i class="ti ti-robot"></i></div>
+          <div class="cert-body">
+            <div class="cert-title">Understanding Artificial Intelligence</div>
+            <div class="cert-org">DataCamp</div>
+            <div class="cert-year">2025 · AI concepts, real-world applications, ethics</div>
+          </div>
+        </div>
+
+        <div class="cert-card fade-up" style="transition-delay:0.25s;">
+          <div class="cert-icon"><i class="ti ti-world"></i></div>
+          <div class="cert-body">
+            <div class="cert-title">AI for Social Impact</div>
+            <div class="cert-org">Asian Development Bank Institute</div>
+            <div class="cert-year">2025 · Generative AI, governance, ethical AI deployment</div>
+          </div>
+        </div>
+
+        <div class="cert-card fade-up" style="transition-delay:0.3s;">
+          <div class="cert-icon"><i class="ti ti-books"></i></div>
+          <div class="cert-body">
+            <div class="cert-title">Introduction to AI</div>
+            <div class="cert-org">Alison</div>
+            <div class="cert-year">2025 · AI foundations, key concepts, applications</div>
+          </div>
+        </div>
+
+        <div class="cert-card fade-up" style="transition-delay:0.35s;">
+          <div class="cert-icon"><i class="ti ti-database"></i></div>
+          <div class="cert-body">
+            <div class="cert-title">Data Science & Analytics</div>
+            <div class="cert-org">HP Life</div>
+            <div class="cert-year">2026 · Data analytics, AI for business, technical foundations</div>
+          </div>
         </div>
 
       </div>
@@ -1223,17 +1424,17 @@
           <h2>Let's build something together</h2>
           <p style="color: var(--muted); font-weight: 300; margin-bottom: 1rem; font-size: 0.95rem;">Whether it's a freelance project, content collaboration, research opportunity, or just a conversation — I'd love to hear from you.</p>
           <div class="contact-links">
-            <a href="mailto:your@email.com" class="contact-link">
+            <a href="mailto:asanyamekye@gmail.com" class="contact-link">
               <i class="ti ti-mail"></i>
-              your@email.com
+              asanyamekye@gmail.com
             </a>
-            <a href="https://linkedin.com/in/yourprofile" class="contact-link" target="_blank">
+            <a href="https://www.linkedin.com/in/asanyamekye/" class="contact-link" target="_blank">
               <i class="ti ti-brand-linkedin"></i>
-              linkedin.com/in/yourprofile
+              linkedin.com/in/asanyamekye
             </a>
-            <a href="https://github.com/yourusername" class="contact-link" target="_blank">
+            <a href="https://github.com/KofiNyamekye" class="contact-link" target="_blank">
               <i class="ti ti-brand-github"></i>
-              github.com/yourusername
+              github.com/KofiNyamekye
             </a>
             <a href="#" class="contact-link">
               <i class="ti ti-map-pin"></i>
@@ -1271,39 +1472,131 @@
 
   <!-- ── FOOTER ── */
   <footer>
-    <p>© 2026 Nyamekye. Designed & built with <span>♥</span> in Ghana.</p>
+    <p>© 2026 Kofi Asa Nyamekye. Designed & built with <span>♥</span> in Ghana.</p>
   </footer>
 
   <script>
-    // Scroll-reveal
-    const observer = new IntersectionObserver((entries) => {
+    // ── Theme toggle ──
+    const html = document.documentElement;
+    const toggleBtn = document.getElementById('theme-toggle');
+    const themeIcon = document.getElementById('theme-icon');
+
+    function setTheme(theme) {
+      html.setAttribute('data-theme', theme);
+      localStorage.setItem('theme', theme);
+      themeIcon.className = theme === 'light' ? 'ti ti-moon theme-icon' : 'ti ti-sun theme-icon';
+    }
+
+    // Load saved preference
+    const saved = localStorage.getItem('theme') || 'dark';
+    setTheme(saved);
+
+    toggleBtn.addEventListener('click', () => {
+      setTheme(html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+    });
+
+    // ── Scroll-reveal (supports fade-up, fade-left, fade-right, scale-in) ──
+    const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach(e => {
         if (e.isIntersecting) {
           e.target.classList.add('visible');
+          revealObserver.unobserve(e.target);
         }
       });
-    }, { threshold: 0.1 });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+    document.querySelectorAll('.fade-up, .fade-left, .fade-right, .scale-in')
+      .forEach(el => revealObserver.observe(el));
 
-    // Form submit (Formspree integration ready)
+    // ── Stat counter animation ──
+    function animateCounter(el, target, duration = 1400) {
+      const isNum = !isNaN(parseInt(target));
+      if (!isNum) { el.textContent = target; return; }
+      const end = parseInt(target);
+      const suffix = target.replace(String(end), '');
+      let start = 0;
+      const step = Math.ceil(end / (duration / 16));
+      const timer = setInterval(() => {
+        start = Math.min(start + step, end);
+        el.textContent = start + suffix;
+        if (start >= end) clearInterval(timer);
+      }, 16);
+    }
+
+    const statObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          const numEl = e.target.querySelector('.stat-num');
+          if (numEl) {
+            const raw = numEl.dataset.val || numEl.textContent.trim();
+            numEl.dataset.val = raw;
+            animateCounter(numEl, raw);
+          }
+          statObserver.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    document.querySelectorAll('.stat-box').forEach(el => statObserver.observe(el));
+
+    // ── Typing effect on hero tag ──
+    const heroTag = document.querySelector('.hero-tag');
+    if (heroTag) {
+      const text = heroTag.textContent.trim();
+      heroTag.textContent = '';
+      heroTag.style.opacity = '1';
+      let i = 0;
+      const type = () => {
+        if (i < text.length) {
+          heroTag.textContent += text[i++];
+          setTimeout(type, 45);
+        }
+      };
+      setTimeout(type, 600);
+    }
+
+    // ── Skill tag stagger on scroll ──
+    const skillObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.querySelectorAll('.tag').forEach((tag, i) => {
+            tag.style.opacity = '0';
+            tag.style.transform = 'translateY(8px)';
+            tag.style.transition = `opacity 0.3s ease ${i * 0.06}s, transform 0.3s ease ${i * 0.06}s`;
+            setTimeout(() => { tag.style.opacity = '1'; tag.style.transform = 'translateY(0)'; }, 50);
+          });
+          skillObserver.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    document.querySelectorAll('.skill-card').forEach(el => skillObserver.observe(el));
+
+    // ── Active nav link on scroll ──
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(s => {
+        if (window.scrollY >= s.offsetTop - 120) current = s.id;
+      });
+      navLinks.forEach(a => {
+        a.style.color = a.getAttribute('href') === '#' + current ? 'var(--white)' : '';
+      });
+    }, { passive: true });
+
+    // ── Form submit ──
     function handleFormSubmit() {
       const name = document.getElementById('name').value;
       const email = document.getElementById('email').value;
-      const subject = document.getElementById('subject').value;
       const message = document.getElementById('message').value;
-
       if (!name || !email || !message) {
         alert('Please fill in your name, email, and message.');
         return;
       }
-
-      // TODO: Replace with Formspree endpoint
-      // fetch('https://formspree.io/f/YOUR_FORM_ID', { method: 'POST', ... })
       alert('Thanks, ' + name + '! Your message has been received. I\'ll be in touch soon.');
     }
 
-    // Hamburger (mobile)
+    // ── Hamburger (mobile) ──
     document.querySelector('.hamburger').addEventListener('click', () => {
       const links = document.querySelector('.nav-links');
       if (links.style.display === 'flex') {
@@ -1315,10 +1608,11 @@
         links.style.top = '64px';
         links.style.left = '0';
         links.style.right = '0';
-        links.style.background = 'rgba(8,14,42,0.98)';
+        links.style.background = html.getAttribute('data-theme') === 'light' ? 'rgba(244,246,255,0.98)' : 'rgba(8,14,42,0.98)';
         links.style.padding = '1rem 2rem 2rem';
-        links.style.borderBottom = '1px solid rgba(255,255,255,0.08)';
+        links.style.borderBottom = '1px solid var(--border)';
         links.style.gap = '1.25rem';
+        links.style.zIndex = '99';
       }
     });
   </script>
