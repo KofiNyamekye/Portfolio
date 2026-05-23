@@ -859,14 +859,14 @@
 
     .fade-left {
       opacity: 0;
-      transform: translateX(-36px);
+      transform: translateX(0px);
       transition: opacity 0.65s cubic-bezier(0.16,1,0.3,1), transform 0.65s cubic-bezier(0.16,1,0.3,1);
     }
     .fade-left.visible { opacity: 1; transform: translateX(0); }
 
     .fade-right {
       opacity: 0;
-      transform: translateX(36px);
+      transform: translateX(0px);
       transition: opacity 0.65s cubic-bezier(0.16,1,0.3,1), transform 0.65s cubic-bezier(0.16,1,0.3,1);
     }
     .fade-right.visible { opacity: 1; transform: translateX(0); }
@@ -993,7 +993,7 @@
           <div class="avatar-ring">
             <div class="avatar-inner animate-float">
               <!-- Add your photo: replace the img src with your actual photo filename after uploading to GitHub -->
-              <img src="photo.jpg" alt="Kofi Asa Nyamekye" onerror="this.style.display='none';this.parentNode.innerHTML='NK';" />
+              <img src="image.png" alt="Kofi Asa Nyamekye" onerror="this.style.display='none';this.parentNode.innerHTML='NK';" />
             </div>
           </div>
           <div class="hero-badges">
@@ -1010,12 +1010,12 @@
   <section id="about">
     <div class="container">
       <div class="about-grid">
-        <div class="about-text fade-left">
+        <div class="about-text fade-up">
           <span class="section-label">About Me</span>
           <h2>A multidisciplinary mind at the intersection of tech, materials & creativity</h2>
-          <p>I'm Kofi Asa Nyamekye — a Graduate Materials Engineer from Ghana who refuses to stay in one lane. I hold a BSc in Materials Engineering from KNUST and have built deep expertise across data science, AI, and content strategy because the most interesting problems live at the edges where disciplines meet.</p>
-          <p>I've worked at the Electricity Company of Ghana as a National Service Personnel, handling meter operations, billing accuracy, and technical field support. I've trained in Advanced Data Science and Analytics through Thrive Africa, completed AI programmes with ALX and DataCamp, and earned certifications from institutions including the Asian Development Bank Institute and HP Life.</p>
-          <p>Alongside engineering and data, I lead content production for CodeDevPay — Ghana's homegrown tech learning platform — writing SQL tutorials, Generative AI course materials, email campaigns, and brand content. I also take on freelance creative work for startups across Africa and beyond.</p>
+          <p>I'm <strong style="color:var(--green);font-weight:600;">Kofi Asa Nyamekye</strong> — a Graduate Materials Engineer from KNUST, Ghana, who refuses to stay in one lane. I hold a BSc in Materials Engineering and have built deep expertise across data science, AI, and content strategy, because the most interesting problems live at the edges where disciplines meet.</p>
+          <p>I served at the <strong style="font-weight:500;">Electricity Company of Ghana</strong> as a National Service Personnel, resolving meter cases, supporting billing accuracy, and working in high-demand technical field operations. Since then, I've trained in Advanced Data Science & Analytics through Thrive Africa, completed AI programmes with ALX and DataCamp, and earned certifications from institutions including the Asian Development Bank Institute and HP Life.</p>
+          <p>Alongside engineering and data, I lead content production for <strong style="font-weight:500;">CodeDevPay</strong> — Ghana's homegrown tech learning platform — writing SQL tutorials, Generative AI course materials, email campaigns, and brand content. I also take on freelance creative strategy work for startups across Africa and beyond, including full ad creative packages and video campaign development.</p>
           <div class="about-stats">
             <div class="stat-box">
               <div class="stat-num">3+</div>
@@ -1026,8 +1026,8 @@
               <div class="stat-label">Domains of expertise</div>
             </div>
             <div class="stat-box">
-              <div class="stat-num">50+</div>
-              <div class="stat-label">Content pieces created</div>
+              <div class="stat-num">8</div>
+              <div class="stat-label">Certifications earned</div>
             </div>
             <div class="stat-box">
               <div class="stat-num">GH 🇬🇭</div>
@@ -1036,33 +1036,38 @@
           </div>
         </div>
 
-        <div class="about-right fade-right" style="transition-delay: 0.15s;">
+        <div class="about-right fade-up" style="transition-delay: 0.2s;">
+          <div class="about-photo-wrap" style="margin-bottom:1.5rem;display:flex;justify-content:center;">
+            <div style="width:200px;height:200px;border-radius:var(--radius-lg);overflow:hidden;border:2px solid rgba(34,197,94,0.3);box-shadow:0 8px 32px rgba(0,0,0,0.25);">
+              <img src="image.png" alt="Kofi Asa Nyamekye" style="width:100%;height:100%;object-fit:cover;" onerror="this.parentNode.style.display='none';" />
+            </div>
+          </div>
           <div class="about-card">
             <div class="about-card-icon"><i class="ti ti-atom"></i></div>
             <div>
               <h4>Materials Engineering</h4>
-              <p>BSc graduate with hands-on experience in structural analysis, materials characterisation, crystallography, thermodynamics, and safety compliance at ECG.</p>
+              <p>BSc from KNUST — structural analysis, materials characterisation, crystallography, thermodynamics, and technical field operations at ECG.</p>
             </div>
           </div>
           <div class="about-card">
             <div class="about-card-icon"><i class="ti ti-chart-dots"></i></div>
             <div>
               <h4>Data Science & AI</h4>
-              <p>Python, SQL, Power BI, DAX, and machine learning — trained through ALX AiCE and Thrive Africa. I build dashboards, debug data models, and teach others to do the same.</p>
+              <p>Python, SQL, Power BI, DAX, MySQL, and machine learning. I build dashboards, debug data models, and teach others to do the same.</p>
             </div>
           </div>
           <div class="about-card">
             <div class="about-card-icon"><i class="ti ti-pencil"></i></div>
             <div>
               <h4>Content & Creative Strategy</h4>
-              <p>Email copywriting, LinkedIn content, SEO blog articles, video storyboards, ad creative packages, and digital flyers for tech brands in Ghana and beyond.</p>
+              <p>Email copywriting, LinkedIn content, SEO articles, video storyboards, ad creative packages, and digital flyers for tech brands in Ghana and beyond.</p>
             </div>
           </div>
           <div class="about-card">
             <div class="about-card-icon"><i class="ti ti-school"></i></div>
             <div>
               <h4>Tech Education</h4>
-              <p>Built full Generative AI, SQL, and data science course materials for CodeDevPay Academy — lesson notes, quizzes, activities, and capstone projects.</p>
+              <p>Built full Generative AI, SQL, and data science course curricula for CodeDevPay Academy — lesson notes, quizzes, activities, and capstone projects.</p>
             </div>
           </div>
         </div>
