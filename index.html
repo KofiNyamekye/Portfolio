@@ -603,6 +603,57 @@
       transform: translateY(0);
     }
 
+
+    .tool-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 2rem;
+    }
+
+    .tool-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      background: var(--card);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      padding: 0.65rem 0.9rem;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .tool-pill i { color: var(--green); }
+
+    .highlight-box {
+      background: linear-gradient(135deg, rgba(34,197,94,0.12), rgba(255,255,255,0.04));
+      border: 1px solid rgba(34,197,94,0.22);
+      border-radius: 26px;
+      padding: 1.8rem;
+      margin-top: 2rem;
+    }
+
+    .achievement-list {
+      display: grid;
+      gap: 0.9rem;
+      margin-top: 1.4rem;
+    }
+
+    .achievement-item {
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-start;
+      color: var(--muted);
+    }
+
+    .achievement-item i {
+      color: var(--green);
+      font-size: 1.2rem;
+      margin-top: 0.15rem;
+      flex-shrink: 0;
+    }
+
     @media (max-width: 940px) {
       .hero-grid, .grid-2, .contact-grid { grid-template-columns: 1fr; }
       .hero-visual { min-height: 460px; }
@@ -655,7 +706,9 @@
     <ul class="nav-links" id="navLinks">
       <li><a href="#about">About</a></li>
       <li><a href="#skills">Skills</a></li>
+      <li><a href="#tools">Tools</a></li>
       <li><a href="#projects">Projects</a></li>
+      <li><a href="#services">Services</a></li>
       <li><a href="#experience">Experience</a></li>
       <li><a href="#certifications">Certifications</a></li>
       <li><a href="#blog">Blog</a></li>
@@ -684,6 +737,7 @@
           <div class="btn-row">
             <a href="#projects" class="btn btn-primary"><i class="ti ti-briefcase"></i> View Projects</a>
             <a href="#contact" class="btn btn-secondary"><i class="ti ti-mail"></i> Contact Me</a>
+            <a href="Profile.pdf" class="btn btn-secondary" download><i class="ti ti-download"></i> Download CV</a>
           </div>
         </div>
 
@@ -829,6 +883,30 @@
     </div>
   </section>
 
+
+  <section id="tools">
+    <div class="container">
+      <span class="section-label">Tools & Technologies</span>
+      <h2>Tools I use to build, analyze, design and communicate</h2>
+      <p class="muted">A practical mix of analytics, AI, design, productivity and collaboration tools from my engineering, data, training and creative work.</p>
+
+      <div class="tool-strip fade-up">
+        <span class="tool-pill"><i class="ti ti-file-spreadsheet"></i> Excel</span>
+        <span class="tool-pill"><i class="ti ti-chart-bar"></i> Power BI</span>
+        <span class="tool-pill"><i class="ti ti-database"></i> SQL</span>
+        <span class="tool-pill"><i class="ti ti-brand-python"></i> Python</span>
+        <span class="tool-pill"><i class="ti ti-brand-github"></i> GitHub</span>
+        <span class="tool-pill"><i class="ti ti-code"></i> VS Code</span>
+        <span class="tool-pill"><i class="ti ti-brain"></i> ChatGPT</span>
+        <span class="tool-pill"><i class="ti ti-sparkles"></i> Generative AI</span>
+        <span class="tool-pill"><i class="ti ti-palette"></i> Canva</span>
+        <span class="tool-pill"><i class="ti ti-brand-google"></i> Google Sheets</span>
+        <span class="tool-pill"><i class="ti ti-layout-dashboard"></i> Dashboard Design</span>
+        <span class="tool-pill"><i class="ti ti-presentation"></i> Data Storytelling</span>
+      </div>
+    </div>
+  </section>
+
   <section id="projects">
     <div class="container">
       <span class="section-label">Projects</span>
@@ -880,6 +958,104 @@
           <h3>English Play AI Video Project</h3>
           <p>AI-generated video project for English Play. Link and project details will be added once available.</p>
           <div class="skill-tags"><span class="tag">AI Video</span><span class="tag">Creative Direction</span><span class="tag">Campaign</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="learning">
+    <div class="container">
+      <div class="grid-2">
+        <div class="fade-up">
+          <span class="section-label">Currently Learning</span>
+          <h2>Building stronger data, AI and automation skills</h2>
+          <p class="muted">
+            I am currently deepening my skills in data science, advanced SQL, advanced Power BI and automation, with the goal of building stronger analytics projects and smarter AI-assisted workflows.
+          </p>
+
+          <div class="tool-strip">
+            <span class="tool-pill"><i class="ti ti-brain"></i> Data Science</span>
+            <span class="tool-pill"><i class="ti ti-database"></i> Advanced SQL</span>
+            <span class="tool-pill"><i class="ti ti-chart-bar"></i> Advanced Power BI</span>
+            <span class="tool-pill"><i class="ti ti-automation"></i> Automation</span>
+          </div>
+        </div>
+
+        <div class="highlight-box fade-up">
+          <span class="section-label">Now</span>
+          <h3>What I am focused on now</h3>
+          <p class="muted">
+            Right now, I am expanding my analytics portfolio with SQL, Excel and Power BI projects, while exploring automation and AI-assisted workflows. I am also building a stronger bridge between my engineering background, safety training, data analytics growth and creative design work.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="container">
+      <span class="section-label">Services</span>
+      <h2>What I can help with</h2>
+
+      <div class="cards-grid">
+        <div class="card fade-up">
+          <div class="card-icon"><i class="ti ti-chart-bar"></i></div>
+          <h3>Data Analytics Support</h3>
+          <p>Cleaning, organizing, analyzing and visualizing data using Excel, SQL, Power BI and Python.</p>
+        </div>
+
+        <div class="card fade-up">
+          <div class="card-icon"><i class="ti ti-layout-dashboard"></i></div>
+          <h3>Dashboard Design</h3>
+          <p>Building clear and useful dashboards that turn raw information into insight and better decisions.</p>
+        </div>
+
+        <div class="card fade-up">
+          <div class="card-icon"><i class="ti ti-sparkles"></i></div>
+          <h3>AI Content Workflows</h3>
+          <p>Using generative AI and prompt engineering to support content creation, learning materials and productivity workflows.</p>
+        </div>
+
+        <div class="card fade-up">
+          <div class="card-icon"><i class="ti ti-palette"></i></div>
+          <h3>Graphic Design</h3>
+          <p>Designing flyers, educational visuals, social media creatives and campaign graphics for digital platforms.</p>
+        </div>
+
+        <div class="card fade-up">
+          <div class="card-icon"><i class="ti ti-school"></i></div>
+          <h3>Digital Skills Training</h3>
+          <p>Supporting beginners with Microsoft Word, Canva, AI tools, content creation and practical digital confidence.</p>
+        </div>
+
+        <div class="card fade-up">
+          <div class="card-icon"><i class="ti ti-shield-check"></i></div>
+          <h3>Engineering & Safety Support</h3>
+          <p>Applying engineering thinking and safety awareness to operations, technical tasks and workplace improvement.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="achievements">
+    <div class="container">
+      <div class="grid-2">
+        <div class="fade-up">
+          <span class="section-label">Achievements</span>
+          <h2>Proof of progress</h2>
+          <p class="muted">A few highlights from my learning, work and creative journey so far.</p>
+        </div>
+
+        <div class="highlight-box fade-up">
+          <div class="achievement-list">
+            <div class="achievement-item"><i class="ti ti-check"></i><span>Trained 30+ learners as a Microsoft Word Online Tutor at AYEN.</span></div>
+            <div class="achievement-item"><i class="ti ti-check"></i><span>Completed occupational health and safety training based on ISO 45001.</span></div>
+            <div class="achievement-item"><i class="ti ti-check"></i><span>Supported technical field operations at Electricity Company of Ghana by resolving meter issues and validating operational data.</span></div>
+            <div class="achievement-item"><i class="ti ti-check"></i><span>Worked on CodeDevPay Academy course materials for Microsoft Word, Canva, Generative AI and Content Creation with ChatGPT.</span></div>
+            <div class="achievement-item"><i class="ti ti-check"></i><span>Created educational, campaign and design content across LinkedIn, YouTube and Canva-based projects.</span></div>
+            <div class="achievement-item"><i class="ti ti-check"></i><span>Built a growing skill set across engineering, safety, data analytics, AI and creative design.</span></div>
+          </div>
         </div>
       </div>
     </div>
@@ -986,6 +1162,7 @@
             <a href="mailto:asanyamekye@gmail.com" class="contact-link"><i class="ti ti-mail"></i> asanyamekye@gmail.com</a>
             <a href="https://www.linkedin.com/in/asanyamekye/" target="_blank" rel="noopener" class="contact-link"><i class="ti ti-brand-linkedin"></i> linkedin.com/in/asanyamekye</a>
             <a href="https://github.com/KofiNyamekye" target="_blank" rel="noopener" class="contact-link"><i class="ti ti-brand-github"></i> github.com/KofiNyamekye</a>
+            <a href="Profile.pdf" download class="contact-link"><i class="ti ti-download"></i> Download CV</a>
             <a href="#" class="contact-link"><i class="ti ti-map-pin"></i> Kumasi, Ghana</a>
           </div>
         </div>
