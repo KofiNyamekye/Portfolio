@@ -1499,32 +1499,46 @@
           </div>
         </div>
 
-        <div class="contact-form fade-up" style="transition-delay: 0.15s;">
-          <div class="form-row">
-            <div class="form-group">
-              <label for="name">Your Name</label>
-              <input type="text" id="name" placeholder="Jane Mensah" />
+        
+<div class="contact-form fade-up" style="transition-delay: 0.15s;">
+          <form action="https://formsubmit.co/asanyamekye@gmail.com" method="POST">
+
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_subject" value="New Portfolio Contact Message">
+            <input type="hidden" name="_template" value="table">
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" name="name" placeholder="Jane Mensah" required />
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="jane@example.com" required />
+              </div>
             </div>
+
             <div class="form-group">
-              <label for="email">Email Address</label>
-              <input type="email" id="email" placeholder="jane@example.com" />
+              <label for="subject">Subject</label>
+              <input type="text" id="subject" name="subject" placeholder="Freelance project / Collaboration / ..." />
             </div>
-          </div>
-          <div class="form-group">
-            <label for="subject">Subject</label>
-            <input type="text" id="subject" placeholder="Freelance project / Collaboration / ..." />
-          </div>
-          <div class="form-group">
-            <label for="message">Message</label>
-            <textarea id="message" placeholder="Tell me what you have in mind..."></textarea>
-          </div>
-          <button class="btn-submit" onclick="handleFormSubmit()">
-            Send Message <i class="ti ti-send" style="margin-left: 0.4rem;"></i>
-          </button>
+
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" placeholder="Tell me what you have in mind..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn-submit">
+              Send Message <i class="ti ti-send" style="margin-left: 0.4rem;"></i>
+            </button>
+
+          </form>
         </div>
       </div>
     </div>
   </section>
+
 
   <!-- ── FOOTER ── -->
   <footer>
@@ -1647,15 +1661,7 @@
       });
     }, { passive: true });
 
-    // ── Form submit ──
-    function handleFormSubmit() {
-      const name = document.getElementById('name').value;
-      const email = document.getElementById('email').value;
-      const message = document.getElementById('message').value;
-      if (!name || !email || !message) {
-        alert('Please fill in your name, email, and message.');
-        return;
-      }
+    
       alert('Thanks, ' + name + '! Your message has been received. I\'ll be in touch soon.');
     }
 
