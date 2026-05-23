@@ -696,6 +696,98 @@
         bottom: 22px;
       }
     }
+  
+    @media (max-width: 1100px) {
+      .nav-links {
+        gap: 0.85rem;
+      }
+
+      .nav-links a {
+        font-size: 0.82rem;
+      }
+
+      .cards-grid, .projects-grid, .blog-grid, .cert-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 520px) {
+      .container {
+        width: min(100% - 1.2rem, 1120px);
+      }
+
+      h1 {
+        font-size: clamp(2.15rem, 13vw, 3.2rem);
+      }
+
+      h2 {
+        font-size: clamp(1.65rem, 9vw, 2.25rem);
+      }
+
+      .hero-desc {
+        font-size: 0.98rem;
+      }
+
+      .btn-row {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn {
+        justify-content: center;
+        width: 100%;
+      }
+
+      .hero-visual {
+        min-height: 420px;
+      }
+
+      .image-main {
+        width: 88%;
+        height: 310px;
+      }
+
+      .image-support {
+        width: 58%;
+        height: 185px;
+      }
+
+      .floating-card {
+        max-width: 210px;
+        font-size: 0.88rem;
+      }
+
+      .tool-strip {
+        gap: 0.55rem;
+      }
+
+      .tool-pill {
+        font-size: 0.78rem;
+        padding: 0.52rem 0.7rem;
+      }
+
+      .stat-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cert-card {
+        flex-direction: row;
+        align-items: flex-start;
+      }
+
+      .contact-link {
+        word-break: break-word;
+      }
+
+      nav {
+        gap: 0.6rem;
+      }
+
+      .logo {
+        font-size: 1rem;
+      }
+    }
+
   </style>
 </head>
 
@@ -895,6 +987,8 @@
         <span class="tool-pill"><i class="ti ti-chart-bar"></i> Power BI</span>
         <span class="tool-pill"><i class="ti ti-database"></i> SQL</span>
         <span class="tool-pill"><i class="ti ti-brand-python"></i> Python</span>
+        <span class="tool-pill"><i class="ti ti-notebook"></i> Jupyter Notebook</span>
+        <span class="tool-pill"><i class="ti ti-package"></i> Anaconda</span>
         <span class="tool-pill"><i class="ti ti-brand-github"></i> GitHub</span>
         <span class="tool-pill"><i class="ti ti-code"></i> VS Code</span>
         <span class="tool-pill"><i class="ti ti-brain"></i> ChatGPT</span>
@@ -951,6 +1045,15 @@
           <h3>Anaconda vs VS Code Educational Post</h3>
           <p>Educational tech content designed to simplify data science tools and workflows for beginner audiences.</p>
           <div class="skill-tags"><span class="tag">Educational Content</span><span class="tag">LinkedIn</span><span class="tag">Data Science</span></div>
+        </a>
+
+
+        <a href="https://github.com/KofiNyamekye/Portfolio/" class="project-card fade-up" target="_blank" rel="noopener">
+          <i class="ti ti-arrow-up-right project-arrow"></i>
+          <p class="project-type">AI-Assisted Web Project</p>
+          <h3>Personal Portfolio Website</h3>
+          <p>A responsive personal portfolio built with AI support to present my engineering, data analytics, AI, design, certifications, projects, services, and professional story.</p>
+          <div class="skill-tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">AI Workflow</span><span class="tag">Vercel</span></div>
         </a>
 
         <div class="project-card fade-up">
