@@ -1946,6 +1946,35 @@
   </script>
 
 
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      document.querySelectorAll('img[src^="assets/"]').forEach(function (img) {
+        const originalSrc = img.getAttribute("src");
+
+        if (!originalSrc.includes("?v=")) {
+          img.setAttribute("src", originalSrc + "?v=2");
+        }
+
+        img.addEventListener("error", function () {
+          const cleanPath = originalSrc.split("?")[0];
+          const rawUrl = "https://raw.githubusercontent.com/KofiNyamekye/Portfolio/main/" + cleanPath;
+          if (img.src !== rawUrl) {
+            img.src = rawUrl;
+          }
+        }, { once: true });
+      });
+
+      document.querySelectorAll("[data-full^='assets/']").forEach(function (item) {
+        const originalFull = item.getAttribute("data-full");
+        if (!originalFull.includes("?v=")) {
+          item.setAttribute("data-full", originalFull + "?v=2");
+        }
+      });
+    });
+  </script>
+
+
   <!-- Vercel Analytics -->
   <script defer src="/_vercel/insights/script.js"></script>
 
