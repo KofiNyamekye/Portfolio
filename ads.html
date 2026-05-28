@@ -1165,6 +1165,30 @@
   
 .page-hero{padding-top:10rem;padding-bottom:4rem}.page-hero p{max-width:760px}.back-link{display:inline-flex;align-items:center;gap:.45rem;color:var(--green);text-decoration:none;font-weight:800;margin-bottom:1.25rem}.project-thumb{width:100%;aspect-ratio:16/10;object-fit:cover;display:block;border-bottom:1px solid var(--border)}.media-project-card{overflow:hidden;padding:0}.media-project-body{padding:1.25rem}.design-gallery{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem;margin-top:2rem}.design-card{position:relative;overflow:hidden;border-radius:22px;border:1px solid var(--border);background:var(--surface);box-shadow:var(--shadow-soft);min-height:280px;padding:0;cursor:pointer;color:var(--text);text-align:left}.design-card img{width:100%;height:100%;min-height:280px;object-fit:cover;display:block;transition:transform .45s ease,filter .45s ease}.design-card:hover img{transform:scale(1.06);filter:brightness(.82)}.design-caption{position:absolute;left:.75rem;right:.75rem;bottom:.75rem;padding:.75rem;border-radius:16px;background:rgba(7,11,31,.78);border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(14px)}html[data-theme="light"] .design-caption{background:rgba(255,255,255,.86)}.design-caption strong{display:block;font-family:var(--font-display);font-size:.92rem;letter-spacing:-.03em}.design-caption span{color:var(--muted);font-size:.76rem}.lightbox{position:fixed;inset:0;z-index:999;display:none;place-items:center;background:rgba(0,0,0,.84);padding:1rem}.lightbox.open{display:grid}.lightbox-inner{width:min(960px,100%);max-height:90vh;position:relative;display:grid;gap:.8rem}.lightbox img{width:100%;max-height:82vh;object-fit:contain;border-radius:22px;border:1px solid rgba(255,255,255,.18);background:#060914}.lightbox-close{justify-self:end;width:44px;height:44px;border:1px solid rgba(255,255,255,.2);border-radius:999px;background:rgba(255,255,255,.08);color:white;cursor:pointer;font-size:1.2rem}@media(max-width:1100px){.design-gallery{grid-template-columns:repeat(3,minmax(0,1fr))}}@media(max-width:820px){.design-gallery{grid-template-columns:repeat(2,minmax(0,1fr))}.page-hero{padding-top:8.5rem}}@media(max-width:560px){.design-gallery{grid-template-columns:1fr}.design-card,.design-card img{min-height:360px}}
 
+
+    /* Performance improvements */
+    section {
+      content-visibility: auto;
+      contain-intrinsic-size: 1px 900px;
+    }
+
+    #hero,
+    .page-hero {
+      content-visibility: visible;
+      contain-intrinsic-size: auto;
+    }
+
+    img {
+      image-rendering: auto;
+    }
+
+    @media (max-width: 560px) {
+      .design-card,
+      .design-card img {
+        min-height: 300px;
+      }
+    }
+    
 </style>
 
   <title>Campaigns & Advertisements | Nyamekye Samuel Asamoah</title>
@@ -1220,35 +1244,35 @@
   <div class="container">
     <div class="design-gallery">
       <button class="design-card fade-up" data-full="assets/flyers/campaigns-and-advertisements/bona-coffee-shop.png" aria-label="Open Bona Coffee Shop">
-        <img src="assets/flyers/campaigns-and-advertisements/bona-coffee-shop.png" alt="Bona Coffee Shop" loading="lazy">
+        <img decoding="async" src="assets/flyers/campaigns-and-advertisements/bona-coffee-shop.png" alt="Bona Coffee Shop" loading="lazy" fetchpriority="low">
         <div class="design-caption"><strong>Bona Coffee Shop</strong><span>Social media brand post</span></div>
       </button>
       <button class="design-card fade-up" data-full="assets/flyers/campaigns-and-advertisements/data-bundles.png" aria-label="Open Data Bundles">
-        <img src="assets/flyers/campaigns-and-advertisements/data-bundles.png" alt="Data Bundles" loading="lazy">
+        <img decoding="async" src="assets/flyers/campaigns-and-advertisements/data-bundles.png" alt="Data Bundles" loading="lazy" fetchpriority="low">
         <div class="design-caption"><strong>Data Bundles</strong><span>Digital product advertisement</span></div>
       </button>
       <button class="design-card fade-up" data-full="assets/flyers/campaigns-and-advertisements/dg-yoghurt-label.png" aria-label="Open DG Yoghurt Label">
-        <img src="assets/flyers/campaigns-and-advertisements/dg-yoghurt-label.png" alt="DG Yoghurt Label" loading="lazy">
+        <img decoding="async" src="assets/flyers/campaigns-and-advertisements/dg-yoghurt-label.png" alt="DG Yoghurt Label" loading="lazy" fetchpriority="low">
         <div class="design-caption"><strong>DG Yoghurt Label</strong><span>Product label design</span></div>
       </button>
       <button class="design-card fade-up" data-full="assets/flyers/campaigns-and-advertisements/diiya's-coochie-care.png" aria-label="Open Diiya’s Coochie Care">
-        <img src="assets/flyers/campaigns-and-advertisements/diiya's-coochie-care.png" alt="Diiya’s Coochie Care" loading="lazy">
+        <img decoding="async" src="assets/flyers/campaigns-and-advertisements/diiya's-coochie-care.png" alt="Diiya’s Coochie Care" loading="lazy" fetchpriority="low">
         <div class="design-caption"><strong>Diiya’s Coochie Care</strong><span>Beauty product campaign</span></div>
       </button>
       <button class="design-card fade-up" data-full="assets/flyers/campaigns-and-advertisements/khryzbhel's-bread.png" aria-label="Open Khryzbhel’s Bread">
-        <img src="assets/flyers/campaigns-and-advertisements/khryzbhel's-bread.png" alt="Khryzbhel’s Bread" loading="lazy">
+        <img decoding="async" src="assets/flyers/campaigns-and-advertisements/khryzbhel's-bread.png" alt="Khryzbhel’s Bread" loading="lazy" fetchpriority="low">
         <div class="design-caption"><strong>Khryzbhel’s Bread</strong><span>Food brand advertisement</span></div>
       </button>
       <button class="design-card fade-up" data-full="assets/flyers/campaigns-and-advertisements/pcos.png" aria-label="Open PCOS Awareness">
-        <img src="assets/flyers/campaigns-and-advertisements/pcos.png" alt="PCOS Awareness" loading="lazy">
+        <img decoding="async" src="assets/flyers/campaigns-and-advertisements/pcos.png" alt="PCOS Awareness" loading="lazy" fetchpriority="low">
         <div class="design-caption"><strong>PCOS Awareness</strong><span>Health awareness design</span></div>
       </button>
       <button class="design-card fade-up" data-full="assets/flyers/campaigns-and-advertisements/political-campaign.png" aria-label="Open Political Campaign">
-        <img src="assets/flyers/campaigns-and-advertisements/political-campaign.png" alt="Political Campaign" loading="lazy">
+        <img decoding="async" src="assets/flyers/campaigns-and-advertisements/political-campaign.png" alt="Political Campaign" loading="lazy" fetchpriority="low">
         <div class="design-caption"><strong>Political Campaign</strong><span>Campaign publicity concept</span></div>
       </button>
       <button class="design-card fade-up" data-full="assets/flyers/campaigns-and-advertisements/the-perfect-stop.png" aria-label="Open The Perfect Stop">
-        <img src="assets/flyers/campaigns-and-advertisements/the-perfect-stop.png" alt="The Perfect Stop" loading="lazy">
+        <img decoding="async" src="assets/flyers/campaigns-and-advertisements/the-perfect-stop.png" alt="The Perfect Stop" loading="lazy" fetchpriority="low">
         <div class="design-caption"><strong>The Perfect Stop</strong><span>Business publicity design</span></div>
       </button>
     </div>
@@ -1257,7 +1281,7 @@
 <div class="lightbox" id="lightbox" aria-hidden="true">
   <div class="lightbox-inner">
     <button class="lightbox-close" id="lightboxClose" aria-label="Close preview"><i class="ti ti-x"></i></button>
-    <img id="lightboxImg" src="" alt="Design preview">
+    <img decoding="async" id="lightboxImg" src="" alt="Design preview">
   </div>
 </div>
 <footer>
@@ -1279,8 +1303,7 @@ document.addEventListener("DOMContentLoaded",function(){
  if(close)close.addEventListener("click",closeLb);if(lb)lb.addEventListener("click",function(e){if(e.target===lb)closeLb();});document.addEventListener("keydown",function(e){if(e.key==="Escape")closeLb();});
 });
 </script>
-<script defer src="/_vercel/insights/script.js"></script>
-<script defer src="/_vercel/speed-insights/script.js"></script>
-
+  <script defer src="/_vercel/insights/script.js"></script>
+  <script defer src="/_vercel/speed-insights/script.js"></script>
 </body>
 </html>
