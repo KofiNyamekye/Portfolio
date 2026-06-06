@@ -1192,63 +1192,7 @@
     }
     
 
-/* Animated tools marquee */
-.tools-marquee{
-  position:relative;
-  overflow:hidden;
-  width:100%;
-  margin-top:2rem;
-  mask-image:linear-gradient(to right,transparent,black 10%,black 90%,transparent);
-  -webkit-mask-image:linear-gradient(to right,transparent,black 10%,black 90%,transparent);
-}
-
-.tools-track{
-  display:flex;
-  width:max-content;
-  gap:1rem;
-  animation:scrollTools 28s linear infinite;
-}
-
-.tools-marquee:hover .tools-track{
-  animation-play-state:paused;
-}
-
 .tool-pill{
-  display:flex;
-  align-items:center;
-  gap:.6rem;
-  padding:1rem 1.2rem;
-  border-radius:999px;
-  background:rgba(255,255,255,.05);
-  border:1px solid rgba(255,255,255,.08);
-  backdrop-filter:blur(14px);
-  white-space:nowrap;
-  min-width:max-content;
-  box-shadow:0 12px 30px rgba(0,0,0,.2);
-}
-
-.tool-pill i{
-  color:#6ee7b7;
-  font-size:1.05rem;
-}
-
-.tool-pill span{
-  font-size:.92rem;
-  font-weight:700;
-  letter-spacing:-.01em;
-}
-
-@keyframes scrollTools{
-  from{transform:translateX(0)}
-  to{transform:translateX(-50%)}
-}
-
-@media(max-width:768px){
-  .tools-track{
-    animation-duration:20s;
-  }
-
-  .tool-pill{
     padding:.9rem 1rem;
   }
 
@@ -1258,56 +1202,42 @@
 }
 
 
-/* Working tools marquee */
-.marquee-wrapper{
-  width:100%;
-  overflow:hidden;
-  position:relative;
-  margin-top:2rem;
-  padding:.5rem 0;
-}
-
-.marquee-track{
-  display:flex;
-  gap:1rem;
-  width:max-content;
-  animation:marqueeMove 30s linear infinite;
-}
-
-.marquee-wrapper:hover .marquee-track{
-  animation-play-state:paused;
-}
-
 .tool-box{
-  padding:1rem 1.25rem;
-  border-radius:999px;
+    padding:.85rem 1rem;
+    font-size:.84rem;
+  }
+}
+
+
+/* Premium tools grid */
+.tools-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:1rem;
+  margin-top:2rem;
+}
+
+.tool-card{
+  padding:1rem 1.2rem;
+  border-radius:20px;
   background:rgba(255,255,255,.05);
   border:1px solid rgba(255,255,255,.08);
   backdrop-filter:blur(14px);
-  white-space:nowrap;
   font-weight:700;
-  font-size:.92rem;
-  color:#f5f7fb;
-  box-shadow:0 10px 30px rgba(0,0,0,.18);
+  text-align:center;
+  box-shadow:0 12px 30px rgba(0,0,0,.18);
+  transition:transform .3s ease,border-color .3s ease,background .3s ease;
 }
 
-@keyframes marqueeMove{
-  0%{
-    transform:translateX(0);
-  }
-  100%{
-    transform:translateX(-50%);
-  }
+.tool-card:hover{
+  transform:translateY(-4px);
+  border-color:rgba(110,231,183,.3);
+  background:rgba(255,255,255,.07);
 }
 
 @media(max-width:768px){
-  .marquee-track{
-    animation-duration:18s;
-  }
-
-  .tool-box{
-    padding:.85rem 1rem;
-    font-size:.84rem;
+  .tools-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
   }
 }
 
@@ -1522,64 +1452,48 @@
 
   
 
+
 <section id="tools">
   <div class="container">
     <span class="section-label">Tools & Technologies</span>
     <h2>AI, creative and development stack</h2>
     <p class="muted">
-      AI-assisted workflows, analytics tools, creative systems, development technologies, and digital media platforms used across my projects.
+      Technologies, AI systems, analytics platforms, and creative tools used across my projects and workflows.
     </p>
 
-    <div class="marquee-wrapper">
-      <div class="marquee-track">
+    <div class="tools-grid">
 
-        <div class="tool-box">ChatGPT</div>
-        <div class="tool-box">Claude AI</div>
-        <div class="tool-box">Suno AI</div>
-        <div class="tool-box">Veo 3</div>
-        <div class="tool-box">OpenArt</div>
-        <div class="tool-box">Clipchamp</div>
+      <div class="tool-card fade-up">ChatGPT</div>
+      <div class="tool-card fade-up">Claude AI</div>
+      <div class="tool-card fade-up">Suno AI</div>
+      <div class="tool-card fade-up">Veo 3</div>
+      <div class="tool-card fade-up">OpenArt</div>
+      <div class="tool-card fade-up">Clipchamp</div>
 
-        <div class="tool-box">Python</div>
-        <div class="tool-box">SQL</div>
-        <div class="tool-box">Power BI</div>
-        <div class="tool-box">Excel</div>
-        <div class="tool-box">HTML</div>
-        <div class="tool-box">CSS</div>
-        <div class="tool-box">JavaScript</div>
+      <div class="tool-card fade-up">Python</div>
+      <div class="tool-card fade-up">SQL</div>
+      <div class="tool-card fade-up">Power BI</div>
+      <div class="tool-card fade-up">Excel</div>
+      <div class="tool-card fade-up">HTML</div>
+      <div class="tool-card fade-up">CSS</div>
+      <div class="tool-card fade-up">JavaScript</div>
 
-        <div class="tool-box">GitHub</div>
-        <div class="tool-box">Vercel</div>
-        <div class="tool-box">Canva</div>
-        <div class="tool-box">Photoshop</div>
-        <div class="tool-box">Jupyter Notebook</div>
-        <div class="tool-box">Anaconda</div>
+      <div class="tool-card fade-up">GitHub</div>
+      <div class="tool-card fade-up">Vercel</div>
+      <div class="tool-card fade-up">Canva</div>
+      <div class="tool-card fade-up">Photoshop</div>
+      <div class="tool-card fade-up">Jupyter Notebook</div>
+      <div class="tool-card fade-up">Anaconda</div>
 
-        <div class="tool-box">Creative Direction</div>
-        <div class="tool-box">Prompt Engineering</div>
-        <div class="tool-box">Data Science</div>
-        <div class="tool-box">Digital Media</div>
+      <div class="tool-card fade-up">Creative Direction</div>
+      <div class="tool-card fade-up">Prompt Engineering</div>
+      <div class="tool-card fade-up">Data Science</div>
+      <div class="tool-card fade-up">Digital Media</div>
 
-        <!-- duplicate -->
-        <div class="tool-box">ChatGPT</div>
-        <div class="tool-box">Claude AI</div>
-        <div class="tool-box">Suno AI</div>
-        <div class="tool-box">Veo 3</div>
-        <div class="tool-box">OpenArt</div>
-        <div class="tool-box">Clipchamp</div>
-
-        <div class="tool-box">Python</div>
-        <div class="tool-box">SQL</div>
-        <div class="tool-box">Power BI</div>
-        <div class="tool-box">Excel</div>
-        <div class="tool-box">HTML</div>
-        <div class="tool-box">CSS</div>
-        <div class="tool-box">JavaScript</div>
-
-      </div>
     </div>
   </div>
 </section>
+
 
 
 
@@ -1596,7 +1510,7 @@
 
     <div class="projects-grid">
       <a href="projects.html" class="project-card media-project-card fade-up">
-        <img class="project-thumb" src="Cover_image.png" alt="Projects Hub Preview" loading="lazy">
+        <img class="project-thumb" src="hero.png" alt="Projects Hub Preview" loading="lazy">
         <div class="media-project-body">
           <i class="ti ti-arrow-up-right project-arrow"></i>
           <p class="project-type">Project Hub</p>
