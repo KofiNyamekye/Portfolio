@@ -1191,6 +1191,72 @@
       }
     }
     
+
+/* Animated tools marquee */
+.tools-marquee{
+  position:relative;
+  overflow:hidden;
+  width:100%;
+  margin-top:2rem;
+  mask-image:linear-gradient(to right,transparent,black 10%,black 90%,transparent);
+  -webkit-mask-image:linear-gradient(to right,transparent,black 10%,black 90%,transparent);
+}
+
+.tools-track{
+  display:flex;
+  width:max-content;
+  gap:1rem;
+  animation:scrollTools 28s linear infinite;
+}
+
+.tools-marquee:hover .tools-track{
+  animation-play-state:paused;
+}
+
+.tool-pill{
+  display:flex;
+  align-items:center;
+  gap:.6rem;
+  padding:1rem 1.2rem;
+  border-radius:999px;
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.08);
+  backdrop-filter:blur(14px);
+  white-space:nowrap;
+  min-width:max-content;
+  box-shadow:0 12px 30px rgba(0,0,0,.2);
+}
+
+.tool-pill i{
+  color:#6ee7b7;
+  font-size:1.05rem;
+}
+
+.tool-pill span{
+  font-size:.92rem;
+  font-weight:700;
+  letter-spacing:-.01em;
+}
+
+@keyframes scrollTools{
+  from{transform:translateX(0)}
+  to{transform:translateX(-50%)}
+}
+
+@media(max-width:768px){
+  .tools-track{
+    animation-duration:20s;
+  }
+
+  .tool-pill{
+    padding:.9rem 1rem;
+  }
+
+  .tool-pill span{
+    font-size:.85rem;
+  }
+}
+
 </style>
 
   <title>Nyamekye Samuel Asamoah | Data Science & AI Portfolio</title>
@@ -1253,7 +1319,7 @@
           <div class="btn-row">
             <a href="#projects" class="btn btn-primary"><i class="ti ti-briefcase"></i> View Projects</a>
             <a href="#contact" class="btn btn-secondary"><i class="ti ti-mail"></i> Contact Me</a>
-            <a href="Profile.pdf" class="btn btn-secondary" download><i class="ti ti-download"></i> Download CV</a>
+            
           </div>
         </div>
 
@@ -1400,30 +1466,66 @@
   </section>
 
 
-  <section id="tools">
-    <div class="container">
-      <span class="section-label">Tools & Technologies</span>
-      <h2>Tools I use to build, analyze, design and communicate</h2>
-      <p class="muted">A practical mix of analytics, AI, design, productivity and collaboration tools from my engineering, data, training and creative work.</p>
+  
+<section id="tools">
+  <div class="container">
+    <span class="section-label">Tools & Technologies</span>
+    <h2>AI, creative and development stack</h2>
+    <p class="muted">
+      A combination of AI-assisted workflows, creative production tools, analytics platforms, development technologies, and digital media systems used across my projects.
+    </p>
 
-      <div class="tool-strip fade-up">
-        <span class="tool-pill"><i class="ti ti-file-spreadsheet"></i> Excel</span>
-        <span class="tool-pill"><i class="ti ti-chart-bar"></i> Power BI</span>
-        <span class="tool-pill"><i class="ti ti-database"></i> SQL</span>
-        <span class="tool-pill"><i class="ti ti-brand-python"></i> Python</span>
-        <span class="tool-pill"><i class="ti ti-notebook"></i> Jupyter Notebook</span>
-        <span class="tool-pill"><i class="ti ti-package"></i> Anaconda</span>
-        <span class="tool-pill"><i class="ti ti-brand-github"></i> GitHub</span>
-        <span class="tool-pill"><i class="ti ti-code"></i> VS Code</span>
-        <span class="tool-pill"><i class="ti ti-brain"></i> ChatGPT</span>
-        <span class="tool-pill"><i class="ti ti-sparkles"></i> Generative AI</span>
-        <span class="tool-pill"><i class="ti ti-palette"></i> Canva</span>
-        <span class="tool-pill"><i class="ti ti-brand-google"></i> Google Sheets</span>
-        <span class="tool-pill"><i class="ti ti-layout-dashboard"></i> Dashboard Design</span>
-        <span class="tool-pill"><i class="ti ti-presentation"></i> Data Storytelling</span>
+    <div class="tools-marquee">
+      <div class="tools-track">
+
+        <div class="tool-pill"><i class="ti ti-brand-openai"></i><span>ChatGPT</span></div>
+        <div class="tool-pill"><i class="ti ti-bulb"></i><span>Claude AI</span></div>
+        <div class="tool-pill"><i class="ti ti-music"></i><span>Suno AI</span></div>
+        <div class="tool-pill"><i class="ti ti-video"></i><span>Veo 3</span></div>
+        <div class="tool-pill"><i class="ti ti-photo"></i><span>OpenArt</span></div>
+        <div class="tool-pill"><i class="ti ti-video-plus"></i><span>Clipchamp</span></div>
+
+        <div class="tool-pill"><i class="ti ti-brand-python"></i><span>Python</span></div>
+        <div class="tool-pill"><i class="ti ti-database"></i><span>SQL</span></div>
+        <div class="tool-pill"><i class="ti ti-chart-bar"></i><span>Power BI</span></div>
+        <div class="tool-pill"><i class="ti ti-table"></i><span>Excel</span></div>
+        <div class="tool-pill"><i class="ti ti-brand-html5"></i><span>HTML</span></div>
+        <div class="tool-pill"><i class="ti ti-brand-css3"></i><span>CSS</span></div>
+        <div class="tool-pill"><i class="ti ti-brand-javascript"></i><span>JavaScript</span></div>
+
+        <div class="tool-pill"><i class="ti ti-brand-github"></i><span>GitHub</span></div>
+        <div class="tool-pill"><i class="ti ti-cloud"></i><span>Vercel</span></div>
+        <div class="tool-pill"><i class="ti ti-palette"></i><span>Canva</span></div>
+        <div class="tool-pill"><i class="ti ti-brush"></i><span>Photoshop</span></div>
+        <div class="tool-pill"><i class="ti ti-notebook"></i><span>Jupyter Notebook</span></div>
+        <div class="tool-pill"><i class="ti ti-code"></i><span>Anaconda</span></div>
+
+        <div class="tool-pill"><i class="ti ti-speakerphone"></i><span>Creative Direction</span></div>
+        <div class="tool-pill"><i class="ti ti-device-desktop-analytics"></i><span>Data Science</span></div>
+        <div class="tool-pill"><i class="ti ti-sparkles"></i><span>Prompt Engineering</span></div>
+        <div class="tool-pill"><i class="ti ti-world"></i><span>Digital Media</span></div>
+
+        <!-- duplicate for seamless animation -->
+        <div class="tool-pill"><i class="ti ti-brand-openai"></i><span>ChatGPT</span></div>
+        <div class="tool-pill"><i class="ti ti-bulb"></i><span>Claude AI</span></div>
+        <div class="tool-pill"><i class="ti ti-music"></i><span>Suno AI</span></div>
+        <div class="tool-pill"><i class="ti ti-video"></i><span>Veo 3</span></div>
+        <div class="tool-pill"><i class="ti ti-photo"></i><span>OpenArt</span></div>
+        <div class="tool-pill"><i class="ti ti-video-plus"></i><span>Clipchamp</span></div>
+
+        <div class="tool-pill"><i class="ti ti-brand-python"></i><span>Python</span></div>
+        <div class="tool-pill"><i class="ti ti-database"></i><span>SQL</span></div>
+        <div class="tool-pill"><i class="ti ti-chart-bar"></i><span>Power BI</span></div>
+        <div class="tool-pill"><i class="ti ti-table"></i><span>Excel</span></div>
+        <div class="tool-pill"><i class="ti ti-brand-html5"></i><span>HTML</span></div>
+        <div class="tool-pill"><i class="ti ti-brand-css3"></i><span>CSS</span></div>
+        <div class="tool-pill"><i class="ti ti-brand-javascript"></i><span>JavaScript</span></div>
+
       </div>
     </div>
-  </section>
+  </div>
+</section>
+
 
   
   
@@ -1598,7 +1700,7 @@
             <a href="mailto:asanyamekye@gmail.com" class="contact-link"><i class="ti ti-mail"></i> asanyamekye@gmail.com</a>
             <a href="https://www.linkedin.com/in/asanyamekye/" target="_blank" rel="noopener" class="contact-link"><i class="ti ti-brand-linkedin"></i> linkedin.com/in/asanyamekye</a>
             <a href="https://github.com/KofiNyamekye" target="_blank" rel="noopener" class="contact-link"><i class="ti ti-brand-github"></i> github.com/KofiNyamekye</a>
-            <a href="Profile.pdf" download class="contact-link"><i class="ti ti-download"></i> Download CV</a>
+            
             <a href="#" class="contact-link"><i class="ti ti-map-pin"></i> Kumasi, Ghana</a>
           </div>
         </div>
