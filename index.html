@@ -1257,6 +1257,60 @@
   }
 }
 
+
+/* Working tools marquee */
+.marquee-wrapper{
+  width:100%;
+  overflow:hidden;
+  position:relative;
+  margin-top:2rem;
+  padding:.5rem 0;
+}
+
+.marquee-track{
+  display:flex;
+  gap:1rem;
+  width:max-content;
+  animation:marqueeMove 30s linear infinite;
+}
+
+.marquee-wrapper:hover .marquee-track{
+  animation-play-state:paused;
+}
+
+.tool-box{
+  padding:1rem 1.25rem;
+  border-radius:999px;
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.08);
+  backdrop-filter:blur(14px);
+  white-space:nowrap;
+  font-weight:700;
+  font-size:.92rem;
+  color:#f5f7fb;
+  box-shadow:0 10px 30px rgba(0,0,0,.18);
+}
+
+@keyframes marqueeMove{
+  0%{
+    transform:translateX(0);
+  }
+  100%{
+    transform:translateX(-50%);
+  }
+}
+
+@media(max-width:768px){
+  .marquee-track{
+    animation-duration:18s;
+  }
+
+  .tool-box{
+    padding:.85rem 1rem;
+    font-size:.84rem;
+  }
+}
+
 </style>
 
   <title>Nyamekye Samuel Asamoah | Data Science & AI Portfolio</title>
@@ -1467,64 +1521,66 @@
 
 
   
+
 <section id="tools">
   <div class="container">
     <span class="section-label">Tools & Technologies</span>
     <h2>AI, creative and development stack</h2>
     <p class="muted">
-      A combination of AI-assisted workflows, creative production tools, analytics platforms, development technologies, and digital media systems used across my projects.
+      AI-assisted workflows, analytics tools, creative systems, development technologies, and digital media platforms used across my projects.
     </p>
 
-    <div class="tools-marquee">
-      <div class="tools-track">
+    <div class="marquee-wrapper">
+      <div class="marquee-track">
 
-        <div class="tool-pill"><i class="ti ti-brand-openai"></i><span>ChatGPT</span></div>
-        <div class="tool-pill"><i class="ti ti-bulb"></i><span>Claude AI</span></div>
-        <div class="tool-pill"><i class="ti ti-music"></i><span>Suno AI</span></div>
-        <div class="tool-pill"><i class="ti ti-video"></i><span>Veo 3</span></div>
-        <div class="tool-pill"><i class="ti ti-photo"></i><span>OpenArt</span></div>
-        <div class="tool-pill"><i class="ti ti-video-plus"></i><span>Clipchamp</span></div>
+        <div class="tool-box">ChatGPT</div>
+        <div class="tool-box">Claude AI</div>
+        <div class="tool-box">Suno AI</div>
+        <div class="tool-box">Veo 3</div>
+        <div class="tool-box">OpenArt</div>
+        <div class="tool-box">Clipchamp</div>
 
-        <div class="tool-pill"><i class="ti ti-brand-python"></i><span>Python</span></div>
-        <div class="tool-pill"><i class="ti ti-database"></i><span>SQL</span></div>
-        <div class="tool-pill"><i class="ti ti-chart-bar"></i><span>Power BI</span></div>
-        <div class="tool-pill"><i class="ti ti-table"></i><span>Excel</span></div>
-        <div class="tool-pill"><i class="ti ti-brand-html5"></i><span>HTML</span></div>
-        <div class="tool-pill"><i class="ti ti-brand-css3"></i><span>CSS</span></div>
-        <div class="tool-pill"><i class="ti ti-brand-javascript"></i><span>JavaScript</span></div>
+        <div class="tool-box">Python</div>
+        <div class="tool-box">SQL</div>
+        <div class="tool-box">Power BI</div>
+        <div class="tool-box">Excel</div>
+        <div class="tool-box">HTML</div>
+        <div class="tool-box">CSS</div>
+        <div class="tool-box">JavaScript</div>
 
-        <div class="tool-pill"><i class="ti ti-brand-github"></i><span>GitHub</span></div>
-        <div class="tool-pill"><i class="ti ti-cloud"></i><span>Vercel</span></div>
-        <div class="tool-pill"><i class="ti ti-palette"></i><span>Canva</span></div>
-        <div class="tool-pill"><i class="ti ti-brush"></i><span>Photoshop</span></div>
-        <div class="tool-pill"><i class="ti ti-notebook"></i><span>Jupyter Notebook</span></div>
-        <div class="tool-pill"><i class="ti ti-code"></i><span>Anaconda</span></div>
+        <div class="tool-box">GitHub</div>
+        <div class="tool-box">Vercel</div>
+        <div class="tool-box">Canva</div>
+        <div class="tool-box">Photoshop</div>
+        <div class="tool-box">Jupyter Notebook</div>
+        <div class="tool-box">Anaconda</div>
 
-        <div class="tool-pill"><i class="ti ti-speakerphone"></i><span>Creative Direction</span></div>
-        <div class="tool-pill"><i class="ti ti-device-desktop-analytics"></i><span>Data Science</span></div>
-        <div class="tool-pill"><i class="ti ti-sparkles"></i><span>Prompt Engineering</span></div>
-        <div class="tool-pill"><i class="ti ti-world"></i><span>Digital Media</span></div>
+        <div class="tool-box">Creative Direction</div>
+        <div class="tool-box">Prompt Engineering</div>
+        <div class="tool-box">Data Science</div>
+        <div class="tool-box">Digital Media</div>
 
-        <!-- duplicate for seamless animation -->
-        <div class="tool-pill"><i class="ti ti-brand-openai"></i><span>ChatGPT</span></div>
-        <div class="tool-pill"><i class="ti ti-bulb"></i><span>Claude AI</span></div>
-        <div class="tool-pill"><i class="ti ti-music"></i><span>Suno AI</span></div>
-        <div class="tool-pill"><i class="ti ti-video"></i><span>Veo 3</span></div>
-        <div class="tool-pill"><i class="ti ti-photo"></i><span>OpenArt</span></div>
-        <div class="tool-pill"><i class="ti ti-video-plus"></i><span>Clipchamp</span></div>
+        <!-- duplicate -->
+        <div class="tool-box">ChatGPT</div>
+        <div class="tool-box">Claude AI</div>
+        <div class="tool-box">Suno AI</div>
+        <div class="tool-box">Veo 3</div>
+        <div class="tool-box">OpenArt</div>
+        <div class="tool-box">Clipchamp</div>
 
-        <div class="tool-pill"><i class="ti ti-brand-python"></i><span>Python</span></div>
-        <div class="tool-pill"><i class="ti ti-database"></i><span>SQL</span></div>
-        <div class="tool-pill"><i class="ti ti-chart-bar"></i><span>Power BI</span></div>
-        <div class="tool-pill"><i class="ti ti-table"></i><span>Excel</span></div>
-        <div class="tool-pill"><i class="ti ti-brand-html5"></i><span>HTML</span></div>
-        <div class="tool-pill"><i class="ti ti-brand-css3"></i><span>CSS</span></div>
-        <div class="tool-pill"><i class="ti ti-brand-javascript"></i><span>JavaScript</span></div>
+        <div class="tool-box">Python</div>
+        <div class="tool-box">SQL</div>
+        <div class="tool-box">Power BI</div>
+        <div class="tool-box">Excel</div>
+        <div class="tool-box">HTML</div>
+        <div class="tool-box">CSS</div>
+        <div class="tool-box">JavaScript</div>
 
       </div>
     </div>
   </div>
 </section>
+
 
 
   
@@ -1540,7 +1596,7 @@
 
     <div class="projects-grid">
       <a href="projects.html" class="project-card media-project-card fade-up">
-        <img class="project-thumb" src="hero.png" alt="Projects Hub Preview" loading="lazy">
+        <img class="project-thumb" src="Cover_image.png" alt="Projects Hub Preview" loading="lazy">
         <div class="media-project-body">
           <i class="ti ti-arrow-up-right project-arrow"></i>
           <p class="project-type">Project Hub</p>
