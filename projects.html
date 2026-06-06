@@ -27,11 +27,11 @@ p{color:var(--muted)}
 .meta span,.tag{background:rgba(255,255,255,.055);border:1px solid var(--border);padding:.65rem .95rem;border-radius:999px;font-size:.86rem;color:var(--text)}
 .cta{display:inline-flex;gap:.6rem;align-items:center;background:var(--green);color:#04111d;padding:1rem 1.2rem;border-radius:14px;text-decoration:none;font-weight:900}
 section{padding:2rem 0}
-.card-grid,.projects-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+.card-grid,.projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1.2rem}
 .card,.project-card{background:rgba(255,255,255,.045);border:1px solid var(--border);border-radius:24px;padding:1.35rem;box-shadow:var(--shadow)}
 .project-card{padding:0;overflow:hidden;text-decoration:none;color:inherit;transition:.25s ease}
 .project-card:hover{transform:translateY(-5px);border-color:rgba(110,231,183,.35)}
-.project-thumb{border-radius:0;box-shadow:none;aspect-ratio:16/10}
+.project-thumb{border-radius:0;box-shadow:none;aspect-ratio:16/8;max-height:260px;object-fit:cover}
 .project-body{padding:1.35rem}.project-type{color:var(--green);font-weight:900;font-size:.82rem;text-transform:uppercase;letter-spacing:.08em}
 .tags{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:1rem}
 .card strong{display:block;color:var(--green);margin-bottom:.5rem}
@@ -56,7 +56,7 @@ footer{text-align:center;padding:3rem 0;color:var(--muted)}
   </p>
 </section>
 
-<div class="projects-grid">
+<div class="projects-grid" style="align-items:start;">
   <a href="anthem.html" class="project-card">
     <img class="project-thumb" src="assets/flyers/Cover_image.jpg" alt="All for One, One for All World Cup Anthem">
     <div class="project-body">
@@ -68,7 +68,7 @@ footer{text-align:center;padding:3rem 0;color:var(--muted)}
   </a>
 
   <a href="englishplay.html" class="project-card">
-    <img class="project-thumb" src="assets/flyers/EnglishPlay.jpeg" alt="EnglishPLAY video ad campaign">
+    <img class="project-thumb" src="assets/flyers/EnglishPlay.png" alt="EnglishPLAY video ad campaign">
     <div class="project-body">
       <p class="project-type">AI-Powered Video Ad</p>
       <h2>EnglishPLAY — Premium English Immersion Ad Campaign</h2>
