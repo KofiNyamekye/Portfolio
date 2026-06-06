@@ -1,326 +1,332 @@
-# AI-Assisted Personal Portfolio Website
+# AI-Assisted Portfolio Website
 
-A continuously evolving responsive personal portfolio website showcasing my work in data science, analytics, artificial intelligence, creative design, digital education, and visual communication.
-
-🔗 **Live Portfolio:** https://nsasamoah.vercel.app/  
-🔗 **Repository:** https://github.com/KofiNyamekye/Portfolio/
-
----
-
-## About the Project
-
-This portfolio was built as both a professional branding platform and an ongoing AI-assisted development project.
-
-It showcases my background, projects, certifications, creative work, technical skills, services, achievements, and learning journey across:
+A modern responsive portfolio showcasing my work across:
 
 - Data Science
+- AI-Assisted Development
+- Creative Direction
+- AI Music Production
+- AI Video Production
+- Digital Media
+- Graphic Design
+- Educational Campaigns
 - Data Analytics
-- Artificial Intelligence
-- Creative Design
-- Digital Education
-- Technical Communication
-- AI-Assisted Workflows
 
-Rather than manually building every part from scratch, I used AI-assisted workflows throughout the development process while directing the overall structure, design decisions, content organization, feature planning, debugging, responsiveness, and visual refinement myself.
-
-The project reflects a modern human-AI collaborative workflow where AI acts as a development and productivity partner, while I guide the creative, technical, and strategic direction.
+🔗 Live Portfolio: https://nsasamoah.vercel.app/  
+🔗 GitHub Repository: https://github.com/KofiNyamekye/Portfolio/
 
 ---
 
-## Current Portfolio Structure
+# About The Project
 
-The portfolio now uses a cleaner project hub structure.
+This portfolio was built as an evolving AI-assisted personal brand and project showcase.
 
-Instead of loading every design directly on the homepage, the homepage highlights major project categories and links to dedicated project pages.
+The project combines:
+- AI-assisted development workflows
+- creative direction
+- data storytelling
+- digital media production
+- analytics and design
+- modern responsive web design
 
-### Main Pages
+The site serves as both:
+1. A professional portfolio
+2. A live case study of human-AI collaborative workflows
 
-- `index.html` — main portfolio homepage
-- `gallery.html` — CodeDevPay campaign gallery
-- `ads.html` — campaigns and advertisements gallery
-- `tshirts.html` — T-shirt and apparel design gallery
-
-This improves loading speed, keeps the homepage cleaner, and makes the project section easier to expand over time.
-
----
-
-## Features
-
-- Responsive mobile-first design
-- Premium dark/light mode interface
-- Clean project hub layout
-- Dedicated gallery pages for design collections
-- CodeDevPay campaign gallery
-- Campaigns and advertisements gallery
-- T-shirt design gallery
-- Lightbox image previews
-- About section
-- Skills and tools section
-- Services section
-- Projects showcase
-- Currently learning section
-- Achievements section
-- Experience timeline
-- Certifications arranged from newest to oldest
-- Blog/article links
-- Downloadable CV
-- Contact form integration
-- GitHub and LinkedIn links
-- SEO meta tags
-- Google Search Console verification
-- Sitemap and robots.txt support
-- Vercel Analytics integration
-- Vercel Speed Insights integration
-- Lazy loading and image performance improvements
+Instead of manually building every section traditionally, I used structured prompting, iterative refinement, debugging, and AI-assisted development workflows while directing the overall creative and technical vision myself.
 
 ---
 
-## Project Pages
+# Current Portfolio Structure
 
-### CodeDevPay Campaign Gallery
+The portfolio now uses a cleaner project hub system.
 
-A dedicated gallery page for CodeDevPay Academy campaign visuals and course publicity designs.
+Homepage → Projects Hub → Individual Project Pages
 
-Includes flyers for:
+This makes the website:
+- cleaner
+- faster
+- easier to scale
+- more professional
+- easier to navigate
 
-- Adobe Photoshop
-- Canva
+---
+
+# Main Pages
+
+- `index.html` → Main homepage
+- `projects.html` → Dedicated projects hub
+- `anthem.html` → World Cup anthem project
+- `englishplay.html` → EnglishPLAY campaign project
+- `gallery.html` → CodeDevPay campaign gallery
+- `ads.html` → Advertisements & campaign gallery
+- `tshirts.html` → Apparel & T-shirt design gallery
+
+---
+
+# Featured Projects
+
+## 1. All for One, One for All — World Cup Anthem
+
+### Artist
+Kofi Nyamekye
+
+### Category
+AI Music Production | Creative Direction | Digital Media
+
+### Overview
+A fully AI-produced World Cup anthem conceived, directed, and released independently by Kofi Nyamekye.
+
+From lyrics to melody direction, cinematic music video to cover art and digital distribution — every element was built using AI tools under complete human creative direction.
+
+Released June 2026 ahead of the FIFA World Cup, the song captures the spirit of unity, resilience, and the beautiful game for every nation on Earth.
+
+### Technologies & AI Tools Used
+- Claude AI
+- Suno AI
+- Veo 3
+- OpenArt
+- ChatGPT
+- Clipchamp
+
+### Included In Project Page
+- Project overview
+- AI production workflow
+- Music production breakdown
+- Embedded YouTube link
+- Creative process documentation
+
+---
+
+## 2. EnglishPLAY — Premium English Immersion Ad Campaign
+
+### Category
+AI-Powered Video Ad Production
+
+### Role
+Creative Director & AI Producer
+
+### Overview
+A fully AI-produced 60-second advertisement for EnglishPLAY, a Turkish premium English immersion platform that connects children with native English-speaking playsisters for play-based language learning.
+
+The campaign was built entirely using AI workflows:
+- creative strategy
+- image generation
+- scene generation
+- AI video production
+- scripting
+- post-production
+
+with zero traditional filming or studio costs.
+
+### Technologies & AI Tools Used
+- Claude AI
+- Gemini
+- Veo 3
+- Clipchamp
+
+### Included In Project Page
+- Embedded Cloudinary video
+- Project breakdown
+- AI workflow explanation
+- Production stack documentation
+
+---
+
+# Other Project Collections
+
+## CodeDevPay Campaign Gallery
+A collection of educational campaign visuals and course publicity materials for:
 - Python
 - JavaScript
 - Excel
 - Microsoft Word
-- Course publicity
-- CodeDevPay campaign visuals
-- Independence Day and New Month campaign designs
+- Canva
+- Adobe Photoshop
+- Generative AI
 
 ---
 
-### Campaigns & Advertisements
-
-A dedicated page for commercial and public-facing designs.
-
-Includes:
-
-- Product advertisements
-- Business flyers
-- Food brand campaigns
-- Beauty product campaign designs
-- Health awareness visuals
-- Political campaign concept
-- Social media advertisement concepts
+## Campaigns & Advertisements
+Commercial campaign designs including:
+- product advertisements
+- awareness campaigns
+- business flyers
+- social media campaigns
+- promotional designs
 
 ---
 
-### T-Shirt Design Concepts
-
-A dedicated page for apparel and reunion-themed designs.
-
-Includes:
-
-- Airotix apparel concept
-- COCIS reunion T-shirt designs
-- Typography-based apparel concepts
-- Event identity visuals
+## T-Shirt Design Concepts
+A collection of:
+- apparel branding
+- reunion shirt concepts
+- typography-driven fashion visuals
+- event identity concepts
 
 ---
 
-## AI-Assisted Development Workflow
+# Features
 
-This project was built using AI-assisted workflows where I:
-
-- planned the website structure
-- directed the content and branding
-- guided development through structured prompting
-- refined page layouts iteratively
-- debugged code outputs with AI assistance
-- reorganized the project section into a cleaner project hub
-- created dedicated pages for larger galleries
-- improved mobile responsiveness
-- improved UI quality and visual hierarchy
-- added SEO and indexing support
-- added analytics and speed monitoring
-- optimized loading speed and image behavior
-- continuously updated the project as my portfolio grew
-
-The workflow combines:
-
-- Prompt Engineering
-- AI-Assisted Development
-- Human-AI Collaboration
-- Rapid Prototyping
-- Iterative Development
-- Creative Problem Solving
-- Personal Branding
-- Visual Communication
+- Responsive mobile-first layout
+- Premium modern UI
+- Dedicated project hub
+- Individual project pages
+- Embedded video playback
+- AI workflow documentation
+- Dark/light mode support
+- SEO optimization
+- Google indexing support
+- Vercel Analytics integration
+- Vercel Speed Insights integration
+- Lazy-loaded media
+- Performance optimization
+- Mobile optimization
+- GitHub deployment workflow
 
 ---
 
-## Tools & Technologies
+# AI-Assisted Development Workflow
 
-### Frontend
+This portfolio was built using AI-assisted workflows where I:
 
+- planned the website architecture
+- directed the visual style
+- guided feature development
+- refined layouts iteratively
+- debugged outputs
+- organized project structures
+- created AI-assisted project documentation
+- improved responsiveness
+- optimized performance
+- structured project storytelling
+- managed deployment workflows
+
+The project reflects modern:
+- Human-AI collaboration
+- Prompt engineering
+- AI-assisted creativity
+- AI-assisted development
+- Rapid prototyping
+- Creative problem solving
+
+---
+
+# Tools & Technologies
+
+## AI & Creative Tools
+- ChatGPT
+- Claude AI
+- Suno AI
+- Veo 3
+- OpenArt
+- Gemini
+- Clipchamp
+
+## Analytics & Data
+- Python
+- SQL
+- Power BI
+- Excel
+- Jupyter Notebook
+- Anaconda
+
+## Development
 - HTML
 - CSS
 - JavaScript
-
-### Deployment & Development
-
 - GitHub
 - Vercel
 - VS Code
 
-### Analytics, SEO & Performance
-
-- Vercel Analytics
-- Vercel Speed Insights
-- Google Search Console
-- Sitemap.xml
-- Robots.txt
-- SEO meta tags
-- Open Graph tags
-- Lazy loading
-- Image optimization strategy
-
-### Data & Analytics Skills Represented
-
-- SQL
-- Power BI
-- Excel
-- Python
-- Jupyter Notebook
-- Anaconda
-- Data Visualization
-- Data Storytelling
-
-### AI & Productivity
-
-- ChatGPT
-- Generative AI
-- Prompt Engineering
-- AI-Assisted Workflows
-- Human-AI Collaboration
-
-### Design & Communication
-
+## Design & Media
 - Canva
+- Photoshop
 - Graphic Design
-- Visual Storytelling
+- Creative Direction
+- Digital Media
 - Content Development
-- Campaign Design
-- Social Media Design
 
 ---
 
-## Performance Improvements
+# Performance & SEO
 
-The portfolio was optimized to improve loading speed and user experience.
-
-Current performance improvements include:
-
-- Lazy loading for non-critical images
-- Priority loading for important hero visuals
-- Separate gallery pages to reduce homepage load
-- Async image decoding
-- Reduced homepage media weight
-- Dedicated project pages for large design collections
-- Vercel Speed Insights integration
-- Cleaner mobile layout
-- Reduced horizontal overflow on mobile
-- Better responsive image behavior
-
----
-
-## SEO & Indexing
-
-The project includes basic SEO and indexing setup.
-
-Implemented SEO features:
-
-- SEO-friendly title
-- Meta description
-- Keywords
-- Author meta tag
-- Open Graph preview tags
-- Favicon support
+Implemented optimizations include:
+- lazy loading
+- responsive media
+- performance-focused layout structure
+- sitemap.xml
+- robots.txt
 - Google Search Console verification
-- Sitemap.xml
-- Robots.txt
-
-These additions help the portfolio become discoverable through Google and improve link previews on platforms like LinkedIn and WhatsApp.
+- Vercel Speed Insights
+- Vercel Analytics
+- SEO metadata
+- Open Graph tags
 
 ---
 
-## Current Status
+# Current Learning Focus
 
-🚧 **Currently under active development and continuous improvement.**
+Currently learning and building projects in:
+- Data Science
+- Advanced SQL
+- Advanced Power BI
+- Automation
+- AI-Assisted Development
+- AI Video Production
 
-This portfolio is not a one-time project. It is an evolving professional platform that will grow as I build more projects and improve my skills.
+---
 
-Planned updates include:
+# Future Plans
 
+Planned additions include:
 - SQL projects
 - Power BI dashboards
-- Excel analytics projects
-- AI video projects
+- Excel analytics case studies
+- Data storytelling projects
 - Automation workflows
-- More project case studies
-- Better project thumbnails
-- More GitHub repositories
-- Data analytics case studies
-- Additional design collections
-- Improved media compression
-- More detailed project documentation
+- Additional AI-generated media projects
+- Interactive analytics dashboards
+- Expanded creative campaign collections
 
 ---
 
-## Key Learning Outcomes
+# Key Learning Outcomes
 
-Through this project, I learned and practiced:
-
-- structuring a professional portfolio
-- responsive web design principles
-- AI-assisted development workflows
-- prompt engineering for web development
-- iterative UI refinement
+Through this project, I practiced and improved:
+- responsive web development
+- AI-assisted workflows
+- prompt engineering
 - project storytelling
-- mobile layout optimization
-- organizing large visual galleries
-- separating large project collections into dedicated pages
-- adding SEO and Google indexing support
-- adding web analytics and speed tracking
-- using GitHub and Vercel for deployment
-- using AI as a development partner without losing human direction
+- digital branding
+- UI refinement
+- performance optimization
+- media organization
+- SEO implementation
+- AI creative production
+- project documentation
+- deployment workflows
 
 ---
 
-## Project Highlights
-
-- Built a complete personal portfolio using AI-assisted workflows
-- Improved the UI to feel cleaner and more premium
-- Added separate project pages for visual galleries
-- Added full creative design galleries
-- Added lightbox previews for flyers and design work
-- Added contact form integration
-- Added downloadable CV
-- Added SEO and Google verification
-- Added Vercel Analytics and Speed Insights
-- Improved mobile responsiveness
-- Optimized the site for better loading speed
-
----
-
-## Author
+# Author
 
 ## Nyamekye Samuel Asamoah
 
-Data Science and Analytics learner with a background in Materials Engineering, Occupational Health and Safety, AI-assisted workflows, creative design, and digital education.
+Data Science learner and creative technologist with experience across:
+- AI-assisted workflows
+- digital media
+- analytics
+- creative direction
+- educational campaigns
+- graphic design
 
-🔗 **LinkedIn:** https://www.linkedin.com/in/asanyamekye/  
-🔗 **GitHub:** https://github.com/KofiNyamekye  
-📧 **Email:** asanyamekye@gmail.com
+🔗 LinkedIn: https://www.linkedin.com/in/asanyamekye/  
+🔗 GitHub: https://github.com/KofiNyamekye  
+📧 Email: asanyamekye@gmail.com
 
 ---
 
-## Note
+# Note
 
-This project continues to evolve as I build more analytics, AI, automation, and creative technology projects.
+This portfolio is under continuous development and will continue evolving as more analytics, AI, automation, and creative media projects are added.
