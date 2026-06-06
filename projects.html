@@ -39,6 +39,29 @@ section{padding:2rem 0}
 .video-wrap video{width:100%;display:block}
 footer{text-align:center;padding:3rem 0;color:var(--muted)}
 @media(max-width:900px){.hero-grid,.card-grid,.projects-grid{grid-template-columns:1fr}.hero{padding-top:2rem}}
+
+/* Refined project title sizing */
+.project-body h2{
+  font-size:clamp(1.8rem,3vw,3.2rem) !important;
+  line-height:1.05;
+  margin:.55rem 0 1rem;
+  letter-spacing:-.03em;
+}
+
+.project-body p{
+  font-size:1rem;
+}
+
+@media(max-width:768px){
+  .project-body h2{
+    font-size:clamp(1.6rem,7vw,2.6rem) !important;
+  }
+
+  .project-body p{
+    font-size:.96rem;
+  }
+}
+
 </style>
 </head>
 <body>
