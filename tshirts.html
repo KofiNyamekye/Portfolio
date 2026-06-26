@@ -4,7 +4,44 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>T-Shirt Design Concepts | Nyamekye Samuel Asamoah</title>
-<meta name="description" content="Typography-driven apparel concepts, reunion identity visuals and fashion branding experiments.">
+
+  <meta name="description" content="Typography-driven apparel concepts, CodeDevPay Academy merch mockups, reunion identity visuals and fashion branding experiments by Nyamekye Samuel Asamoah.">
+  <meta name="author" content="Nyamekye Samuel Asamoah">
+  <meta name="robots" content="index, follow">
+
+  <link rel="canonical" href="https://nsasamoah.vercel.app/tshirts.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Nyamekye Samuel Asamoah">
+  <meta property="og:title" content="T-Shirt Design Concepts | Nyamekye Samuel Asamoah">
+  <meta property="og:description" content="Typography-driven apparel concepts, CodeDevPay Academy merch mockups, reunion identity visuals and fashion branding experiments by Nyamekye Samuel Asamoah.">
+  <meta property="og:image" content="https://nsasamoah.vercel.app/image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Nyamekye Samuel Asamoah — Portfolio">
+  <meta property="og:url" content="https://nsasamoah.vercel.app/tshirts.html">
+  <meta property="og:locale" content="en_GB">
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="T-Shirt Design Concepts | Nyamekye Samuel Asamoah">
+  <meta name="twitter:description" content="Typography-driven apparel concepts, CodeDevPay Academy merch mockups, reunion identity visuals and fashion branding experiments by Nyamekye Samuel Asamoah.">
+  <meta name="twitter:image" content="https://nsasamoah.vercel.app/image.png">
+  <meta name="twitter:image:alt" content="Nyamekye Samuel Asamoah — Portfolio">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ImageGallery",
+    "name": "T-Shirt Design Concepts",
+    "description": "Typography-driven apparel concepts, brand merch mockups and reunion identity visuals.",
+    "url": "https://nsasamoah.vercel.app/tshirts.html",
+    "author": { "@type": "Person", "name": "Nyamekye Samuel Asamoah" }
+  }
+  </script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -97,7 +134,15 @@ footer{position:relative;z-index:1;text-align:center;padding:3rem 0 2rem;border-
 footer p{color:var(--muted);font-size:0.88rem;}footer span{color:var(--green);}
 .fade-up{opacity:0;transform:translateY(24px);transition:opacity 0.55s ease,transform 0.55s ease;}
 .fade-up.visible{opacity:1;transform:none;}
-@media(max-width:1100px){.design-gallery{grid-template-columns:repeat(3,minmax(0,1fr));}}
+/* WIDE CARDS — span 2 cols, taller for mockup format */
+.design-card--wide{grid-column:span 2;min-height:340px;}
+.design-card--wide img{min-height:340px;object-fit:contain;background:rgba(255,255,255,0.03);}
+html[data-theme="light"] .design-card--wide img{background:rgba(0,0,0,0.03);}
+.gallery-section-label{padding:0.25rem 0;}
+@media(max-width:1100px){.design-card--wide{grid-column:span 2;}}
+@media(max-width:820px){.design-card--wide{grid-column:span 2;min-height:280px;}.design-card--wide img{min-height:280px;}}
+@media(max-width:560px){.design-card--wide{grid-column:span 1;min-height:300px;}.design-card--wide img{min-height:300px;}}
+
 @media(max-width:820px){
   nav{top:0.75rem;border-radius:28px;padding:0.75rem;}
   .menu-toggle{display:grid;}
@@ -137,14 +182,37 @@ footer p{color:var(--muted);font-size:0.88rem;}footer span{color:var(--green);}
     <a href="projects.html" class="back-link fade-up"><i class="ti ti-arrow-left"></i> Back to projects</a>
     <span class="section-label fade-up">Apparel Design</span>
     <h1 class="fade-up">T-Shirt Design Concepts</h1>
-    <p class="hero-desc fade-up">Typography-driven apparel concepts, reunion identity visuals and fashion branding experiments built for events and brands.</p>
-    <p class="fade-up" style="margin-top:0.75rem;font-size:0.82rem;color:var(--muted);">6 designs — click any to expand</p>
+    <p class="hero-desc fade-up">Typography-driven apparel concepts, brand merch mockups, reunion identity visuals and fashion branding experiments built for events and brands.</p>
+    <p class="fade-up" style="margin-top:0.75rem;font-size:0.82rem;color:var(--muted);">8 designs — click any to expand</p>
   </div>
 </section>
 
 <section>
   <div class="container">
     <div class="design-gallery">
+
+      <!-- SECTION LABEL: CodeDevPay Merch -->
+      <div class="gallery-section-label fade-up" style="grid-column:1/-1;">
+        <span class="section-label" style="margin-bottom:0;">CodeDevPay Academy Merch</span>
+      </div>
+
+      <!-- White tee — wide card -->
+      <button class="design-card design-card--wide fade-up" data-full="assets/flyers/t-shirt-design/learn_2.png" aria-label="Open CodeDevPay White Tee">
+        <img decoding="async" src="assets/flyers/t-shirt-design/learn_2.png" alt="CodeDevPay Academy White Tee — Discipline Consistency Commitment" loading="lazy">
+        <div class="design-caption"><strong>CodeDevPay Academy Tee — White</strong><span>Discipline · Consistency · Commitment</span></div>
+      </button>
+
+      <!-- Black tee — wide card -->
+      <button class="design-card design-card--wide fade-up" data-full="assets/flyers/t-shirt-design/learn_3.png" aria-label="Open CodeDevPay Black Tee">
+        <img decoding="async" src="assets/flyers/t-shirt-design/learn_3.png" alt="CodeDevPay Academy Black Tee — Discipline Consistency Commitment" loading="lazy">
+        <div class="design-caption"><strong>CodeDevPay Academy Tee — Black</strong><span>Discipline · Consistency · Commitment</span></div>
+      </button>
+
+      <!-- SECTION LABEL: Other Concepts -->
+      <div class="gallery-section-label fade-up" style="grid-column:1/-1;margin-top:1rem;">
+        <span class="section-label" style="margin-bottom:0;">Other Apparel Concepts</span>
+      </div>
+
       <button class="design-card fade-up" data-full="assets/flyers/t-shirt-design/airotix.png" aria-label="Open Airotix">
         <img decoding="async" src="assets/flyers/t-shirt-design/airotix.png" alt="Airotix" loading="lazy">
         <div class="design-caption"><strong>Airotix</strong><span>Brand apparel concept</span></div>
