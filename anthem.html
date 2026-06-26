@@ -117,6 +117,9 @@ section{position:relative;z-index:1;padding:2.5rem 0;}
 }
 .platform-badge:hover{border-color:var(--green-border);background:var(--surface-hover);}
 .platform-badge i{color:var(--green);}
+.platform-badge a, a.platform-badge{cursor:pointer;}
+.platform-soon{opacity:0.55;cursor:default;}
+.platform-soon:hover{border-color:var(--border);background:var(--surface);transform:none;}
 
 footer{position:relative;z-index:1;text-align:center;padding:3rem 0 2rem;border-top:1px solid var(--border);margin-top:3rem;}
 footer p{color:var(--muted);font-size:0.88rem;}
@@ -180,8 +183,8 @@ footer span{color:var(--green);}
           <span class="meta-pill"><i class="ti ti-calendar"></i> June 5, 2026</span>
         </div>
         <div class="btn-row fade-up">
-          <a href="https://youtu.be/xTtppd-HALI?si=bOqK97QA4i_56ZZs" target="_blank" class="btn btn-youtube"><i class="ti ti-brand-youtube"></i> Watch MV</a>
-          <a href="https://audiomack.com/asanyamekye/song/all-for-one-one-for-all" target="_blank" class="btn btn-audiomack"><i class="ti ti-headphones"></i> Listen</a>
+          <a href="https://youtu.be/xTtppd-HALI?si=bOqK97QA4i_56ZZs" target="_blank" rel="noopener" class="btn btn-youtube"><i class="ti ti-brand-youtube"></i> Watch MV</a>
+          <a href="https://audiomack.com/asanyamekye/song/all-for-one-one-for-all?share-user-id=93563520" target="_blank" rel="noopener" class="btn btn-audiomack"><i class="ti ti-headphones"></i> Stream on Audiomack</a>
           <a href="projects.html" class="btn btn-secondary"><i class="ti ti-layout-grid"></i> All Projects</a>
         </div>
       </div>
@@ -227,12 +230,12 @@ footer span{color:var(--green);}
 
     <h3 class="fade-up" style="margin-top:2rem;margin-bottom:1rem;font-family:var(--font-display);letter-spacing:-0.03em;">Available on</h3>
     <div class="platforms-row fade-up">
-      <span class="platform-badge"><i class="ti ti-music"></i> Audiomack</span>
-      <span class="platform-badge"><i class="ti ti-brand-youtube"></i> YouTube</span>
-      <span class="platform-badge"><i class="ti ti-headphones"></i> Boomplay</span>
-      <span class="platform-badge"><i class="ti ti-music"></i> Spotify</span>
-      <span class="platform-badge"><i class="ti ti-headphones"></i> Apple Music</span>
-      <span class="platform-badge"><i class="ti ti-music"></i> Tidal</span>
+      <a href="https://audiomack.com/asanyamekye/song/all-for-one-one-for-all?share-user-id=93563520" target="_blank" rel="noopener" class="platform-badge"><i class="ti ti-headphones"></i> Audiomack</a>
+      <a href="https://youtu.be/xTtppd-HALI?si=bOqK97QA4i_56ZZs" target="_blank" rel="noopener" class="platform-badge"><i class="ti ti-brand-youtube"></i> YouTube</a>
+      <span class="platform-badge platform-soon"><i class="ti ti-music"></i> Boomplay <small style="opacity:0.55;font-size:0.7rem;">(coming soon)</small></span>
+      <span class="platform-badge platform-soon"><i class="ti ti-music"></i> Spotify <small style="opacity:0.55;font-size:0.7rem;">(coming soon)</small></span>
+      <span class="platform-badge platform-soon"><i class="ti ti-headphones"></i> Apple Music <small style="opacity:0.55;font-size:0.7rem;">(coming soon)</small></span>
+      <span class="platform-badge platform-soon"><i class="ti ti-music"></i> Tidal <small style="opacity:0.55;font-size:0.7rem;">(coming soon)</small></span>
     </div>
   </div>
 </section>
