@@ -151,6 +151,36 @@ footer p{color:var(--muted);font-size:0.88rem;}footer span{color:var(--green);}
   .design-gallery{grid-template-columns:1fr;}
   .design-card,.design-card img{min-height:340px;}
 }
+
+    /* Pulsing availability dot */
+    .pulse-dot{width:8px;height:8px;border-radius:50%;background:var(--green);display:inline-block;flex-shrink:0;animation:pulse-ring 1.8s ease-out infinite;}
+    @keyframes pulse-ring{0%{box-shadow:0 0 0 0 rgba(36,211,107,0.7);}70%{box-shadow:0 0 0 8px rgba(36,211,107,0);}100%{box-shadow:0 0 0 0 rgba(36,211,107,0);}}
+
+    /* Tool card hover glow */
+    .tool-card{position:relative;overflow:hidden;}
+    .tool-card::before{content:"";position:absolute;inset:0;border-radius:inherit;background:radial-gradient(circle at 50% 0%,rgba(36,211,107,0.08),transparent 65%);opacity:0;transition:opacity 0.35s;}
+    .tool-card:hover::before{opacity:1;}
+    .tool-icon{transition:transform 0.3s,background 0.3s,box-shadow 0.3s;}
+    .tool-card:hover .tool-icon{transform:scale(1.12) rotate(-4deg);background:rgba(36,211,107,0.22);box-shadow:0 0 0 8px rgba(36,211,107,0.1);}
+    .tool-name{transition:color 0.2s;}
+    .tool-card:hover .tool-name{color:var(--green);}
+
+    /* Typewriter cursor */
+    .typewriter-cursor{display:inline-block;width:3px;height:0.9em;background:var(--green);margin-left:2px;vertical-align:middle;border-radius:2px;animation:blink 1s step-end infinite;}
+    @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+
+    /* Stat card hover */
+    .stat-card{transition:border-color 0.25s,transform 0.25s,box-shadow 0.25s;}
+    .stat-card:hover{border-color:var(--green-border);transform:translateY(-4px);box-shadow:0 16px 40px rgba(36,211,107,0.1);}
+
+    /* Platform badge hover */
+    a.platform-badge{transition:border-color 0.2s,background 0.2s,transform 0.2s,color 0.2s;}
+    a.platform-badge:hover{border-color:var(--green-border);background:var(--green-soft);color:var(--green);transform:translateY(-2px);}
+
+    /* Project card arrow */
+    .card-arrow{transition:opacity 0.22s,transform 0.22s,background 0.22s;}
+    .project-card:hover .card-arrow{opacity:1;transform:scale(1) rotate(0deg);}
+
 </style>
 </head>
 <body>
@@ -238,7 +268,7 @@ footer p{color:var(--muted);font-size:0.88rem;}footer span{color:var(--green);}
 </div>
 <footer>
   <div class="container">
-    <p>© 2026 <span>Nyamekye Samuel Asamoah</span>. Designed &amp; built with ♥ in Ghana.</p>
+    <p>© 2026 <span>Nyamekye Samuel Asamoah</span> · Built with data, AI and creative direction in Ghana.<br><small style="opacity:0.5;font-size:0.75rem;">Engineering foundation. AI curiosity. Human creativity.</small></p>
   </div>
 </footer>
 
