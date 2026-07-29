@@ -8,7 +8,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700;800&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
   
 
   <style>
@@ -32,6 +32,7 @@
       --radius-sm: 16px;
       --font-display: "Syne", sans-serif;
       --font-body: "DM Sans", sans-serif;
+      --font-mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
     }
 
     html[data-theme="light"] {
@@ -243,6 +244,16 @@
     }
 
     .green { color: var(--green); }
+
+    .typewriter-cursor {
+      display: inline-block;
+      width: 0.09em;
+      height: 0.85em;
+      margin-left: 0.08em;
+      background: var(--green);
+      vertical-align: -0.08em;
+      animation: caret-blink 1s step-end infinite;
+    }
 
     .muted {
       color: var(--muted);
@@ -945,7 +956,8 @@
       }
 
       .theme-toggle,
-      .menu-toggle {
+      .menu-toggle,
+      .nav-sys-toggle {
         width: 43px;
         height: 43px;
       }
@@ -1254,6 +1266,226 @@
   <link rel="icon" type="image/png" href="image.png">
   <link rel="preload" as="image" href="image.png">
 <style>
+/* ── SYSTEMS / TERMINAL AESTHETIC ── */
+
+/* Section eyebrows get a monospace "// comment" treatment */
+.section-label { font-family: var(--font-mono); }
+
+/* Hero boot line */
+.boot-line {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--muted);
+  margin-bottom: 0.9rem;
+}
+.boot-line .caret {
+  display: inline-block;
+  width: 7px; height: 14px;
+  background: var(--green);
+  animation: caret-blink 1s step-end infinite;
+}
+@keyframes caret-blink { 50% { opacity: 0; } }
+
+/* Hero system-status panel */
+.status-panel {
+  margin-top: 1.75rem;
+  padding: 1.1rem 1.3rem;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: var(--surface);
+  backdrop-filter: blur(18px);
+  max-width: 480px;
+  font-family: var(--font-mono);
+}
+.status-panel .status-title {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.65rem;
+}
+.status-panel .status-line {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-size: 0.85rem;
+  color: var(--soft);
+  padding: 0.2rem 0;
+}
+.status-panel .status-line + .status-line { margin-top: 0.1rem; }
+.status-panel .status-dot {
+  width: 7px; height: 7px; border-radius: 999px;
+  background: var(--green); flex-shrink: 0;
+  box-shadow: 0 0 0 0 rgba(36,211,107,0.7);
+  animation: status-pulse 1.8s ease-out infinite;
+}
+@keyframes status-pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(36,211,107,0.55); }
+  70%  { box-shadow: 0 0 0 6px rgba(36,211,107,0); }
+  100% { box-shadow: 0 0 0 0 rgba(36,211,107,0); }
+}
+.status-panel .status-arrow { color: var(--green); }
+
+/* Nav: dedicated System Navigation trigger, visible at all breakpoints */
+.nav-sys-toggle {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: rgba(255,255,255,0.06);
+  color: var(--text);
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+.nav-sys-toggle:hover {
+  transform: translateY(-1px);
+  background: var(--green-soft);
+  color: var(--green);
+}
+
+/* Full-page System Navigation overlay */
+.nav-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: grid;
+  place-items: center;
+  padding: 1.5rem;
+  background: rgba(5, 8, 20, 0.72);
+  backdrop-filter: blur(10px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+html[data-theme="light"] .nav-overlay { background: rgba(245, 247, 255, 0.82); }
+.nav-overlay.open { opacity: 1; visibility: visible; }
+
+.nav-overlay-panel {
+  width: min(640px, 100%);
+  max-height: 88vh;
+  overflow-y: auto;
+  border: 1px solid var(--border);
+  border-radius: 28px;
+  background: var(--surface-solid);
+  box-shadow: var(--shadow);
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  transform: translateY(18px) scale(0.98);
+  transition: transform 0.3s cubic-bezier(.22,1,.36,1);
+}
+.nav-overlay.open .nav-overlay-panel { transform: none; }
+
+.nav-overlay-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.4rem;
+}
+.nav-overlay-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--green);
+  font-weight: 600;
+}
+.nav-overlay-close {
+  display: grid;
+  place-items: center;
+  width: 38px; height: 38px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+.nav-overlay-close:hover { transform: rotate(90deg); background: var(--green-soft); color: var(--green); }
+
+.nav-overlay-panel h2 {
+  font-size: clamp(1.6rem, 4vw, 2.1rem);
+  margin-bottom: 0.4rem;
+}
+.nav-overlay-panel > p.muted { margin-bottom: 1.5rem; }
+
+.overlay-links {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.6rem;
+  margin-bottom: 1.75rem;
+}
+.overlay-links a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 0.9rem 1.05rem;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--surface);
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+.overlay-links a svg { color: var(--muted); transition: transform 0.2s ease, color 0.2s ease; flex-shrink: 0; }
+.overlay-links a:hover {
+  border-color: var(--green-border);
+  background: var(--green-soft);
+  color: var(--green);
+  transform: translateY(-2px);
+}
+.overlay-links a:hover svg { color: var(--green); transform: translate(2px,-2px); }
+
+.nav-overlay-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding-top: 1.4rem;
+  border-top: 1px solid var(--border);
+}
+.overlay-connect-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.6rem;
+  display: block;
+}
+.overlay-socials {
+  display: flex;
+  gap: 0.5rem;
+}
+.overlay-socials a {
+  width: 38px; height: 38px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  display: grid;
+  place-items: center;
+  color: var(--muted);
+  transition: color 0.2s, border-color 0.2s, background 0.2s, transform 0.2s;
+}
+.overlay-socials a:hover {
+  color: var(--green);
+  border-color: var(--green-border);
+  background: var(--green-soft);
+  transform: translateY(-2px);
+}
+
+body.nav-open { overflow: hidden; }
+
+@media (max-width: 560px) {
+  .overlay-links { grid-template-columns: 1fr; }
+  .status-panel { max-width: 100%; }
+  .nav-overlay-footer { flex-direction: column; align-items: flex-start; }
+}
+
 /* ── FOOTER ── */
 footer{position:relative;z-index:1;border-top:1px solid var(--border);margin-top:4rem;padding:1.25rem 0;}
 .footer-line{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;}
@@ -1309,16 +1541,54 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);margin-top
     </ul>
 
     <div class="nav-actions">
+      <button class="nav-sys-toggle" id="navSysToggle" aria-label="Open system navigation" aria-expanded="false" aria-controls="navOverlay"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></button>
       <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg></button>
       <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h7"/></svg></button>
     </div>
   </nav>
+
+  <div class="nav-overlay" id="navOverlay" aria-hidden="true">
+    <div class="nav-overlay-panel">
+      <div class="nav-overlay-head">
+        <span class="nav-overlay-eyebrow">// system navigation</span>
+        <button class="nav-overlay-close" id="navOverlayClose" aria-label="Close navigation"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+      </div>
+      <h2>Explore the site</h2>
+      <p class="muted">Work, skills, projects and every way to reach me — all in one place.</p>
+
+      <nav class="overlay-links" aria-label="All pages">
+        <a href="#hero">Home <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
+        <a href="#about">About <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
+        <a href="#skills">Skills <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
+        <a href="#tools">Tools <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
+        <a href="projects">Projects <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
+        <a href="#services">Services <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
+        <a href="#experience">Experience <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
+        <a href="#blog">Blog <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
+        <a href="#contact">Contact <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
+      </nav>
+
+      <div class="nav-overlay-footer">
+        <div>
+          <span class="overlay-connect-label">// connect</span>
+          <div class="overlay-socials">
+            <a href="https://linkedin.com/in/asanyamekye" target="_blank" rel="noopener" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></a>
+            <a href="https://github.com/KofiNyamekye" target="_blank" rel="noopener" aria-label="GitHub"><svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></a>
+            <a href="https://audiomack.com/asanyamekye" target="_blank" rel="noopener" aria-label="Audiomack"><svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></a>
+            <a href="https://www.youtube.com/@asa_nyamekye" target="_blank" rel="noopener" aria-label="YouTube"><svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8a4 4 0 0 1 4-4h12a4 4 0 0 1 4 4v8a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><path d="m10 15 5-3-5-3v6z"/></svg></a>
+          </div>
+        </div>
+        <a href="mailto:asanyamekye@gmail.com" class="btn btn-primary">Email Me →</a>
+      </div>
+    </div>
+  </div>
 
   <section id="hero">
     <div class="container">
       <div class="hero-grid">
         <div class="fade-up">
           <div class="hero-tag"><span class="pulse-dot"></span> Available for opportunities</div>
+          <div class="boot-line"><span class="caret"></span> booting creative &amp; data systems...</div>
           <h1>
             Engineering.<br>
             <span class="green">Data & AI.</span><br>
@@ -1327,6 +1597,12 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);margin-top
           <p class="hero-desc">
             I am Nyamekye Samuel Asamoah, a Graduate Materials Engineer, Certified Safety Professional, Data Analytics Trainee, AI Enthusiast, and Creative Designer based in Kumasi, Ghana.
           </p>
+          <div class="status-panel">
+            <div class="status-title">// system status</div>
+            <div class="status-line"><span class="status-dot"></span> system.status = available</div>
+            <div class="status-line"><span class="status-arrow">→</span> open for data, AI &amp; creative-direction work</div>
+            <div class="status-line"><span class="status-arrow">→</span> location = Kumasi, Ghana</div>
+          </div>
           <div class="btn-row">
             <a href="#projects" class="btn btn-primary"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2M12 12v.01M8 12v.01M16 12v.01"/></svg> See My Work →</a>
             <a href="#contact" class="btn btn-secondary"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg> Let's Build Together</a>
@@ -1354,7 +1630,7 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);margin-top
     <div class="container">
       <div class="grid-2">
         <div class="fade-up">
-          <span class="section-label">About Me</span>
+          <span class="section-label">// about</span>
           <h2>Engineering foundation, data mindset, AI curiosity, and creative execution</h2>
           <p class="muted">
             I am a Graduate Materials Engineer from Kwame Nkrumah University of Science and Technology with advanced training in Occupational Health and Safety Management based on ISO 45001 from Imperial College of Mines and Safety.
@@ -1402,7 +1678,7 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);margin-top
 
   <section id="skills">
     <div class="container">
-      <span class="section-label">Skills</span>
+      <span class="section-label">// skills</span>
       <h2>What I bring to the table</h2>
 
       <div class="cards-grid">
@@ -1480,7 +1756,7 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);margin-top
   
 <section id="tools">
   <div class="container">
-    <span class="section-label">Tools & Technologies</span>
+    <span class="section-label">// tools</span>
     <h2>Tools I use to build, analyze, design and communicate</h2>
     <p class="muted">
       A practical mix of analytics, AI, development, media production and creative tools used across my projects and workflows.
@@ -1561,7 +1837,7 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);margin-top
 
 <section id="projects">
   <div class="container">
-    <span class="section-label">Projects</span>
+    <span class="section-label">// projects</span>
     <h2>Creative, AI and digital media projects</h2>
     <p class="muted gallery-intro">
       Explore my project hub featuring AI music production, AI-powered video ads, campaign designs, advertisements, apparel concepts and AI-assisted web development.
@@ -1593,7 +1869,7 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);margin-top
     <div class="container">
       <div class="grid-2">
         <div class="fade-up">
-          <span class="section-label">Currently Learning</span>
+          <span class="section-label">// learning</span>
           <h2>Building stronger data, AI and automation skills</h2>
           <p class="muted">
             I am currently deepening my skills in data science, advanced SQL, advanced Power BI and automation, with the goal of building stronger analytics projects and smarter AI-assisted workflows.
@@ -1608,7 +1884,7 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);margin-top
         </div>
 
         <div class="highlight-box fade-up">
-          <span class="section-label">Now</span>
+          <span class="section-label">// now</span>
           <h3>What I am focused on now</h3>
           <p class="muted">
             Right now, I am expanding my analytics portfolio with SQL, Excel and Power BI projects, while exploring automation and AI-assisted workflows. I am also building a stronger bridge between my engineering background, safety training, data analytics growth and creative design work.
@@ -1620,7 +1896,7 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);margin-top
 
   <section id="services">
     <div class="container">
-      <span class="section-label">Services</span>
+      <span class="section-label">// services</span>
       <h2>What I can help with</h2>
 
       <div class="cards-grid">
@@ -1663,12 +1939,12 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);margin-top
     </div>
   </section>
 
-  <section id="achievements">
+  <section id="experience">
     <div class="container">
 
       <!-- CERTIFICATIONS / BADGES -->
       <div class="certs-row fade-up">
-        <span class="section-label">Certifications & Badges</span>
+        <span class="section-label">// credentials</span>
         <div class="badges-grid">
           <div class="badge-card fade-up">
             <div class="badge-embed">
@@ -1687,7 +1963,7 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);margin-top
 
       <div class="grid-2" style="margin-top:3.5rem;">
         <div class="fade-up">
-          <span class="section-label">Achievements</span>
+          <span class="section-label">// experience</span>
           <h2>Proof of progress</h2>
           <p class="muted">A few highlights from my learning, work and creative journey so far.</p>
         </div>
@@ -1709,7 +1985,7 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);margin-top
 
   <section id="blog">
     <div class="container">
-      <span class="section-label">Blog & Articles</span>
+      <span class="section-label">// writing</span>
       <h2>Writing that teaches and explains</h2>
 
       <div class="blog-grid">
@@ -1738,7 +2014,7 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);margin-top
     <div class="container">
       <div class="contact-grid">
         <div class="fade-up">
-          <span class="section-label">Contact</span>
+          <span class="section-label">// contact</span>
           <h2>Let’s build something together</h2>
           <p class="muted">For collaborations, opportunities, freelance projects, or conversations around data, AI, safety, engineering, and design, feel free to reach out.</p>
 
@@ -1747,7 +2023,7 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);margin-top
             <a href="https://www.linkedin.com/in/asanyamekye/" target="_blank" rel="noopener" class="contact-link"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg> linkedin.com/in/asanyamekye</a>
             <a href="https://github.com/KofiNyamekye" target="_blank" rel="noopener" class="contact-link"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg> github.com/KofiNyamekye</a>
             
-            <a href="#" class="contact-link"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg> Kumasi, Ghana</a>
+            <a href="https://www.google.com/maps/place/Kumasi" target="_blank" rel="noopener" class="contact-link"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg> Kumasi, Ghana</a>
           </div>
         </div>
 
@@ -1856,6 +2132,40 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);margin-top
         });
       }
 
+      const navSysToggle = document.getElementById("navSysToggle");
+      const navOverlay = document.getElementById("navOverlay");
+      const navOverlayClose = document.getElementById("navOverlayClose");
+
+      function openNavOverlay() {
+        if (!navOverlay) return;
+        navOverlay.classList.add("open");
+        navOverlay.setAttribute("aria-hidden", "false");
+        if (navSysToggle) navSysToggle.setAttribute("aria-expanded", "true");
+        document.body.classList.add("nav-open");
+      }
+
+      function closeNavOverlay() {
+        if (!navOverlay) return;
+        navOverlay.classList.remove("open");
+        navOverlay.setAttribute("aria-hidden", "true");
+        if (navSysToggle) navSysToggle.setAttribute("aria-expanded", "false");
+        document.body.classList.remove("nav-open");
+      }
+
+      if (navSysToggle && navOverlay) {
+        navSysToggle.addEventListener("click", openNavOverlay);
+        if (navOverlayClose) navOverlayClose.addEventListener("click", closeNavOverlay);
+        navOverlay.addEventListener("click", function (e) {
+          if (e.target === navOverlay) closeNavOverlay();
+        });
+        navOverlay.querySelectorAll("a").forEach(function (link) {
+          link.addEventListener("click", closeNavOverlay);
+        });
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Escape") closeNavOverlay();
+        });
+      }
+
       const observer = new IntersectionObserver(function (entries) {
         entries.forEach(function (entry) {
           if (entry.isIntersecting) {
@@ -1906,8 +2216,10 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);margin-top
 
   <!-- Vercel Analytics -->
   <script defer src="/_vercel/insights/script.js"></script>
-<!-- Vercel Speed Insights -->
-  <script defer src="/_vercel/speed-insights/script.js">
+  <!-- Vercel Speed Insights -->
+  <script defer src="/_vercel/speed-insights/script.js"></script>
+
+  <script>
   // Typewriter effect on hero h1
   (function() {
     const lines = ['Engineering.', 'Data & AI.', 'Creative Design.'];

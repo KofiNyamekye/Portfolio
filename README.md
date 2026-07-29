@@ -43,6 +43,8 @@ The portfolio now uses a cleaner project hub system.
 
 Homepage → Projects Hub → Individual Project Pages
 
+Every page also opens a full-page **System Navigation** overlay (via the grid icon in the nav) with direct links to every section and page on the site, so navigation isn't limited to the in-page anchor menu.
+
 This makes the website:
 - cleaner
 - faster
@@ -61,6 +63,7 @@ This makes the website:
 - `gallery.html` → CodeDevPay campaign gallery
 - `ads.html` → Advertisements & campaign gallery
 - `tshirts.html` → Apparel & T-shirt design gallery
+- `landing.html` → `noindex` holding page shown during larger site updates, linking out to every live page so visitors are never stuck
 
 ---
 
@@ -170,6 +173,8 @@ A collection of:
 
 - Responsive mobile-first layout
 - Premium modern UI
+- Site-wide System Navigation overlay (full-page menu to every section and page)
+- Terminal/systems-inspired UI accents (JetBrains Mono, status indicators)
 - Dedicated project hub
 - Individual project pages
 - Embedded video playback
@@ -246,6 +251,7 @@ The project reflects modern:
 - Creative Direction
 - Digital Media
 - Content Development
+- Typography (Syne, DM Sans, JetBrains Mono)
 
 ---
 

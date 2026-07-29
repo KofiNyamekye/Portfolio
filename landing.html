@@ -87,7 +87,7 @@ body::before {
 /* Card */
 .card {
   position: relative; z-index: 1;
-  width: min(640px, 100%);
+  width: min(680px, 100%);
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 32px;
@@ -192,6 +192,51 @@ h1 em {
   margin: 1.75rem 0;
 }
 
+/* System status strip */
+.sys-strip {
+  display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem;
+  font-family: "DM Mono", "SFMono-Regular", Consolas, monospace;
+  font-size: 0.76rem; color: var(--muted);
+  margin-bottom: 1.75rem;
+  animation: card-in 0.7s 0.28s cubic-bezier(.22,1,.36,1) both;
+}
+.sys-strip span { display: inline-flex; align-items: center; gap: 0.4rem; }
+.sys-strip .live-dot {
+  width: 6px; height: 6px; border-radius: 50%; background: var(--green);
+  box-shadow: 0 0 0 0 rgba(36,211,107,0.7);
+  animation: pulse-glow 1.8s ease-out infinite;
+}
+
+/* Explore grid */
+.explore-heading {
+  font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.1em; color: var(--muted); margin-bottom: 0.8rem;
+}
+.explore-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 0.6rem;
+  margin-bottom: 1.75rem;
+  animation: card-in 0.7s 0.4s cubic-bezier(.22,1,.36,1) both;
+}
+.explore-grid a {
+  display: flex; align-items: center; justify-content: space-between; gap: 0.4rem;
+  padding: 0.7rem 0.85rem;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--surface);
+  color: var(--text);
+  font-size: 0.85rem; font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.2s, border-color 0.2s, background 0.2s, color 0.2s;
+}
+.explore-grid a svg { flex-shrink: 0; opacity: 0.5; transition: transform 0.2s, opacity 0.2s; }
+.explore-grid a:hover {
+  border-color: var(--green-border); background: var(--green-soft);
+  color: var(--green); transform: translateY(-2px);
+}
+.explore-grid a:hover svg { opacity: 1; transform: translate(2px,-2px); }
+
 /* CTA row */
 .cta-row {
   display: flex; align-items: center; gap: 0.85rem; flex-wrap: wrap;
@@ -255,6 +300,8 @@ h1 em {
   .card { border-radius: 24px; }
   .cta-row { flex-direction: column; align-items: stretch; }
   .btn { justify-content: center; }
+  .explore-grid { grid-template-columns: repeat(2, 1fr); }
+  .sys-strip { flex-direction: column; gap: 0.4rem; }
 }
 </style>
 </head>
@@ -278,8 +325,14 @@ h1 em {
   <h1>Something<br><em>better</em> is loading.</h1>
 
   <p class="subtitle">
-    Nyamekye Samuel Asamoah — Materials Engineer, Data Scientist &amp; AI Creative Director based in Kumasi, Ghana. The full portfolio is getting a serious upgrade.
+    Nyamekye Samuel Asamoah — Materials Engineer, Data Scientist &amp; AI Creative Director based in Kumasi, Ghana. The full portfolio is getting a serious upgrade — everything already live is one tap away below.
   </p>
+
+  <div class="sys-strip">
+    <span><span class="live-dot"></span>status = live</span>
+    <span>→ open for AI, data &amp; creative-direction work</span>
+    <span>→ location = Kumasi, Ghana</span>
+  </div>
 
   <div class="progress-wrap">
     <div class="progress-label">
@@ -292,13 +345,45 @@ h1 em {
   </div>
 
   <ul class="coming-list">
-    <li><span class="dot"></span><strong>AI Content</strong> — World Cup anthem, EnglishPLAY ad, Rise Again</li>
-    <li><span class="dot"></span><strong>Flyers & Design</strong> — Campaigns, CodeDevPay, LactAfrica</li>
-    <li><span class="dot"></span><strong>Data</strong> — SQL &amp; Power BI showcase projects</li>
     <li><span class="dot"></span><strong>Homepage revamp</strong> — fresh layout, faster, sharper</li>
+    <li><span class="dot"></span><strong>New project pages</strong> — LactAfrica, Rise Again</li>
+    <li><span class="dot"></span><strong>Data showcase</strong> — SQL &amp; Power BI projects</li>
+    <li><span class="dot"></span><strong>Three-tab filter</strong> — AI Content / Flyers &amp; Design / Data</li>
   </ul>
 
   <hr class="divider">
+
+  <p class="explore-heading">Explore what's already live</p>
+  <nav class="explore-grid" aria-label="Site pages">
+    <a href="/">
+      Home
+      <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+    </a>
+    <a href="/projects">
+      Projects
+      <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+    </a>
+    <a href="/anthem">
+      Anthem
+      <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+    </a>
+    <a href="/englishplay">
+      EnglishPLAY
+      <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+    </a>
+    <a href="/gallery">
+      Gallery
+      <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+    </a>
+    <a href="/ads">
+      Ads
+      <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+    </a>
+    <a href="/tshirts">
+      T-Shirts
+      <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+    </a>
+  </nav>
 
   <div class="cta-row">
     <a href="/" class="btn btn-primary">

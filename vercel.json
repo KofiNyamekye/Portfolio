@@ -7,7 +7,7 @@
       "headers": [
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' cdn.credly.com cdn.jsdelivr.net *.vercel-insights.com suno.com *.googleapis.com; style-src 'self' 'unsafe-inline' fonts.googleapis.com; font-src fonts.gstatic.com data:; img-src 'self' data: res.cloudinary.com *.credly.com; frame-src www.credly.com; connect-src 'self' *.vercel-insights.com api.anthropic.com;"
+          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' cdn.credly.com cdn.jsdelivr.net *.vercel-insights.com suno.com *.googleapis.com; style-src 'self' 'unsafe-inline' fonts.googleapis.com; font-src fonts.gstatic.com data:; img-src 'self' data: res.cloudinary.com *.credly.com; media-src 'self' res.cloudinary.com; frame-src www.credly.com; connect-src 'self' *.vercel-insights.com api.anthropic.com;"
         },
         { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
         { "key": "X-Content-Type-Options", "value": "nosniff" },
