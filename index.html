@@ -1523,6 +1523,18 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);margin-top
   .badge-card{flex-direction:column;align-items:center;text-align:center;}
   .badge-embed{width:130px;}
 }
+.cert-pills{display:flex;flex-wrap:wrap;gap:0.6rem;margin-top:1.5rem;}
+.cert-pill{
+  display:inline-flex;align-items:center;gap:0.5rem;
+  border:1px solid var(--border);border-radius:999px;
+  background:var(--surface);color:var(--text);
+  padding:0.7rem 1.1rem;font-size:0.85rem;font-weight:700;
+  transition:border-color 0.2s,background 0.2s,color 0.2s,transform 0.2s;
+}
+.cert-pill:hover{border-color:var(--green-border);background:var(--green-soft);color:var(--green);transform:translateY(-2px);}
+.cert-pill .cert-pill-issuer{color:var(--green);font-family:var(--font-mono);font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;}
+.cert-pill:hover .cert-pill-issuer{color:var(--green);}
+.certs-cta{display:flex;gap:0.85rem;flex-wrap:wrap;margin-top:1.75rem;}
 </style>
 </head>
 
@@ -1564,6 +1576,7 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);margin-top
         <a href="projects">Projects <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
         <a href="#services">Services <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
         <a href="#experience">Experience <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
+      <a href="certificates">Certificates <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
         <a href="#blog">Blog <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
         <a href="#contact">Contact <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
       </nav>
@@ -1945,19 +1958,17 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);margin-top
       <!-- CERTIFICATIONS / BADGES -->
       <div class="certs-row fade-up">
         <span class="section-label">// credentials</span>
-        <div class="badges-grid">
-          <div class="badge-card fade-up">
-            <div class="badge-embed">
-              <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="fddce566-7974-4c06-94ab-1a8ea3d26c91" data-share-badge-host="https://www.credly.com"></div>
-              <script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
-            </div>
-            <div class="badge-info">
-              <p class="badge-issuer">IBM · Credly</p>
-              <h3 class="badge-title">IBM Skills Badge</h3>
-              <p class="badge-desc">Verified digital credential issued by IBM, recognising demonstrated skills and knowledge.</p>
-              <a href="https://www.credly.com/badges/fddce566-7974-4c06-94ab-1a8ea3d26c91" target="_blank" rel="noopener" class="badge-link">View credential →</a>
-            </div>
-          </div>
+        <h2>Certifications</h2>
+        <div class="cert-pills">
+          <a href="certificates#ibm-skills-badge" class="cert-pill"><span class="cert-pill-issuer">IBM</span> Skills Badge</a>
+          <a href="certificates#intermediate-sql" class="cert-pill"><span class="cert-pill-issuer">DataCamp</span> Intermediate SQL</a>
+          <a href="certificates#intro-power-bi" class="cert-pill"><span class="cert-pill-issuer">DataCamp</span> Introduction to Power BI</a>
+          <a href="certificates#intro-sql" class="cert-pill"><span class="cert-pill-issuer">DataCamp</span> Introduction to SQL</a>
+          <a href="certificates#understanding-ai" class="cert-pill"><span class="cert-pill-issuer">DataCamp</span> Understanding AI</a>
+        </div>
+        <div class="certs-cta">
+          <a href="certificates" class="btn btn-primary">View All Certificates →</a>
+          <a href="https://www.credly.com/badges/fddce566-7974-4c06-94ab-1a8ea3d26c91" target="_blank" rel="noopener" class="btn btn-secondary">Credly Profile →</a>
         </div>
       </div>
 

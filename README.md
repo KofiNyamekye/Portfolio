@@ -63,6 +63,7 @@ This makes the website:
 - `gallery.html` → CodeDevPay campaign gallery
 - `ads.html` → Advertisements & campaign gallery
 - `tshirts.html` → Apparel & T-shirt design gallery
+- `certificates.html` → Certifications & credentials (IBM Skills Badge via Credly, DataCamp certificates)
 - `landing.html` → `noindex` holding page shown during larger site updates, linking out to every live page so visitors are never stuck
 
 ---
@@ -175,6 +176,7 @@ A collection of:
 - Premium modern UI
 - Site-wide System Navigation overlay (full-page menu to every section and page)
 - Terminal/systems-inspired UI accents (JetBrains Mono, status indicators)
+- Dedicated Certifications page with an embedded Credly badge widget and inline PDF certificate viewers
 - Dedicated project hub
 - Individual project pages
 - Embedded video playback
