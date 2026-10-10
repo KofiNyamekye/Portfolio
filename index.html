@@ -1552,20 +1552,6 @@ section[id]{scroll-margin-top:6.5rem;}
 .fw-cat:hover .fw-open svg{transform:translate(2px,-2px);}
 .fw-cat-wip{border-style:dashed;}
 .fw-wip{display:inline-flex;align-items:center;gap:.4rem;font-family:var(--font-mono);font-size:.66rem;font-weight:600;letter-spacing:0;padding:.18rem .55rem;border-radius:999px;background:var(--green-soft);border:1px solid var(--green-border);color:var(--green);}
-.fw-releases-head{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-top:3rem;flex-wrap:wrap;}
-.fw-releases-head .section-label{margin-bottom:0;}
-.fw-all{display:inline-flex;align-items:center;gap:.4rem;color:var(--green);font-weight:800;font-size:.85rem;text-decoration:none;}
-.fw-releases{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1.1rem;margin-top:1.25rem;}
-.fw-release{display:block;overflow:hidden;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow-soft);color:var(--text);text-decoration:none;transition:transform .22s ease,border-color .22s ease;}
-.fw-release:hover{transform:translateY(-5px);border-color:var(--green-border);}
-.fw-cover{position:relative;aspect-ratio:16/9;overflow:hidden;background:var(--cover,none),linear-gradient(135deg,var(--c1),var(--c2));background-size:cover;background-position:center;isolation:isolate;}
-.fw-cover::before{content:"";position:absolute;inset:-20px;z-index:0;background:var(--cover,none) center/cover;filter:blur(22px) brightness(.55) saturate(1.2);}
-.fw-cover img{position:relative;z-index:1;width:100%;height:100%;object-fit:contain;display:block;transition:transform .45s ease;}
-.fw-release:hover .fw-cover img{transform:scale(1.05);}
-.fw-cover-label{position:absolute;inset:0;z-index:0;display:grid;place-items:center;padding:1rem;text-align:center;font-family:var(--font-display);font-weight:800;font-size:1.3rem;letter-spacing:-.04em;line-height:1.05;color:rgba(255,255,255,.94);text-shadow:0 4px 24px rgba(0,0,0,.45);}
-.fw-release-body{display:flex;flex-direction:column;gap:.15rem;padding:1rem 1.15rem 1.15rem;}
-.fw-release-body strong{font-family:var(--font-display);font-size:1rem;letter-spacing:-.03em;line-height:1.2;}
-.fw-release-body span{font-size:.78rem;color:var(--muted);}
 
 /* ── Experience timeline ── */
 .xp-intro{position:sticky;top:7rem;}
@@ -1582,9 +1568,9 @@ section[id]{scroll-margin-top:6.5rem;}
 .xp-link{color:var(--green);font-weight:800;text-decoration:none;white-space:nowrap;}
 #certifications{padding-bottom:1rem;}
 
-@media(max-width:960px){.fw-cats{grid-template-columns:1fr;}.fw-releases{grid-template-columns:repeat(2,minmax(0,1fr));}.xp-intro{position:static;}}
-@media(max-width:520px){.fw-releases{grid-template-columns:1fr;}.xp-list{padding-left:1.4rem;}.xp-item::before{left:-1.3rem;}}
-@media(prefers-reduced-motion:reduce){.fw-cat,.fw-release,.xp-item{transition:none;}}
+@media(max-width:960px){.fw-cats{grid-template-columns:1fr;}.xp-intro{position:static;}}
+@media(max-width:520px){.xp-list{padding-left:1.4rem;}.xp-item::before{left:-1.3rem;}}
+@media(prefers-reduced-motion:reduce){.fw-cat,.xp-item{transition:none;}}
 </style>
 </head>
 
@@ -1902,7 +1888,7 @@ section[id]{scroll-margin-top:6.5rem;}
   <div class="container">
     <span class="section-label">// selected work</span>
     <h2>Three ways I build</h2>
-    <p class="muted gallery-intro">AI content, flyers and design, and data work — pick a lane in the project hub, or start with the latest releases below.</p>
+    <p class="muted gallery-intro">AI content, flyers and design, and data work — pick a lane to open it in the project hub.</p>
 
     <div class="fw-cats">
       <a href="/projects#ai" class="fw-cat fade-up">
@@ -1926,29 +1912,6 @@ section[id]{scroll-margin-top:6.5rem;}
         <div class="skill-tags"><span class="tag">SQL</span><span class="tag">Power BI</span><span class="tag">Python</span></div>
         <span class="fw-open">See what is coming <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></span>
       </a>
-    </div>
-
-    <div class="fw-releases-head fade-up">
-      <span class="section-label">// latest releases</span>
-      <a href="/projects#ai" class="fw-all">All AI content <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
-    </div>
-    <div class="fw-releases">
-        <a href="anthem" class="fw-release fade-up">
-          <div class="fw-cover" style="--cover:url('assets/flyers/Cover_image.png');--c1:#0f3d2a;--c2:#d4af37;"><span class="fw-cover-label">All for One, One for All</span><img src="assets/flyers/Cover_image.png" alt="All for One, One for All cover art" loading="lazy" onerror="this.style.display='none'"></div>
-          <div class="fw-release-body"><strong>All for One, One for All</strong><span>World Cup anthem · Afropop</span></div>
-        </a>
-        <a href="rise-again" class="fw-release fade-up">
-          <div class="fw-cover" style="--cover:url('assets/music/rise-again.jpg');--c1:#3b1d0f;--c2:#e8742a;"><span class="fw-cover-label">Rise Again</span><img src="assets/music/rise-again.jpg" alt="Rise Again cover art" loading="lazy" onerror="this.style.display='none'"></div>
-          <div class="fw-release-body"><strong>Rise Again</strong><span>Hiplife / hip-hop</span></div>
-        </a>
-        <a href="wo-ne-me" class="fw-release fade-up">
-          <div class="fw-cover" style="--cover:url('assets/music/wo-ne-me.jpg');--c1:#0d2a4a;--c2:#f2b134;"><span class="fw-cover-label">Wo Ne Me</span><img src="assets/music/wo-ne-me.jpg" alt="Wo Ne Me cover art" loading="lazy" onerror="this.style.display='none'"></div>
-          <div class="fw-release-body"><strong>Wo Ne Me</strong><span>Ghanapiano</span></div>
-        </a>
-        <a href="lomo" class="fw-release fade-up">
-          <div class="fw-cover" style="--cover:url('assets/music/lomo.jpg');--c1:#1a1a1a;--c2:#ff6a1a;"><span class="fw-cover-label">LOMO — League of My Own</span><img src="assets/music/lomo.jpg" alt="LOMO — League of My Own cover art" loading="lazy" onerror="this.style.display='none'"></div>
-          <div class="fw-release-body"><strong>LOMO — League of My Own</strong><span>Hardcore hip-hop</span></div>
-        </a>
     </div>
   </div>
 </section>
