@@ -165,7 +165,6 @@ section{position:relative;z-index:1;padding:2.5rem 0;}
 .platform-soon:hover{border-color:var(--border);background:var(--surface);transform:none;}
 
 
-}
 .fade-up{opacity:0;transform:translateY(24px);transition:opacity 0.55s ease,transform 0.55s ease;}
 .fade-up.visible{opacity:1;transform:none;}
 
@@ -431,6 +430,20 @@ body.nav-open { overflow: hidden; }
 }
 </style>
 
+<style>
+.cover-art{position:relative;aspect-ratio:1/1;border-radius:var(--radius);border:1px solid var(--border);box-shadow:var(--shadow);overflow:hidden;background:linear-gradient(135deg,var(--c1),var(--c2));display:grid;place-items:center;}
+.cover-art .cover-ph{position:absolute;inset:0;display:grid;place-items:center;padding:1.5rem;text-align:center;font-family:var(--font-display);font-weight:800;font-size:clamp(1.8rem,5vw,3rem);letter-spacing:-0.05em;line-height:1;color:rgba(255,255,255,0.94);text-shadow:0 6px 30px rgba(0,0,0,0.4);}
+.cover-art img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s;}
+.cover-art:hover img{transform:scale(1.03);}
+.stats-row.three{grid-template-columns:repeat(3,minmax(0,1fr));}
+.cards-more{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem;margin-top:1.5rem;}
+.more-link{display:flex;flex-direction:column;gap:0.3rem;padding:1.1rem 1.2rem;border:1px solid var(--border);border-radius:var(--radius-sm);background:var(--surface);transition:border-color 0.2s,transform 0.2s,background 0.2s;}
+.more-link:hover{border-color:var(--green-border);background:var(--green-soft);transform:translateY(-3px);}
+.more-link strong{font-family:var(--font-display);font-size:1rem;letter-spacing:-0.03em;color:var(--text);}
+.more-link span{font-size:0.78rem;color:var(--muted);}
+@media(max-width:960px){.cards-more{grid-template-columns:repeat(2,minmax(0,1fr));}}
+@media(max-width:600px){.stats-row.three{grid-template-columns:1fr;}.cards-more{grid-template-columns:1fr;}}
+</style>
 </head>
 <body>
 
@@ -439,7 +452,7 @@ body.nav-open { overflow: hidden; }
   <ul class="nav-links" id="navLinks">
     <li><a href="/#about">About</a></li>
     <li><a href="/#skills">Skills</a></li>
-    <li><a href="/#projects">Projects</a></li>
+    <li><a href="/projects">Projects</a></li>
     <li><a href="/#experience">Experience</a></li>
     <li><a href="/#contact" class="nav-cta">Contact</a></li>
   </ul>
@@ -463,7 +476,7 @@ body.nav-open { overflow: hidden; }
       <a href="/#about">About <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
       <a href="/#skills">Skills <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
       <a href="/#tools">Tools <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
-      <a href="projects">Projects <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
+      <a href="/projects">Projects <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
       <a href="/#services">Services <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
       <a href="/#experience">Experience <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
       <a href="certificates">Certificates <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
@@ -616,6 +629,15 @@ body.nav-open { overflow: hidden; }
         <p class="tool-desc">Assembled all generated scenes, synced the audio, added warm cinematic grading, title cards and exported the final YouTube music video.</p>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- MORE -->
+<section>
+  <div class="container">
+    <span class="section-label fade-up">// the catalogue</span>
+    <h2 class="fade-up">More from Kofi Nyamekye</h2>
+    <div class="cards-more"><a href="rise-again" class="more-link fade-up"><strong>Rise Again</strong><span>Hiplife / hip-hop</span></a><a href="wo-ne-me" class="more-link fade-up"><strong>Wo Ne Me</strong><span>Ghanapiano</span></a><a href="lomo" class="more-link fade-up"><strong>LOMO — League of My Own</strong><span>Hardcore hip-hop</span></a></div>
   </div>
 </section>
 

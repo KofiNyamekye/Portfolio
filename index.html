@@ -1536,6 +1536,56 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);margin-top
 .cert-pill:hover .cert-pill-issuer{color:var(--green);}
 .certs-cta{display:flex;gap:0.85rem;flex-wrap:wrap;margin-top:1.75rem;}
 </style>
+<style>
+/* ── Anchors land below the fixed nav ── */
+section[id]{scroll-margin-top:6.5rem;}
+
+/* ── Selected work ── */
+.fw-cats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.1rem;margin-top:2.2rem;}
+.fw-cat{position:relative;display:flex;flex-direction:column;padding:1.5rem;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow-soft);backdrop-filter:blur(18px);color:var(--text);text-decoration:none;transition:transform .22s ease,border-color .22s ease,background .22s ease;}
+.fw-cat:hover{transform:translateY(-5px);border-color:var(--green-border);background:var(--surface-hover);}
+.fw-cat h3{font-size:1.3rem;display:flex;align-items:center;gap:.6rem;flex-wrap:wrap;}
+.fw-cat p{color:var(--muted);font-size:.92rem;line-height:1.65;margin-top:.55rem;font-weight:300;}
+.fw-cat .skill-tags{margin-top:1rem;}
+.fw-open{display:inline-flex;align-items:center;gap:.4rem;margin-top:auto;padding-top:1.25rem;color:var(--green);font-weight:800;font-size:.85rem;}
+.fw-open svg{transition:transform .2s;}
+.fw-cat:hover .fw-open svg{transform:translate(2px,-2px);}
+.fw-cat-wip{border-style:dashed;}
+.fw-wip{display:inline-flex;align-items:center;gap:.4rem;font-family:var(--font-mono);font-size:.66rem;font-weight:600;letter-spacing:0;padding:.18rem .55rem;border-radius:999px;background:var(--green-soft);border:1px solid var(--green-border);color:var(--green);}
+.fw-releases-head{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-top:3rem;flex-wrap:wrap;}
+.fw-releases-head .section-label{margin-bottom:0;}
+.fw-all{display:inline-flex;align-items:center;gap:.4rem;color:var(--green);font-weight:800;font-size:.85rem;text-decoration:none;}
+.fw-releases{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1.1rem;margin-top:1.25rem;}
+.fw-release{display:block;overflow:hidden;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow-soft);color:var(--text);text-decoration:none;transition:transform .22s ease,border-color .22s ease;}
+.fw-release:hover{transform:translateY(-5px);border-color:var(--green-border);}
+.fw-cover{position:relative;aspect-ratio:16/9;overflow:hidden;background:var(--cover,none),linear-gradient(135deg,var(--c1),var(--c2));background-size:cover;background-position:center;isolation:isolate;}
+.fw-cover::before{content:"";position:absolute;inset:-20px;z-index:0;background:var(--cover,none) center/cover;filter:blur(22px) brightness(.55) saturate(1.2);}
+.fw-cover img{position:relative;z-index:1;width:100%;height:100%;object-fit:contain;display:block;transition:transform .45s ease;}
+.fw-release:hover .fw-cover img{transform:scale(1.05);}
+.fw-cover-label{position:absolute;inset:0;z-index:0;display:grid;place-items:center;padding:1rem;text-align:center;font-family:var(--font-display);font-weight:800;font-size:1.3rem;letter-spacing:-.04em;line-height:1.05;color:rgba(255,255,255,.94);text-shadow:0 4px 24px rgba(0,0,0,.45);}
+.fw-release-body{display:flex;flex-direction:column;gap:.15rem;padding:1rem 1.15rem 1.15rem;}
+.fw-release-body strong{font-family:var(--font-display);font-size:1rem;letter-spacing:-.03em;line-height:1.2;}
+.fw-release-body span{font-size:.78rem;color:var(--muted);}
+
+/* ── Experience timeline ── */
+.xp-intro{position:sticky;top:7rem;}
+.xp-intro .skill-tags{margin-top:1.4rem;}
+.xp-list{list-style:none;position:relative;display:grid;gap:1rem;padding-left:1.75rem;}
+.xp-list::before{content:"";position:absolute;left:.45rem;top:.6rem;bottom:.6rem;width:2px;background:linear-gradient(180deg,var(--green),var(--border) 70%);border-radius:2px;}
+.xp-item{position:relative;padding:1.25rem 1.35rem;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow-soft);backdrop-filter:blur(18px);transition:border-color .22s,transform .22s;}
+.xp-item::before{content:"";position:absolute;left:-1.62rem;top:1.55rem;width:11px;height:11px;border-radius:999px;background:var(--green);box-shadow:0 0 0 5px var(--green-soft);}
+.xp-item:hover{border-color:var(--green-border);transform:translateX(3px);}
+.xp-tag{display:inline-block;font-family:var(--font-mono);font-size:.68rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--green);margin-bottom:.5rem;}
+.xp-item h3{font-size:1.05rem;line-height:1.25;}
+.xp-org{color:var(--text) !important;font-weight:500 !important;margin-top:.2rem !important;font-size:.88rem !important;}
+.xp-item p{color:var(--muted);font-size:.9rem;line-height:1.65;margin-top:.5rem;font-weight:300;}
+.xp-link{color:var(--green);font-weight:800;text-decoration:none;white-space:nowrap;}
+#certifications{padding-bottom:1rem;}
+
+@media(max-width:960px){.fw-cats{grid-template-columns:1fr;}.fw-releases{grid-template-columns:repeat(2,minmax(0,1fr));}.xp-intro{position:static;}}
+@media(max-width:520px){.fw-releases{grid-template-columns:1fr;}.xp-list{padding-left:1.4rem;}.xp-item::before{left:-1.3rem;}}
+@media(prefers-reduced-motion:reduce){.fw-cat,.fw-release,.xp-item{transition:none;}}
+</style>
 </head>
 
 <body>
@@ -1545,8 +1595,8 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);margin-top
     <ul class="nav-links" id="navLinks">
       <li><a href="#about">About</a></li>
       <li><a href="#skills">Skills</a></li>
-      <li><a href="#tools">Tools</a></li>
-      <li><a href="projects">Projects</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
       <li><a href="#services">Services</a></li>
       <li><a href="#blog">Blog</a></li>
       <li><a href="#contact" class="nav-cta">Contact</a></li>
@@ -1573,7 +1623,7 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);margin-top
         <a href="#about">About <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
         <a href="#skills">Skills <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
         <a href="#tools">Tools <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
-        <a href="projects">Projects <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
+        <a href="/projects">Projects <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
         <a href="#services">Services <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
         <a href="#experience">Experience <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
       <a href="certificates">Certificates <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
@@ -1608,7 +1658,7 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);margin-top
             Creative Design.
           </h1>
           <p class="hero-desc">
-            I am Nyamekye Samuel Asamoah, a Graduate Materials Engineer, Certified Safety Professional, Data Analytics Trainee, AI Enthusiast, and Creative Designer based in Kumasi, Ghana.
+            I am Nyamekye Samuel Asamoah, a Graduate Materials Engineer, Certified Safety Professional, Data Analytics Trainee and Creative Director based in Kumasi, Ghana — and, as Kofi Nyamekye, an AI-assisted music artist.
           </p>
           <div class="status-panel">
             <div class="status-title">// system status</div>
@@ -1850,27 +1900,55 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);margin-top
 
 <section id="projects">
   <div class="container">
-    <span class="section-label">// projects</span>
-    <h2>Creative, AI and digital media projects</h2>
-    <p class="muted gallery-intro">
-      Explore my project hub featuring AI music production, AI-powered video ads, campaign designs, advertisements, apparel concepts and AI-assisted web development.
-    </p>
+    <span class="section-label">// selected work</span>
+    <h2>Three ways I build</h2>
+    <p class="muted gallery-intro">AI content, flyers and design, and data work — pick a lane in the project hub, or start with the latest releases below.</p>
 
-    <div class="projects-grid">
-      <a href="projects" class="project-card media-project-card fade-up">
-        <img class="project-thumb" src="hero.png" alt="Projects Hub Preview" loading="lazy">
-        <div class="media-project-body">
-          <i class="ti ti-arrow-up-right project-arrow"></i>
-          <p class="project-type">Project Hub</p>
-          <h3>View All Projects</h3>
-          <p>Open the full project hub to browse my creative collections, AI productions, design campaigns and digital media projects.</p>
-          <div class="skill-tags">
-            <span class="tag">AI Workflows</span>
-            <span class="tag">Creative Direction</span>
-            <span class="tag">Digital Media</span>
-          </div>
-        </div>
+    <div class="fw-cats">
+      <a href="/projects#ai" class="fw-cat fade-up">
+        <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></div>
+        <h3>AI Content</h3>
+        <p>AI music, AI-powered video ads and AI-assisted builds, directed end to end.</p>
+        <div class="skill-tags"><span class="tag">6 projects</span><span class="tag">Music</span><span class="tag">Video</span></div>
+        <span class="fw-open">Open category <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></span>
       </a>
+      <a href="/projects#design" class="fw-cat fade-up">
+        <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg></div>
+        <h3>Flyers &amp; Design</h3>
+        <p>Campaign flyers, advertisements and apparel concepts for brands, courses and events.</p>
+        <div class="skill-tags"><span class="tag">3 collections</span><span class="tag">Canva</span><span class="tag">Branding</span></div>
+        <span class="fw-open">Open category <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></span>
+      </a>
+      <a href="/projects#data" class="fw-cat fw-cat-wip fade-up">
+        <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v6H3v-6zm7-6a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v12h-6V7zm7 3a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v9h-6v-9zM3 20h18"/></svg></div>
+        <h3>Data <span class="fw-wip"><span class="pulse-dot"></span>In progress</span></h3>
+        <p>SQL, Power BI and Python projects are being built now and will be published with their method and findings.</p>
+        <div class="skill-tags"><span class="tag">SQL</span><span class="tag">Power BI</span><span class="tag">Python</span></div>
+        <span class="fw-open">See what is coming <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></span>
+      </a>
+    </div>
+
+    <div class="fw-releases-head fade-up">
+      <span class="section-label">// latest releases</span>
+      <a href="/projects#ai" class="fw-all">All AI content <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
+    </div>
+    <div class="fw-releases">
+        <a href="anthem" class="fw-release fade-up">
+          <div class="fw-cover" style="--cover:url('assets/flyers/Cover_image.png');--c1:#0f3d2a;--c2:#d4af37;"><span class="fw-cover-label">All for One, One for All</span><img src="assets/flyers/Cover_image.png" alt="All for One, One for All cover art" loading="lazy" onerror="this.style.display='none'"></div>
+          <div class="fw-release-body"><strong>All for One, One for All</strong><span>World Cup anthem · Afropop</span></div>
+        </a>
+        <a href="rise-again" class="fw-release fade-up">
+          <div class="fw-cover" style="--cover:url('assets/music/rise-again.jpg');--c1:#3b1d0f;--c2:#e8742a;"><span class="fw-cover-label">Rise Again</span><img src="assets/music/rise-again.jpg" alt="Rise Again cover art" loading="lazy" onerror="this.style.display='none'"></div>
+          <div class="fw-release-body"><strong>Rise Again</strong><span>Hiplife / hip-hop</span></div>
+        </a>
+        <a href="wo-ne-me" class="fw-release fade-up">
+          <div class="fw-cover" style="--cover:url('assets/music/wo-ne-me.jpg');--c1:#0d2a4a;--c2:#f2b134;"><span class="fw-cover-label">Wo Ne Me</span><img src="assets/music/wo-ne-me.jpg" alt="Wo Ne Me cover art" loading="lazy" onerror="this.style.display='none'"></div>
+          <div class="fw-release-body"><strong>Wo Ne Me</strong><span>Ghanapiano</span></div>
+        </a>
+        <a href="lomo" class="fw-release fade-up">
+          <div class="fw-cover" style="--cover:url('assets/music/lomo.jpg');--c1:#1a1a1a;--c2:#ff6a1a;"><span class="fw-cover-label">LOMO — League of My Own</span><img src="assets/music/lomo.jpg" alt="LOMO — League of My Own cover art" loading="lazy" onerror="this.style.display='none'"></div>
+          <div class="fw-release-body"><strong>LOMO — League of My Own</strong><span>Hardcore hip-hop</span></div>
+        </a>
     </div>
   </div>
 </section>
@@ -1952,10 +2030,8 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);margin-top
     </div>
   </section>
 
-  <section id="experience">
+  <section id="certifications">
     <div class="container">
-
-      <!-- CERTIFICATIONS / BADGES -->
       <div class="certs-row fade-up">
         <span class="section-label">// credentials</span>
         <h2>Certifications</h2>
@@ -1971,26 +2047,60 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);margin-top
           <a href="https://www.credly.com/badges/fddce566-7974-4c06-94ab-1a8ea3d26c91" target="_blank" rel="noopener" class="btn btn-secondary">Credly Profile →</a>
         </div>
       </div>
+    </div>
+  </section>
 
-      <div class="grid-2" style="margin-top:3.5rem;">
-        <div class="fade-up">
+  <section id="experience">
+    <div class="container">
+      <div class="grid-2">
+        <div class="fade-up xp-intro">
           <span class="section-label">// experience</span>
           <h2>Proof of progress</h2>
-          <p class="muted">A few highlights from my learning, work and creative journey so far.</p>
-        </div>
-
-        <div class="highlight-box fade-up">
-          <div class="achievement-list">
-            <div class="achievement-item"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Trained 30+ learners as a Microsoft Word Online Tutor at AYEN.</span></div>
-            <div class="achievement-item"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Completed occupational health and safety training based on ISO 45001.</span></div>
-            <div class="achievement-item"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Supported technical field operations at Electricity Company of Ghana by resolving meter issues and validating operational data.</span></div>
-            <div class="achievement-item"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Worked on CodeDevPay Academy course materials for Microsoft Word, Canva, Generative AI and Content Creation with ChatGPT.</span></div>
-            <div class="achievement-item"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Created educational, campaign and design content across LinkedIn, YouTube and Canva-based projects.</span></div>
-            <div class="achievement-item"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Built a growing skill set across engineering, safety, data analytics, AI and creative design.</span></div>
+          <p class="muted">Teaching, field work, creative direction and engineering training — the path that connects data, AI and design.</p>
+          <div class="skill-tags">
+            <span class="tag tag-green">Teaching</span><span class="tag tag-green">Creative Direction</span><span class="tag tag-green">Field Operations</span><span class="tag tag-green">Safety</span>
           </div>
         </div>
-      </div><!-- /grid-2 -->
 
+        <ol class="xp-list">
+          <li class="xp-item fade-up">
+            <span class="xp-tag">Now</span>
+            <h3>Creative Director &amp; AI / Prompt Engineering Tutor</h3>
+            <p class="xp-org">CodeDevPay Academy</p>
+            <p>Course materials for Microsoft Word, Canva, Generative AI and Content Creation with ChatGPT, plus campaign design and technical content. Educational, campaign and design content across LinkedIn, YouTube and Canva-based projects.</p>
+          </li>
+          <li class="xp-item fade-up">
+            <span class="xp-tag">Ongoing</span>
+            <h3>AI Music Artist &amp; Producer</h3>
+            <p class="xp-org">Kofi Nyamekye</p>
+            <p>An independent, AI-assisted music project covering songwriting direction, production, artwork, video and distribution across Audiomack and YouTube. <a class="xp-link" href="/projects#ai">See the catalogue →</a></p>
+          </li>
+          <li class="xp-item fade-up">
+            <span class="xp-tag">Teaching</span>
+            <h3>Microsoft Word Online Tutor</h3>
+            <p class="xp-org">AYEN</p>
+            <p>Trained 30+ learners in Microsoft Word.</p>
+          </li>
+          <li class="xp-item fade-up">
+            <span class="xp-tag">Field</span>
+            <h3>Technical Field Operations</h3>
+            <p class="xp-org">Electricity Company of Ghana</p>
+            <p>Supported technical field operations by resolving meter issues and validating operational data.</p>
+          </li>
+          <li class="xp-item fade-up">
+            <span class="xp-tag">Training</span>
+            <h3>Occupational Health &amp; Safety Management</h3>
+            <p class="xp-org">Imperial College of Mines and Safety</p>
+            <p>Completed occupational health and safety training based on ISO 45001.</p>
+          </li>
+          <li class="xp-item fade-up">
+            <span class="xp-tag">Education</span>
+            <h3>BSc Materials Engineering</h3>
+            <p class="xp-org">Kwame Nkrumah University of Science and Technology</p>
+            <p>Engineering foundation for a career that now spans safety, data analytics, AI and creative design.</p>
+          </li>
+        </ol>
+      </div>
     </div>
   </section>
 
