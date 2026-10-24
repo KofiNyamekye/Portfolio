@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Evemed Diagnostics Website — Case Study | Nyamekye Samuel Asamoah</title>
+<meta name="description" content="A fast, SEO-first website for Evemed Diagnostics, a 24/7 ultrasound clinic in Kumasi, Ghana, with mobile home visits and WhatsApp booking.">
+<meta name="author" content="Nyamekye Samuel Asamoah">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://nsasamoah.vercel.app/evemed" />
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Nyamekye Samuel Asamoah">
+<meta property="og:title" content="Evemed Diagnostics Website — Case Study | Nyamekye Samuel Asamoah">
+<meta property="og:description" content="A fast, SEO-first website for Evemed Diagnostics, a 24/7 ultrasound clinic in Kumasi, Ghana, with mobile home visits and WhatsApp booking.">
+<meta property="og:image" content="https://nsasamoah.vercel.app/image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://nsasamoah.vercel.app/evemed">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Evemed Diagnostics Website — Case Study | Nyamekye Samuel Asamoah">
+<meta name="twitter:description" content="A fast, SEO-first website for Evemed Diagnostics, a 24/7 ultrasound clinic in Kumasi, Ghana, with mobile home visits and WhatsApp booking.">
+<meta name="twitter:image" content="https://nsasamoah.vercel.app/image.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"CreativeWork","name":"Evemed Diagnostics website","url":"https://nsasamoah.vercel.app/evemed","creator":{"@type":"Person","name":"Nyamekye Samuel Asamoah"},"about":"A fast, SEO-first website for Evemed Diagnostics, a 24/7 ultrasound clinic in Kumasi, Ghana, with mobile home visits and WhatsApp booking."}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700;800&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="image.png">
+<style>
+:root {
+  --bg:#070b1f;--bg-soft:#0b1230;--surface:rgba(255,255,255,0.055);
+  --surface-solid:#111936;--surface-hover:rgba(255,255,255,0.085);
+  --text:#f8fbff;--muted:#aab4d6;--green:#24d36b;
+  --green-soft:rgba(36,211,107,0.13);--green-border:rgba(36,211,107,0.28);
+  --border:rgba(255,255,255,0.11);--shadow:0 24px 70px rgba(0,0,0,0.35);
+  --shadow-soft:0 16px 40px rgba(0,0,0,0.22);--radius:24px;--radius-sm:16px;
+  --font-display:"Syne",sans-serif;--font-body:"DM Sans",sans-serif;--font-mono:"JetBrains Mono","SFMono-Regular",Consolas,monospace;
+}
+html[data-theme="light"]{
+  --bg:#f5f7ff;--bg-soft:#edf1ff;--surface:rgba(255,255,255,0.78);
+  --surface-solid:#ffffff;--surface-hover:rgba(255,255,255,0.95);
+  --text:#0f172a;--muted:#53607f;--border:rgba(15,23,42,0.11);
+  --shadow:0 24px 60px rgba(15,23,42,0.13);--shadow-soft:0 16px 34px rgba(15,23,42,0.1);
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;width:100%;overflow-x:hidden;}
+body{
+  width:100%;overflow-x:hidden;font-family:var(--font-body);
+  background:radial-gradient(circle at 8% 8%,rgba(36,211,107,0.10),transparent 28%),
+    radial-gradient(circle at 78% 8%,rgba(96,165,250,0.07),transparent 26%),
+    radial-gradient(circle at 50% 90%,rgba(36,211,107,0.05),transparent 34%),var(--bg);
+  --light-gradient-top: linear-gradient(180deg,rgba(36,211,107,0.04) 0%,transparent 40%);
+  color:var(--text);line-height:1.7;transition:background 0.3s,color 0.3s;
+}
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:linear-gradient(rgba(255,255,255,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.025) 1px,transparent 1px);
+  background-size:72px 72px;mask-image:linear-gradient(to bottom,rgba(0,0,0,0.65),transparent 75%);
+}
+a{color:inherit;text-decoration:none;}
+img{max-width:100%;}
+nav{
+  position:fixed;top:1rem;left:50%;transform:translateX(-50%);
+  width:min(1120px,calc(100% - 2rem));z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0.75rem 0.85rem 0.75rem 1.1rem;border:1px solid var(--border);border-radius:999px;
+  background:rgba(7,11,31,0.72);backdrop-filter:blur(22px);box-shadow:var(--shadow-soft);
+}
+
+html[data-theme="light"] body{background:radial-gradient(circle at 12% 0%,rgba(36,211,107,0.05),transparent 35%),radial-gradient(circle at 80% 5%,rgba(96,165,250,0.04),transparent 30%),var(--bg);}
+html[data-theme="light"] nav{background:rgba(255,255,255,0.76);}
+.logo{font-family:var(--font-display);font-size:1.08rem;font-weight:800;letter-spacing:-0.04em;white-space:nowrap;}
+.logo span{color:var(--green);}
+.nav-links{display:flex;align-items:center;gap:0.95rem;list-style:none;}
+.nav-links a{color:var(--muted);font-size:0.82rem;font-weight:600;transition:color 0.2s,background 0.2s;padding:0.45rem 0.55rem;border-radius:999px;}
+.nav-links a:hover{color:var(--text);background:rgba(255,255,255,0.06);}
+.nav-cta{color:#071128 !important;background:var(--green) !important;padding:0.55rem 0.95rem !important;font-weight:800 !important;}
+.nav-actions{display:flex;align-items:center;gap:0.45rem;flex-shrink:0;}
+.theme-toggle,.menu-toggle{
+  display:grid;place-items:center;width:42px;height:42px;border:1px solid var(--border);
+  border-radius:999px;background:rgba(255,255,255,0.06);color:var(--text);
+  font-size:1.1rem;cursor:pointer;transition:transform 0.2s,background 0.2s;
+}
+.theme-toggle:hover,.menu-toggle:hover{transform:translateY(-1px);background:var(--surface-hover);}
+.menu-toggle{display:none;}
+.container{width:min(1120px,calc(100% - 2rem));margin:0 auto;}
+.back-link{display:inline-flex;align-items:center;gap:0.45rem;color:var(--green);font-weight:800;font-size:0.9rem;margin-bottom:1.25rem;transition:gap 0.2s;}
+.back-link:hover{gap:0.65rem;}
+.section-label{display:inline-flex;align-items:center;gap:0.5rem;color:var(--green);font-size:0.72rem;font-weight:900;letter-spacing:0.16em;text-transform:uppercase;margin-bottom:1rem;}
+.section-label::before{content:"";width:7px;height:7px;border-radius:999px;background:var(--green);box-shadow:0 0 0 7px var(--green-soft);flex-shrink:0;}
+h1,h2,h3,h4{font-family:var(--font-display);line-height:1.06;letter-spacing:-0.045em;}
+h1{font-size:clamp(2.4rem,6vw,4.2rem);margin:1rem 0 1.25rem;}
+h2{font-size:clamp(1.7rem,3.5vw,2.6rem);margin-bottom:1rem;}
+h3{font-size:1.18rem;letter-spacing:-0.03em;}
+p{color:var(--muted);}
+.green{color:var(--green);}
+.muted{color:var(--muted);font-weight:300;}
+.page-hero{position:relative;z-index:1;padding-top:9rem;padding-bottom:2rem;}
+.hero-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:3rem;align-items:center;margin-top:1.5rem;}
+.hero-desc{color:var(--muted);max-width:580px;font-size:1.05rem;font-weight:300;line-height:1.8;}
+.meta-row{display:flex;flex-wrap:wrap;gap:0.6rem;margin:1.5rem 0;}
+.meta-pill{display:inline-flex;align-items:center;gap:0.4rem;background:var(--surface);border:1px solid var(--border);padding:0.55rem 0.9rem;border-radius:999px;font-size:0.82rem;color:var(--text);}
+.btn-row{display:flex;gap:0.9rem;flex-wrap:wrap;margin-top:1.75rem;}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:0.5rem;border-radius:999px;padding:0.85rem 1.4rem;font-weight:800;font-size:0.9rem;transition:transform 0.2s,background 0.2s;cursor:pointer;border:none;}
+.btn:hover{transform:translateY(-2px);}
+.btn-primary{background:var(--green);color:#071128;box-shadow:0 14px 30px rgba(36,211,107,0.22);}
+.btn-secondary{border:1px solid var(--border);color:var(--text);background:var(--surface);backdrop-filter:blur(14px);}
+.btn-youtube{background:#ff0000;color:#fff;}
+.btn-audiomack{background:#f59300;color:#071128;}
+.hero-image-wrap{position:relative;}
+.hero-img{width:100%;aspect-ratio:1/1;object-fit:contain;background:transparent;border-radius:var(--radius);border:1px solid var(--border);box-shadow:var(--shadow);display:block;transition:transform 0.5s;}
+.hero-img:hover{transform:scale(1.02);}
+section{position:relative;z-index:1;padding:2.5rem 0;}
+.tools-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin-top:1.5rem;}
+.tool-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;transition:border-color 0.25s,transform 0.25s,background 0.25s;}
+.tool-card:hover{border-color:var(--green-border);background:var(--surface-hover);transform:translateY(-3px);}
+.tool-card-header{display:flex;align-items:center;gap:0.75rem;margin-bottom:0.65rem;}
+.tool-icon{width:40px;height:40px;border-radius:12px;background:var(--green-soft);border:1px solid var(--green-border);display:grid;place-items:center;color:var(--green);font-size:1.1rem;flex-shrink:0;}
+.tool-name{font-family:var(--font-display);font-size:1rem;font-weight:700;letter-spacing:-0.03em;color:var(--text);}
+.tool-role{font-size:0.72rem;font-weight:900;text-transform:uppercase;letter-spacing:0.12em;color:var(--green);margin-bottom:0.5rem;}
+.tool-desc{font-size:0.9rem;color:var(--muted);line-height:1.65;}
+.overview-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:2rem;margin-top:1.5rem;border-left:3px solid var(--green);}
+.overview-card p{color:var(--muted);font-size:1rem;line-height:1.8;}
+.stats-row{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem;margin-top:1.5rem;}
+.stat-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm);padding:1.75rem 1.25rem;text-align:center;transition:border-color 0.25s,transform 0.25s;}
+.stat-card:hover{border-color:var(--green-border);transform:translateY(-3px);}
+.stat-value{font-family:"Syne",sans-serif;font-size:clamp(2rem,4vw,2.8rem);font-weight:800;color:var(--green);letter-spacing:-0.05em;line-height:1;margin-bottom:0.5rem;}
+.stat-label{font-size:0.75rem;color:var(--muted);font-weight:500;text-transform:uppercase;letter-spacing:0.08em;}
+
+/* STREAMING PLATFORMS */
+.platforms-row{display:flex;flex-wrap:wrap;gap:0.6rem;margin-top:1.25rem;}
+.platform-badge{
+  display:inline-flex;align-items:center;gap:0.45rem;
+  background:var(--surface);border:1px solid var(--border);
+  padding:0.55rem 1rem;border-radius:999px;font-size:0.82rem;font-weight:700;
+  color:var(--text);transition:border-color 0.2s,background 0.2s;
+}
+.platform-badge:hover{border-color:var(--green-border);background:var(--surface-hover);}
+.platform-badge i{color:var(--green);}
+.platform-badge a, a.platform-badge{cursor:pointer;}
+.platform-soon{opacity:0.55;cursor:default;}
+.platform-soon:hover{border-color:var(--border);background:var(--surface);transform:none;}
+
+
+.fade-up{opacity:0;transform:translateY(24px);transition:opacity 0.55s ease,transform 0.55s ease;}
+.fade-up.visible{opacity:1;transform:none;}
+
+@media(max-width:820px){
+  nav{top:0.75rem;border-radius:28px;padding:0.75rem;}
+  .menu-toggle{display:grid;}
+  .logo{max-width:52vw;overflow:hidden;text-overflow:ellipsis;}
+  .nav-links{display:none;position:absolute;top:calc(100% + 0.65rem);left:0;right:0;flex-direction:column;align-items:stretch;gap:0.35rem;padding:0.75rem;border:1px solid var(--border);border-radius:22px;background:rgba(7,11,31,0.94);backdrop-filter:blur(20px);box-shadow:var(--shadow-soft);}
+  html[data-theme="light"] .nav-links{background:rgba(255,255,255,0.96);}
+  .nav-links.open{display:flex;}
+  .nav-links a{display:block;padding:0.8rem 0.9rem;font-size:0.92rem;}
+  .page-hero{padding-top:8rem;}
+  .hero-grid{grid-template-columns:1fr;gap:2rem;}
+  .tools-grid{grid-template-columns:1fr;}
+  .stats-row{grid-template-columns:repeat(2,minmax(0,1fr));}
+}
+@media(max-width:560px){
+  h1{font-size:clamp(2rem,11vw,2.8rem);}
+  h2{font-size:clamp(1.5rem,8vw,2rem);}
+  .btn-row{flex-direction:column;}
+  .btn{justify-content:center;}
+}
+
+    /* Pulsing availability dot */
+    .pulse-dot{width:8px;height:8px;border-radius:50%;background:var(--green);display:inline-block;flex-shrink:0;animation:pulse-ring 1.8s ease-out infinite;}
+    @keyframes pulse-ring{0%{box-shadow:0 0 0 0 rgba(36,211,107,0.7);}70%{box-shadow:0 0 0 8px rgba(36,211,107,0);}100%{box-shadow:0 0 0 0 rgba(36,211,107,0);}}
+
+    /* Tool card hover glow */
+    .tool-card{position:relative;overflow:hidden;}
+    .tool-card::before{content:"";position:absolute;inset:0;border-radius:inherit;background:radial-gradient(circle at 50% 0%,rgba(36,211,107,0.08),transparent 65%);opacity:0;transition:opacity 0.35s;}
+    .tool-card:hover::before{opacity:1;}
+    .tool-icon{transition:transform 0.3s,background 0.3s,box-shadow 0.3s;}
+    .tool-card:hover .tool-icon{transform:scale(1.12) rotate(-4deg);background:rgba(36,211,107,0.22);box-shadow:0 0 0 8px rgba(36,211,107,0.1);}
+    .tool-name{transition:color 0.2s;}
+    .tool-card:hover .tool-name{color:var(--green);}
+
+    /* Typewriter cursor */
+    .typewriter-cursor{display:inline-block;width:3px;height:0.9em;background:var(--green);margin-left:2px;vertical-align:middle;border-radius:2px;animation:blink 1s step-end infinite;}
+    @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+
+    /* Stat card hover */
+    .stat-card{transition:border-color 0.25s,transform 0.25s,box-shadow 0.25s;}
+    .stat-card:hover{border-color:var(--green-border);transform:translateY(-4px);box-shadow:0 16px 40px rgba(36,211,107,0.1);}
+
+    /* Platform badge hover */
+    a.platform-badge{transition:border-color 0.2s,background 0.2s,transform 0.2s,color 0.2s;}
+    a.platform-badge:hover{border-color:var(--green-border);background:var(--green-soft);color:var(--green);transform:translateY(-2px);}
+
+    /* Project card arrow */
+    .card-arrow{transition:opacity 0.22s,transform 0.22s,background 0.22s;}
+    .project-card:hover .card-arrow{opacity:1;transform:scale(1) rotate(0deg);}
+
+
+.page-breadcrumb{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin-bottom:1.75rem;}
+.page-breadcrumb .back-link{margin-bottom:0;}
+.page-breadcrumb .section-label{margin-bottom:0;}
+.page-breadcrumb .sep{width:1px;height:14px;background:var(--border);flex-shrink:0;}
+
+
+/* ── STAGGERED ANIMATIONS ── */
+.fade-up{opacity:0;transform:translateY(28px);transition:opacity 0.6s cubic-bezier(.22,1,.36,1),transform 0.6s cubic-bezier(.22,1,.36,1);}
+.fade-up.visible{opacity:1;transform:none;}
+.fade-left{opacity:0;transform:translateX(-28px);transition:opacity 0.6s cubic-bezier(.22,1,.36,1),transform 0.6s cubic-bezier(.22,1,.36,1);}
+.fade-left.visible{opacity:1;transform:none;}
+.fade-right{opacity:0;transform:translateX(28px);transition:opacity 0.6s cubic-bezier(.22,1,.36,1),transform 0.6s cubic-bezier(.22,1,.36,1);}
+.fade-right.visible{opacity:1;transform:none;}
+.stagger-1{transition-delay:0.08s;}
+.stagger-2{transition-delay:0.16s;}
+.stagger-3{transition-delay:0.24s;}
+.stagger-4{transition-delay:0.32s;}
+/* Nav entrance */
+nav{animation:nav-drop 0.55s cubic-bezier(.22,1,.36,1) both;}
+@keyframes nav-drop{from{opacity:0;transform:translateX(-50%) translateY(-18px);}to{opacity:1;transform:translateX(-50%) translateY(0);}}
+/* Page hero h1 slide */
+.page-hero h1{animation:hero-rise 0.7s 0.15s cubic-bezier(.22,1,.36,1) both;}
+@keyframes hero-rise{from{opacity:0;transform:translateY(32px);}to{opacity:1;transform:none;}}
+/* Image entrance */
+.hero-img{animation:img-reveal 0.8s 0.25s cubic-bezier(.22,1,.36,1) both;}
+@keyframes img-reveal{from{opacity:0;transform:scale(0.96) translateY(16px);}to{opacity:1;transform:none;}}
+/* Stat cards pop */
+.stat-card{animation:none;}
+.stat-card.visible{animation:stat-pop 0.5s cubic-bezier(.34,1.56,.64,1) both;}
+@keyframes stat-pop{from{opacity:0;transform:scale(0.88);}to{opacity:1;transform:scale(1);}}
+/* Tool card entrance */
+.tool-card{opacity:0;transform:translateY(20px);transition:opacity 0.5s cubic-bezier(.22,1,.36,1),transform 0.5s cubic-bezier(.22,1,.36,1),border-color 0.25s,background 0.25s;}
+.tool-card.visible{opacity:1;transform:none;}
+/* Design card entrance */
+.design-card{opacity:0;transform:translateY(16px) scale(0.97);transition:opacity 0.45s cubic-bezier(.22,1,.36,1),transform 0.45s cubic-bezier(.22,1,.36,1),border-color 0.25s,box-shadow 0.3s;}
+.design-card.visible{opacity:1;transform:none;}
+/* Project card entrance */
+.project-card{opacity:0;transform:translateY(20px);transition:opacity 0.55s cubic-bezier(.22,1,.36,1),transform 0.55s cubic-bezier(.22,1,.36,1),border-color 0.28s,box-shadow 0.28s;}
+.project-card.visible{opacity:1;transform:none;}
+.project-card:hover{transform:translateY(-5px) !important;}
+
+
+/* ── FOOTER ── */
+footer{position:relative;z-index:1;border-top:1px solid var(--border);margin-top:4rem;padding:1.25rem 0;}
+.footer-line{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;}
+.footer-copy{font-size:0.8rem;color:var(--muted);white-space:nowrap;}
+.footer-copy span{color:var(--green);}
+.footer-socials{display:flex;align-items:center;gap:0.35rem;flex-shrink:0;}
+.footer-socials a{display:inline-flex;align-items:center;gap:0.38rem;font-size:0.78rem;font-weight:600;color:var(--muted);padding:0.4rem 0.75rem;border-radius:999px;border:1px solid var(--border);transition:color 0.2s,border-color 0.2s,background 0.2s,transform 0.2s;}
+.footer-socials a:hover{color:var(--green);border-color:var(--green-border);background:var(--green-soft);transform:translateY(-1px);}
+@media(max-width:780px){
+  .footer-line{flex-direction:column;align-items:flex-start;gap:1rem;}
+  .footer-copy{white-space:normal;}
+  .footer-socials{flex-wrap:wrap;gap:0.4rem;}
+}
+
+</style>
+<style>
+/* ── SYSTEM NAVIGATION OVERLAY (site-wide) ── */
+.section-label { font-family: var(--font-mono); }
+
+.nav-sys-toggle {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: rgba(255,255,255,0.06);
+  color: var(--text);
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+.nav-sys-toggle:hover { transform: translateY(-1px); background: var(--green-soft); color: var(--green); }
+
+.nav-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: grid;
+  place-items: center;
+  padding: 1.5rem;
+  background: rgba(5, 8, 20, 0.72);
+  backdrop-filter: blur(10px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+html[data-theme="light"] .nav-overlay { background: rgba(245, 247, 255, 0.82); }
+.nav-overlay.open { opacity: 1; visibility: visible; }
+
+.nav-overlay-panel {
+  width: min(640px, 100%);
+  max-height: 88vh;
+  overflow-y: auto;
+  border: 1px solid var(--border);
+  border-radius: 28px;
+  background: var(--surface-solid);
+  box-shadow: var(--shadow);
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  transform: translateY(18px) scale(0.98);
+  transition: transform 0.3s cubic-bezier(.22,1,.36,1);
+}
+.nav-overlay.open .nav-overlay-panel { transform: none; }
+
+.nav-overlay-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.4rem;
+}
+.nav-overlay-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--green);
+  font-weight: 600;
+}
+.nav-overlay-close {
+  display: grid;
+  place-items: center;
+  width: 38px; height: 38px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+.nav-overlay-close:hover { transform: rotate(90deg); background: var(--green-soft); color: var(--green); }
+
+.nav-overlay-panel h2 {
+  font-size: clamp(1.6rem, 4vw, 2.1rem);
+  margin-bottom: 0.4rem;
+}
+.nav-overlay-panel > p.muted { margin-bottom: 1.5rem; }
+
+.overlay-links {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.6rem;
+  margin-bottom: 1.75rem;
+}
+.overlay-links a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 0.9rem 1.05rem;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--surface);
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+.overlay-links a svg { color: var(--muted); transition: transform 0.2s ease, color 0.2s ease; flex-shrink: 0; }
+.overlay-links a:hover {
+  border-color: var(--green-border);
+  background: var(--green-soft);
+  color: var(--green);
+  transform: translateY(-2px);
+}
+.overlay-links a:hover svg { color: var(--green); transform: translate(2px,-2px); }
+
+.nav-overlay-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding-top: 1.4rem;
+  border-top: 1px solid var(--border);
+}
+.overlay-connect-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.6rem;
+  display: block;
+}
+.overlay-socials { display: flex; gap: 0.5rem; }
+.overlay-socials a {
+  width: 38px; height: 38px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  display: grid;
+  place-items: center;
+  color: var(--muted);
+  transition: color 0.2s, border-color 0.2s, background 0.2s, transform 0.2s;
+}
+.overlay-socials a:hover {
+  color: var(--green);
+  border-color: var(--green-border);
+  background: var(--green-soft);
+  transform: translateY(-2px);
+}
+
+body.nav-open { overflow: hidden; }
+
+@media (max-width: 560px) {
+  .overlay-links { grid-template-columns: 1fr; }
+  .nav-overlay-footer { flex-direction: column; align-items: flex-start; }
+}
+@media (max-width: 520px) {
+  .nav-sys-toggle { width: 43px; height: 43px; }
+}
+</style>
+<style>
+.cover-art{position:relative;aspect-ratio:16/9;border-radius:var(--radius);border:1px solid var(--border);box-shadow:var(--shadow);overflow:hidden;background:linear-gradient(135deg,var(--c1),var(--c2));display:grid;place-items:center;}
+.cover-art .cover-ph{position:absolute;inset:0;display:grid;place-items:center;padding:1.5rem;text-align:center;font-family:var(--font-display);font-weight:800;font-size:clamp(1.8rem,5vw,3rem);letter-spacing:-0.05em;line-height:1;color:rgba(255,255,255,0.94);text-shadow:0 6px 30px rgba(0,0,0,0.4);}
+.cover-art img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s;}
+.cover-art:hover img{transform:scale(1.03);}
+.stats-row.three{grid-template-columns:repeat(3,minmax(0,1fr));}
+.cards-more{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem;margin-top:1.5rem;}
+.more-link{display:flex;flex-direction:column;gap:0.3rem;padding:1.1rem 1.2rem;border:1px solid var(--border);border-radius:var(--radius-sm);background:var(--surface);transition:border-color 0.2s,transform 0.2s,background 0.2s;}
+.more-link:hover{border-color:var(--green-border);background:var(--green-soft);transform:translateY(-3px);}
+.more-link strong{font-family:var(--font-display);font-size:1rem;letter-spacing:-0.03em;color:var(--text);}
+.more-link span{font-size:0.78rem;color:var(--muted);}
+@media(max-width:960px){.cards-more{grid-template-columns:repeat(2,minmax(0,1fr));}}
+@media(max-width:600px){.stats-row.three{grid-template-columns:1fr;}.cards-more{grid-template-columns:1fr;}}
+</style>
+<style>
+/* ── LIQUID GLASS ── */
+.glass{position:relative;isolation:isolate;overflow:hidden;
+  background:linear-gradient(135deg,rgba(255,255,255,0.13),rgba(255,255,255,0.035));
+  -webkit-backdrop-filter:blur(22px) saturate(1.7);backdrop-filter:blur(22px) saturate(1.7);
+  border:1px solid rgba(255,255,255,0.18);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,0.38),inset 0 -1px 0 rgba(255,255,255,0.05),inset 0 0 28px rgba(255,255,255,0.03),0 24px 60px rgba(0,0,0,0.32);}
+.glass::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:0;transition:opacity 0.3s;
+  background:radial-gradient(420px circle at var(--mx,30%) var(--my,0%),rgba(255,255,255,0.2),transparent 55%);}
+.glass:hover::after{opacity:1;}
+html[data-theme="light"] .glass{background:linear-gradient(135deg,rgba(255,255,255,0.82),rgba(255,255,255,0.5));
+  border-color:rgba(255,255,255,0.9);box-shadow:inset 0 1px 0 #fff,0 18px 50px rgba(30,45,90,0.14);}
+html[data-theme="light"] .glass::after{background:radial-gradient(420px circle at var(--mx,30%) var(--my,0%),rgba(36,211,107,0.14),transparent 55%);}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){
+  .glass{background:var(--surface-solid);}
+  html[data-theme="light"] .glass{background:#fff;}}
+
+/* ── AMBIENT ORBS (give the glass something to refract) ── */
+.orbs{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;}
+.orb{position:absolute;border-radius:50%;filter:blur(70px);opacity:0.5;animation:drift 22s ease-in-out infinite alternate;}
+.orb.o1{width:420px;height:420px;background:#24d36b;top:-8%;left:-6%;opacity:0.28;}
+.orb.o2{width:520px;height:520px;background:#3b6df0;top:18%;right:-12%;animation-delay:-7s;}
+.orb.o3{width:380px;height:380px;background:#d4af37;bottom:-10%;left:30%;opacity:0.18;animation-delay:-13s;}
+html[data-theme="light"] .orb{opacity:0.22;}
+@keyframes drift{to{transform:translate3d(40px,30px,0) scale(1.12);}}
+@media (prefers-reduced-motion:reduce){.orb{animation:none;}}
+
+/* ── SITE PREVIEW FRAME (browser mock; real screenshot drops in via the <img>) ── */
+.sp{position:relative;width:100%;height:100%;min-height:170px;border-radius:inherit;overflow:hidden;background:linear-gradient(135deg,var(--c1,#111936),var(--c2,#24d36b));}
+.sp-bar{position:absolute;top:10px;left:10px;right:10px;z-index:3;display:flex;align-items:center;gap:0.4rem;padding:0.4rem 0.7rem;border-radius:999px;
+  background:rgba(255,255,255,0.14);border:1px solid rgba(255,255,255,0.22);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
+  font-family:var(--font-mono);font-size:0.68rem;color:rgba(255,255,255,0.92);}
+.sp-bar i{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,0.55);display:block;flex-shrink:0;}
+.sp-bar span{margin-left:0.4rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.sp img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;z-index:2;display:block;}
+.sp-mock{position:absolute;inset:0;z-index:1;display:flex;flex-direction:column;justify-content:center;padding:3.4rem 1.6rem 1.4rem;color:#fff;}
+.sp-mock b{font-family:var(--font-display);font-size:clamp(1.3rem,3vw,2rem);letter-spacing:-0.05em;line-height:1.05;text-shadow:0 4px 24px rgba(0,0,0,0.35);max-width:15ch;}
+.sp-mock em{font-style:normal;font-size:0.78rem;opacity:0.85;margin-top:0.55rem;max-width:30ch;}
+.sp-mock .sp-btn{margin-top:0.9rem;align-self:flex-start;padding:0.4rem 0.9rem;border-radius:999px;background:rgba(255,255,255,0.92);color:#0b1230;font-weight:800;font-size:0.72rem;}
+.sp-frame{aspect-ratio:16/10;border-radius:var(--radius);border:1px solid var(--border);box-shadow:var(--shadow);overflow:hidden;}
+
+/* ── SITEMAP FOOTER ── */
+.footer-map{display:grid;grid-template-columns:1.3fr repeat(3,1fr);gap:2rem;padding-bottom:2rem;margin-bottom:1.5rem;border-bottom:1px solid var(--border);}
+.footer-map h4{font-family:var(--font-mono);font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--green);margin-bottom:0.8rem;font-weight:600;}
+.footer-map a{display:block;color:var(--muted);font-size:0.9rem;padding:0.22rem 0;transition:color 0.2s;}
+.footer-map a:hover{color:var(--text);}
+.footer-map p{color:var(--muted);font-size:0.9rem;max-width:30ch;font-weight:300;}
+@media(max-width:800px){.footer-map{grid-template-columns:1fr 1fr;}}
+@media(max-width:480px){.footer-map{grid-template-columns:1fr;}}
+</style>
+<style>
+.case-hero-media{position:relative;}
+.case-hero-media .sp-frame{aspect-ratio:16/10;}
+.swatches{display:flex;gap:0.8rem;flex-wrap:wrap;margin-top:1.2rem;}
+.swatch{display:flex;align-items:center;gap:0.6rem;padding:0.5rem 0.9rem 0.5rem 0.5rem;border-radius:999px;font-family:var(--font-mono);font-size:0.76rem;}
+.swatch i{width:28px;height:28px;border-radius:50%;border:1px solid rgba(255,255,255,0.3);display:block;}
+.cols-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin-top:1.5rem;}
+.cols-3 .tool-card h3{font-family:var(--font-display);letter-spacing:-0.03em;font-size:1.05rem;margin-bottom:0.4rem;}
+.cols-3 .tool-card p{font-size:0.9rem;color:var(--muted);line-height:1.7;font-weight:300;}
+.steps-line{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem;margin-top:1.5rem;}
+.steps-line.three{grid-template-columns:repeat(3,minmax(0,1fr));}
+.step{border-radius:var(--radius-sm);padding:1.3rem;}
+.step b{font-family:var(--font-mono);color:var(--green);font-size:0.78rem;display:block;margin-bottom:0.4rem;}
+.step span{font-size:0.9rem;color:var(--muted);line-height:1.6;}
+.note-card{margin-top:1.5rem;border-radius:var(--radius-sm);padding:1.1rem 1.3rem;font-size:0.84rem;color:var(--muted);font-family:var(--font-mono);}
+@media(max-width:900px){.cols-3,.steps-line,.steps-line.three{grid-template-columns:1fr;}}
+</style>
+<style>
+/* ── SITE-WIDE GLASS CONSISTENCY (applies the same material to every existing card) ── */
+section,footer{position:relative;z-index:1;}
+.card,.fw-cat,.blog-card,.highlight-box,.status-panel,.floating-card,.stat,.project-card,.tool-card,.stat-card,.overview-card,.more-link,.contact-link,.design-card,.flyer-card,.mini-feature,.featured-media,.xp-item,.meta-pill,.platform-badge,.tool-pill,.meanwhile-link,.data-meanwhile,.hero-tag,.image-card,.cert-card,.certificate-card,.step-card,.faq-item,.lane,form{
+  -webkit-backdrop-filter:blur(18px) saturate(1.5);backdrop-filter:blur(18px) saturate(1.5);
+  background-image:linear-gradient(135deg,rgba(255,255,255,0.075),rgba(255,255,255,0) 60%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,0.16),var(--shadow-soft);}
+html[data-theme="light"] :is(.card,.fw-cat,.blog-card,.highlight-box,.status-panel,.floating-card,.stat,.project-card,.tool-card,.stat-card,.overview-card,.more-link,.contact-link,.design-card,.flyer-card,.mini-feature,.featured-media,.xp-item,.meta-pill,.platform-badge,.tool-pill,.meanwhile-link,.data-meanwhile,.hero-tag,.image-card,.cert-card,.certificate-card,.step-card,.faq-item,.lane,form){
+  background-image:linear-gradient(135deg,rgba(255,255,255,0.9),rgba(255,255,255,0.4));box-shadow:inset 0 1px 0 #fff,var(--shadow-soft);}
+nav{-webkit-backdrop-filter:blur(22px) saturate(1.7);backdrop-filter:blur(22px) saturate(1.7);}
+.fw-cats{grid-template-columns:repeat(auto-fit,minmax(240px,1fr)) !important;}
+.term{font-family:var(--font-mono);font-size:0.82rem;line-height:2;color:var(--muted);margin-top:1rem;}
+.term strong{color:var(--green);font-weight:600;}
+.hl-links{display:flex;flex-direction:column;gap:0.5rem;margin-top:1rem;}
+.hl-links a{text-decoration:none;display:flex;justify-content:space-between;gap:1rem;padding:0.65rem 0.9rem;border-radius:12px;border:1px solid var(--border);color:var(--text);font-weight:700;font-size:0.86rem;transition:border-color 0.2s,transform 0.2s;}
+.hl-links a:hover{border-color:var(--green-border);transform:translateX(4px);}
+.hl-links span{color:var(--muted);font-weight:400;font-size:0.74rem;}
+</style>
+</head>
+<body>
+<div class="orbs" aria-hidden="true"><span class="orb o1"></span><span class="orb o2"></span><span class="orb o3"></span></div>
+<nav>
+  <a href="/#hero" class="logo">Nyamekye<span>.</span></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="/#about">About</a></li>
+    <li><a href="/#skills">Skills</a></li>
+    <li><a href="/projects">Projects</a></li>
+    <li><a href="/#experience">Experience</a></li>
+    <li><a href="/#contact" class="nav-cta">Contact</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="nav-sys-toggle" id="navSysToggle" aria-label="Open system navigation" aria-expanded="false" aria-controls="navOverlay"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></button>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2"/></svg></button>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h7"/></svg></button>
+  </div>
+</nav>
+
+<div class="nav-overlay" id="navOverlay" aria-hidden="true">
+  <div class="nav-overlay-panel">
+    <div class="nav-overlay-head">
+      <span class="nav-overlay-eyebrow">// system navigation</span>
+      <button class="nav-overlay-close" id="navOverlayClose" aria-label="Close navigation"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+    </div>
+    <h2>Explore the site</h2>
+    <p class="muted">Work, skills, projects and every way to reach me — all in one place.</p>
+    <nav class="overlay-links" aria-label="All pages">
+      <a href="/">Home <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
+      <a href="/#about">About <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
+      <a href="/#skills">Skills <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
+      <a href="/#tools">Tools <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
+      <a href="/projects">Projects <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
+      <a href="/#services">Services <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
+      <a href="/#experience">Experience <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
+      <a href="certificates">Certificates <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
+      <a href="/#blog">Blog <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
+      <a href="/#contact">Contact <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
+    </nav>
+    <div class="nav-overlay-footer">
+      <div>
+        <span class="overlay-connect-label">// connect</span>
+        <div class="overlay-socials">
+          <a href="https://linkedin.com/in/asanyamekye" target="_blank" rel="noopener" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></a>
+          <a href="https://github.com/KofiNyamekye" target="_blank" rel="noopener" aria-label="GitHub"><svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></a>
+          <a href="https://audiomack.com/asanyamekye" target="_blank" rel="noopener" aria-label="Audiomack"><svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></a>
+          <a href="https://www.youtube.com/@asa_nyamekye" target="_blank" rel="noopener" aria-label="YouTube"><svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8a4 4 0 0 1 4-4h12a4 4 0 0 1 4 4v8a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><path d="m10 15 5-3-5-3v6z"/></svg></a>
+        </div>
+      </div>
+      <a href="mailto:asanyamekye@gmail.com" class="btn btn-primary">Email Me →</a>
+    </div>
+  </div>
+</div>
+
+
+
+
+<section class="page-hero">
+  <div class="container">
+    <div class="page-breadcrumb"><a href="projects#web" class="back-link"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7M5 12h14"/></svg> Back to projects</a></div>
+    <div class="hero-grid">
+      <div>
+        <h1 class="fade-up">Evemed<br><span class="green">Diagnostics</span></h1>
+        <p class="hero-desc fade-up">A multi-page, search-friendly website for a 24/7 ultrasound clinic in Kumasi. It explains each scan clearly, shows the mobile home-visit service, and turns every visit into a WhatsApp booking.</p>
+        <div class="meta-row fade-up"><span class="meta-pill">Website</span><span class="meta-pill">Healthcare</span><span class="meta-pill">Kumasi, Ghana</span><span class="meta-pill">Vercel + Cloudinary</span></div>
+        <div class="btn-row fade-up"><a href="https://evemeddiagnostics.com" target="_blank" rel="noopener" class="btn btn-primary">Visit live site <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></a><a href="/projects#web" class="btn btn-secondary">More web projects</a></div>
+      </div>
+      <div class="case-hero-media fade-up"><div class="sp-frame glass"><div class="sp" style="--c1:#0d4ba6;--c2:#1d7be0;"><div class="sp-bar"><i></i><i></i><i></i><span>evemeddiagnostics.com</span></div><div class="sp-mock"><b>Ultrasound scans in Kumasi, at our clinic or at your door</b><em>Open 24/7 · Mobile home visits</em><span class="sp-btn">Book on WhatsApp</span></div><img src="assets/web/evemed.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div></div></div>
+    </div>
+  </div>
+</section>
+
+<section><div class="container"><div class="stats-row"><div class="stat-card fade-up"><div class="stat-value">7</div><div class="stat-label">Pages</div></div><div class="stat-card fade-up"><div class="stat-value">24/7</div><div class="stat-label">Service stated on site</div></div><div class="stat-card fade-up"><div class="stat-value">4</div><div class="stat-label">Work videos</div></div><div class="stat-card fade-up"><div class="stat-value">1 tap</div><div class="stat-label">WhatsApp booking</div></div></div></div></section>
+
+<section>
+  <div class="container">
+    <span class="section-label fade-up">// project overview</span>
+    <h2 class="fade-up">The story</h2>
+    <div class="overview-card fade-up"><p>Evemed Diagnostics offers ultrasound scans at its clinic and at patients’ homes. The brief was simple: a site that people in Kumasi can find on Google, trust quickly and book from on a phone.</p><p>The site leads with the offer (“Ultrasound scans in Kumasi, at our clinic or at your door”), groups the scans by need (pregnancy, abdomen and pelvis, specialised), and keeps one action on every page: Book on WhatsApp.</p></div>
+    <h3 class="fade-up" style="margin:2rem 0 0.6rem;font-family:var(--font-display);letter-spacing:-0.03em">What I built</h3>
+    <ul class="fade-up" style="color:var(--muted);line-height:2;padding-left:1.2rem;font-weight:300"><li>Pages for Home, Services, Mobile service, Our work, About, FAQ and Contact, each on a clean URL</li><li>Service detail pages grouped by pregnancy, abdomen and pelvis, and specialised scans</li><li>Video proof of real work: a team video and home-service clips, hosted on Cloudinary</li><li>SEO foundations: metadata on every page, Search Console verification and a clear medical disclaimer</li><li>Deployment on Vercel, moved to the clinic’s own domain</li></ul>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <span class="section-label fade-up">// highlights</span>
+    <h2 class="fade-up">Key features</h2>
+    <div class="cols-3"><div class="tool-card fade-up"><h3>WhatsApp-first booking</h3><p>Every call to action opens WhatsApp with a pre-filled message, so patients book without forms.</p></div><div class="tool-card fade-up"><h3>Mobile home service</h3><p>A dedicated section for patients who cannot travel, with location confirmed before the visit.</p></div><div class="tool-card fade-up"><h3>Trust through video</h3><p>A team video and short work clips show the people and the process before anyone visits.</p></div><div class="tool-card fade-up"><h3>Clear service structure</h3><p>Scans are grouped by what the patient needs, with a detail page for each group.</p></div><div class="tool-card fade-up"><h3>Built to be found</h3><p>Clean URLs, structured metadata and per-page descriptions aimed at local search in Kumasi.</p></div><div class="tool-card fade-up"><h3>Light and fast</h3><p>Static pages with images and video offloaded to Cloudinary keep load times short on mobile data.</p></div></div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <span class="section-label fade-up">// how booking works</span>
+    <h2 class="fade-up">Three steps, one tap</h2>
+    <div class="steps-line three">
+      <div class="step glass fade-up"><b>01</b><span>Patient taps “Book on WhatsApp” with a pre-filled message.</span></div>
+      <div class="step glass fade-up"><b>02</b><span>The team confirms the scan, the details and any home-visit location.</span></div>
+      <div class="step glass fade-up"><b>03</b><span>The patient visits the clinic or is visited at home. A quote follows confirmation.</span></div>
+    </div>
+    <div class="swatches fade-up"><span class="swatch glass"><i style="background:#0d4ba6"></i>#0d4ba6 primary blue</span><span class="swatch glass"><i style="background:#ffffff"></i>#ffffff clean white</span></div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <span class="section-label fade-up">// keep exploring</span>
+    <h2 class="fade-up">More projects</h2>
+    <div class="cards-more"><a href="/lomo" class="more-link fade-up"><strong>LOMO — League of My Own</strong><span>AI music · hip-hop</span></a><a href="/lactadelle" class="more-link fade-up"><strong>Lactadelle</strong><span>Website · food brand</span></a><a href="/projects" class="more-link fade-up"><strong>All projects</strong><span>AI, design, web, data</span></a><a href="/englishplay" class="more-link fade-up"><strong>EnglishPLAY</strong><span>AI video ad</span></a></div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-map">
+      <div><h4>// nyamekye</h4><p>Creative director building AI content, brands, websites and data work in Ghana.</p></div>
+      <div><h4>// explore</h4><a href="/">Home</a><a href="/projects">All projects</a><a href="/certificates">Certificates</a><a href="/#contact">Contact</a></div>
+      <div><h4>// websites</h4><a href="/evemed">Evemed Diagnostics</a><a href="/lactadelle">Lactadelle</a><a href="/projects#web">Web &amp; Brand</a><a href="/projects#design">Flyers &amp; Design</a></div>
+      <div><h4>// music</h4><a href="/lomo">LOMO</a><a href="/rise-again">Rise Again</a><a href="/wo-ne-me">Wo Ne Me</a><a href="/anthem">World Cup Anthem</a></div>
+    </div>
+    <div class="footer-line">
+      <p class="footer-copy">© 2026 <span>Nyamekye Samuel Asamoah</span> · Built with data, AI and creative direction in Ghana.</p>
+      <div class="footer-socials">
+        <a href="https://linkedin.com/in/asanyamekye" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          LinkedIn
+        </a>
+        <a href="https://github.com/KofiNyamekye" target="_blank" rel="noopener" aria-label="GitHub">
+          <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          GitHub
+        </a>
+        <a href="https://audiomack.com/asanyamekye" target="_blank" rel="noopener" aria-label="Audiomack">
+          <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+          Audiomack
+        </a>
+        <a href="https://www.youtube.com/@asa_nyamekye" target="_blank" rel="noopener" aria-label="YouTube">
+          <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8a4 4 0 0 1 4-4h12a4 4 0 0 1 4 4v8a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><path d="m10 15 5-3-5-3v6z"/></svg>
+          YouTube
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const root = document.documentElement;
+  const themeToggle = document.getElementById("themeToggle");
+  const menuToggle = document.getElementById("menuToggle");
+  const navLinks = document.getElementById("navLinks");
+  function setTheme(t) {
+    root.setAttribute("data-theme", t);
+    localStorage.setItem("portfolioTheme", t);
+    if (themeToggle) themeToggle.innerHTML = t === "light" ? '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9z"/></svg>' : '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2"/></svg>';
+  }
+  setTheme(localStorage.getItem("portfolioTheme") || "dark");
+  if (themeToggle) themeToggle.addEventListener("click", () => setTheme(root.getAttribute("data-theme") === "dark" ? "light" : "dark"));
+  if (menuToggle && navLinks) {
+    menuToggle.addEventListener("click", () => navLinks.classList.toggle("open"));
+    navLinks.querySelectorAll("a").forEach(a => a.addEventListener("click", () => navLinks.classList.remove("open")));
+  }
+  const navSysToggle = document.getElementById("navSysToggle");
+  const navOverlay = document.getElementById("navOverlay");
+  const navOverlayClose = document.getElementById("navOverlayClose");
+  function openNavOverlay() {
+    if (!navOverlay) return;
+    navOverlay.classList.add("open");
+    navOverlay.setAttribute("aria-hidden", "false");
+    if (navSysToggle) navSysToggle.setAttribute("aria-expanded", "true");
+    document.body.classList.add("nav-open");
+  }
+  function closeNavOverlay() {
+    if (!navOverlay) return;
+    navOverlay.classList.remove("open");
+    navOverlay.setAttribute("aria-hidden", "true");
+    if (navSysToggle) navSysToggle.setAttribute("aria-expanded", "false");
+    document.body.classList.remove("nav-open");
+  }
+  if (navSysToggle && navOverlay) {
+    navSysToggle.addEventListener("click", openNavOverlay);
+    if (navOverlayClose) navOverlayClose.addEventListener("click", closeNavOverlay);
+    navOverlay.addEventListener("click", (e) => { if (e.target === navOverlay) closeNavOverlay(); });
+    navOverlay.querySelectorAll("a").forEach(a => a.addEventListener("click", closeNavOverlay));
+    document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeNavOverlay(); });
+  }
+
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("visible"); obs.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll(".fade-up,.fade-left,.fade-right,.tool-card,.design-card,.project-card,.stat-card").forEach((el,i)=>{if(el.classList.contains("tool-card")||el.classList.contains("design-card")||el.classList.contains("project-card")||el.classList.contains("stat-card")){el.style.transitionDelay=(i%6)*0.07+"s";}obs.observe(el);});
+});
+</script>
+<script>
+document.addEventListener("pointermove",function(e){var g=e.target.closest&&e.target.closest(".glass");if(!g)return;var r=g.getBoundingClientRect();g.style.setProperty("--mx",(e.clientX-r.left)+"px");g.style.setProperty("--my",(e.clientY-r.top)+"px");});
+
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+</body>
+</html>
