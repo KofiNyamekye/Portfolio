@@ -511,6 +511,19 @@ nav{-webkit-backdrop-filter:blur(22px) saturate(1.7);backdrop-filter:blur(22px) 
 .hl-links a:hover{border-color:var(--green-border);transform:translateX(4px);}
 .hl-links span{color:var(--muted);font-weight:400;font-size:0.74rem;}
 </style>
+<style>
+.video-card{border-radius:var(--radius);padding:0.8rem;}
+.video-card .player-stage{position:relative;aspect-ratio:16/9;border-radius:18px;overflow:hidden;background:#000;}
+.video-card iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+.player-facade{position:absolute;inset:0;width:100%;height:100%;border:0;padding:0;cursor:pointer;background:#111 center/cover no-repeat;display:grid;place-items:center;}
+.player-facade::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,0.65));}
+.play-btn{position:relative;width:74px;height:74px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,0.2);border:1px solid rgba(255,255,255,0.5);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);box-shadow:inset 0 1px 0 rgba(255,255,255,0.5),0 12px 30px rgba(0,0,0,0.4);transition:transform 0.25s;}
+.player-facade:hover .play-btn{transform:scale(1.1);}
+.play-btn svg{margin-left:4px;}
+.video-cap{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;padding:1rem 0.6rem 0.4rem;}
+.video-cap strong{font-family:var(--font-display);font-size:1.1rem;letter-spacing:-0.04em;display:block;}
+.video-cap span{font-size:0.8rem;color:var(--muted);}
+</style>
 </head>
 <body>
 <div class="orbs" aria-hidden="true"><span class="orb o1"></span><span class="orb o2"></span><span class="orb o3"></span></div>
@@ -584,6 +597,16 @@ nav{-webkit-backdrop-filter:blur(22px) saturate(1.7);backdrop-filter:blur(22px) 
           <img src="assets/flyers/rise-again.jpg" alt="Rise Again — cover art" onerror="this.style.display='none'">
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO -->
+<section>
+  <div class="container">
+    <div class="video-card glass fade-up">
+      <div class="player-stage" data-yt="dvS8NNF1dc4" data-title="Rise Again — visualizer video"><button class="player-facade" type="button" style="background-image:url('assets/flyers/rise-again.jpg')" aria-label="Play video"><span class="play-btn"><svg width="26" height="26" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span></button></div>
+      <div class="video-cap"><div><strong>Watch the visualizer</strong><span>Rise Again — visualizer video</span></div><a href="https://youtu.be/dvS8NNF1dc4" target="_blank" rel="noopener" class="btn btn-secondary">Open on YouTube <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></a></div>
     </div>
   </div>
 </section>
@@ -708,6 +731,12 @@ document.addEventListener("DOMContentLoaded", function () {
 <script defer src="/_vercel/speed-insights/script.js"></script>
 <script>
 document.addEventListener("pointermove",function(e){var g=e.target.closest&&e.target.closest(".glass");if(!g)return;var r=g.getBoundingClientRect();g.style.setProperty("--mx",(e.clientX-r.left)+"px");g.style.setProperty("--my",(e.clientY-r.top)+"px");});
+</script>
+<script>
+document.querySelectorAll('.video-card .player-facade').forEach(function(b){b.addEventListener('click',function(){
+  var st=b.parentNode,i=document.createElement('iframe');i.src='https://www.youtube-nocookie.com/embed/'+st.dataset.yt+'?rel=0&autoplay=1';
+  i.title=st.dataset.title;i.setAttribute('allow','autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture');i.setAttribute('allowfullscreen','');
+  st.textContent='';st.appendChild(i);});});
 </script>
 </body>
 </html>

@@ -1736,6 +1736,13 @@ section{position:relative;z-index:1;}
 }
 </style>
 <style>
+.player-stage.audio{aspect-ratio:auto;height:252px;background:#111;}
+.player-actions{display:flex;align-items:center;gap:0.7rem;flex-wrap:wrap;}
+.seg{display:inline-flex;padding:3px;border-radius:999px;border:1px solid var(--border);background:var(--surface);}
+.seg button{border:0;background:transparent;color:var(--muted);font:inherit;font-size:0.78rem;font-weight:700;padding:0.45rem 0.9rem;border-radius:999px;cursor:pointer;}
+.seg button[aria-pressed="true"]{background:var(--green);color:#071128;}
+</style>
+<style>
 /* ── SITE-WIDE GLASS CONSISTENCY (applies the same material to every existing card) ── */
 section,footer{position:relative;z-index:1;}
 .card,.fw-cat,.blog-card,.highlight-box,.status-panel,.floating-card,.stat,.project-card,.tool-card,.stat-card,.overview-card,.more-link,.contact-link,.design-card,.flyer-card,.mini-feature,.featured-media,.xp-item,.meta-pill,.platform-badge,.tool-pill,.meanwhile-link,.data-meanwhile,.hero-tag,.image-card,.cert-card,.certificate-card,.step-card,.faq-item,.lane,form{
@@ -1825,12 +1832,12 @@ nav{-webkit-backdrop-filter:blur(22px) saturate(1.7);backdrop-filter:blur(22px) 
             <span class="green">Data & AI.</span><br>
             Creative Design.
           </h1>
-          <p class="hero-desc">I direct AI-powered music, video, brands and websites, and I am building out SQL, Power BI and Python work. I am a Graduate Materials Engineer, Certified Safety Professional and Creative Director based in Kumasi, Ghana — and, as Kofi Nyamekye, an AI-assisted music artist.</p>
+          <p class="hero-desc">I direct AI-powered music, video, brands and websites, and I am building out SQL, Power BI and Python work. I am a Graduate Materials Engineer, Certified Safety Professional and Creative Director based in Ghana — and, as Kofi Nyamekye, an AI-assisted music artist.</p>
           <div class="status-panel">
             <div class="status-title">// system status</div>
             <div class="status-line"><span class="status-dot"></span> system.status = available</div>
             <div class="status-line"><span class="status-arrow">→</span> open for data, AI &amp; creative-direction work</div>
-            <div class="status-line"><span class="status-arrow">→</span> location = Kumasi, Ghana</div>
+            <div class="status-line"><span class="status-arrow">→</span> location = Ghana</div>
           </div>
           <div class="btn-row">
             <a href="#projects" class="btn btn-primary"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2M12 12v.01M8 12v.01M16 12v.01"/></svg> See My Work →</a>
@@ -2071,7 +2078,7 @@ nav{-webkit-backdrop-filter:blur(22px) saturate(1.7);backdrop-filter:blur(22px) 
       <a href="/projects" class="btn btn-secondary">All projects <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg></a>
     </div>
     <div class="work-grid">
-      <a href="/evemed" class="work-card glass w-lg  fade-up"><div class="wc-media"><div class="sp" style="--c1:#0d4ba6;--c2:#1d7be0;"><div class="sp-bar"><i></i><i></i><i></i><span>evemeddiagnostics.com</span></div><div class="sp-mock"><b>Ultrasound scans in Kumasi, at our clinic or at your door</b><em>Open 24/7 · Mobile home visits</em><span class="sp-btn">Book on WhatsApp</span></div><img src="assets/web/evemed.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div><span class="wc-preview-pill">Live site</span></div><div class="wc-body"><p class="wc-type">Website · Healthcare</p><h3 class="wc-title">Evemed Diagnostics</h3><p class="wc-desc">A 24/7 ultrasound clinic site in Kumasi: service pages, mobile home-visit info, a team video and one-tap WhatsApp booking, built SEO-first.</p><span class="wc-go">View case study <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg></span></div></a>
+      <a href="/evemed" class="work-card glass w-lg  fade-up"><div class="wc-media"><div class="sp" style="--c1:#0d4ba6;--c2:#1d7be0;"><div class="sp-bar"><i></i><i></i><i></i><span>evemeddiagnostics.com</span></div><div class="sp-mock"><b>Ultrasound scans at our clinic or at your door</b><em>Open 24/7 · Mobile home visits</em><span class="sp-btn">Book on WhatsApp</span></div><img src="assets/web/evemed.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div><span class="wc-preview-pill">Live site</span></div><div class="wc-body"><p class="wc-type">Website · Healthcare · AI-assisted</p><h3 class="wc-title">Evemed Diagnostics</h3><p class="wc-desc">A 24/7 ultrasound clinic website in Ghana, designed and built with AI-assisted workflows and directed by me, from page structure and copy to code and SEO. Clean-URL service pages, a mobile home-visit section, work videos and one-tap WhatsApp booking, live on its own domain.</p><span class="wc-go">View case study <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg></span></div></a>
       <a href="/lomo" class="work-card glass w-lg contain fade-up"><div class="wc-media"><img src="assets/flyers/lomo.jpg" alt="LOMO cover art" loading="lazy" onerror="this.style.display='none'"></div><div class="wc-body"><p class="wc-type">AI Music · Hip-Hop</p><h3 class="wc-title">LOMO — League of My Own</h3><p class="wc-desc">A bilingual Twi/English hype single with booming 808s and a talking-drum signature.</p><span class="wc-go">Listen &amp; read more <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg></span></div></a>
       <a href="/englishplay" class="work-card glass w-md  fade-up"><div class="wc-media"><img src="assets/flyers/EnglishPlay.png" alt="EnglishPLAY ad" loading="lazy" onerror="this.style.display='none'"></div><div class="wc-body"><p class="wc-type">AI-Powered Video Ad</p><h3 class="wc-title">EnglishPLAY</h3><p class="wc-desc">A 60-second ad for a premium English immersion platform for children. No filming, no studio costs.</p><span class="wc-go">Watch the ad <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg></span></div></a>
       <a href="/gallery" class="work-card glass w-md  fade-up"><div class="wc-media"><img src="assets/flyers/codedevpay-campaigns/codedevpay-campaign-01.jpeg" alt="CodeDevPay campaign flyer" loading="lazy" onerror="this.style.display='none'"></div><div class="wc-body"><p class="wc-type">Flyers &amp; Design</p><h3 class="wc-title">CodeDevPay Campaign Gallery</h3><p class="wc-desc">11 course publicity flyers and campaign visuals for CodeDevPay Academy.</p><span class="wc-go">Browse designs <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg></span></div></a>
@@ -2083,7 +2090,7 @@ nav{-webkit-backdrop-filter:blur(22px) saturate(1.7);backdrop-filter:blur(22px) 
     <div class="fw-cats">
       <a href="/projects#ai" class="fw-cat fade-up"><h3>AI Content</h3><p>AI music, AI-powered video ads and AI-assisted builds, directed end to end.</p><div class="skill-tags"><span class="tag">6 projects</span><span class="tag">Music</span><span class="tag">Video</span></div><span class="fw-open">Open category <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg></span></a>
       <a href="/projects#design" class="fw-cat fade-up"><h3>Flyers &amp; Design</h3><p>Campaign flyers, advertisements and apparel concepts for brands, courses and events.</p><div class="skill-tags"><span class="tag">3 collections</span><span class="tag">Canva</span><span class="tag">Branding</span></div><span class="fw-open">Open category <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg></span></a>
-      <a href="/projects#web" class="fw-cat fade-up"><h3>Web &amp; Brand</h3><p>Websites and brand identities for a diagnostics clinic and a food startup.</p><div class="skill-tags"><span class="tag">2 websites</span><span class="tag">SEO</span><span class="tag">Brand</span></div><span class="fw-open">Open category <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg></span></a>
+      <a href="/projects#web" class="fw-cat fade-up"><h3>Web &amp; Brand</h3><p>Websites and brand identities for a diagnostics clinic and a food startup, built with AI-assisted workflows.</p><div class="skill-tags"><span class="tag">2 websites</span><span class="tag">SEO</span><span class="tag">Brand</span></div><span class="fw-open">Open category <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg></span></a>
       <a href="/projects#data" class="fw-cat fw-cat-wip fade-up"><h3>Data <span class="fw-wip"><span class="pulse-dot"></span>In progress</span></h3><p>SQL, Power BI and Python projects are being built now and will be published with their method and findings.</p><div class="skill-tags"><span class="tag">SQL</span><span class="tag">Power BI</span><span class="tag">Python</span></div><span class="fw-open">See what is coming <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg></span></a>
     </div>
   </div>
@@ -2097,14 +2104,20 @@ nav{-webkit-backdrop-filter:blur(22px) saturate(1.7);backdrop-filter:blur(22px) 
     </div>
     <div class="music-grid">
       <div class="player glass fade-up">
-        <div class="player-stage" id="stage"><button class="player-facade" id="facade" style="background-image:url('assets/flyers/lomo.jpg')" aria-label="Play LOMO video"><span class="play-btn"><svg width="26" height="26" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span></button></div>
-        <div class="player-meta"><div><strong id="pTitle">LOMO — League of My Own</strong><span id="pSub">Hardcore hip-hop · Twi / English</span></div><a id="pLink" href="/lomo" class="btn btn-secondary">Song page <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg></a></div>
+        <div class="player-stage" id="stage"><button class="player-facade" type="button" style="background-image:url('assets/flyers/lomo.jpg')" aria-label="Play video"><span class="play-btn"><svg width="26" height="26" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span></button></div>
+        <div class="player-meta">
+          <div><strong id="pTitle">LOMO — League of My Own</strong><span id="pSub">Hardcore hip-hop · Twi / English</span></div>
+          <div class="player-actions">
+            <div class="seg" role="group" aria-label="Choose player"><button type="button" id="modeVideo" aria-pressed="true">YouTube</button><button type="button" id="modeAudio" aria-pressed="false">Audiomack</button></div>
+            <a id="pLink" href="/lomo" class="btn btn-secondary">Song page <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg></a>
+          </div>
+        </div>
       </div>
       <div class="tracklist fade-up" role="group" aria-label="Choose a song">
-        <button class="track glass" type="button" aria-pressed="true" data-yt="5gTR4wTdkT4" data-title="LOMO — League of My Own" data-sub="Hardcore hip-hop · Twi / English" data-page="/lomo" data-cover="assets/flyers/lomo.jpg"><span class="tn" style="background-image:url('assets/flyers/lomo.jpg')"></span><span><b>LOMO</b><small>League of My Own</small></span><span class="go">playing</span></button>
-        <button class="track glass" type="button" aria-pressed="false" data-yt="ULb1Q3ADO5c" data-title="Wo Ne Me (You &amp; Me)" data-sub="Ghanapiano" data-page="/wo-ne-me" data-cover="assets/flyers/wo-ne-me.jpg"><span class="tn" style="background-image:url('assets/flyers/wo-ne-me.jpg')"></span><span><b>Wo Ne Me</b><small>Ghanapiano</small></span><span class="go">play</span></button>
-        <a class="track glass" href="/rise-again"><span class="tn" style="background-image:url('assets/flyers/rise-again.jpg')"></span><span><b>Rise Again</b><small>Hiplife / hip-hop</small></span><span class="go">open</span></a>
-        <a class="track glass" href="/anthem"><span class="tn" style="background-image:url('assets/flyers/Cover_image.png')"></span><span><b>All for One, One for All</b><small>World Cup anthem</small></span><span class="go">open</span></a>
+        <button class="track glass" type="button" aria-pressed="true" data-yt="5gTR4wTdkT4" data-am="league-of-my-own-lomo" data-title="LOMO — League of My Own" data-sub="Hardcore hip-hop · Twi / English" data-page="/lomo" data-cover="assets/flyers/lomo.jpg"><span class="tn" style="background-image:url('assets/flyers/lomo.jpg')"></span><span><b>LOMO</b><small>League of My Own</small></span><span class="go">playing</span></button>
+        <button class="track glass" type="button" aria-pressed="false" data-yt="ULb1Q3ADO5c" data-am="wo-ne-me" data-title="Wo Ne Me (You &amp; Me)" data-sub="Ghanapiano" data-page="/wo-ne-me" data-cover="assets/flyers/wo-ne-me.jpg"><span class="tn" style="background-image:url('assets/flyers/wo-ne-me.jpg')"></span><span><b>Wo Ne Me</b><small>Ghanapiano</small></span><span class="go">play</span></button>
+        <button class="track glass" type="button" aria-pressed="false" data-yt="dvS8NNF1dc4" data-am="rise-again" data-title="Rise Again — Visualizer" data-sub="Hiplife / hip-hop · visualizer video" data-page="/rise-again" data-cover="assets/flyers/rise-again.jpg"><span class="tn" style="background-image:url('assets/flyers/rise-again.jpg')"></span><span><b>Rise Again</b><small>Hiplife / hip-hop · visualizer</small></span><span class="go">play</span></button>
+        <button class="track glass" type="button" aria-pressed="false" data-yt="xTtppd-HALI" data-am="all-for-one-one-for-all" data-title="All for One, One for All" data-sub="World Cup anthem · Afropop" data-page="/anthem" data-cover="assets/flyers/Cover_image.png"><span class="tn" style="background-image:url('assets/flyers/Cover_image.png')"></span><span><b>All for One, One for All</b><small>World Cup anthem</small></span><span class="go">play</span></button>
       </div>
     </div>
   </div>
@@ -2305,7 +2318,7 @@ nav{-webkit-backdrop-filter:blur(22px) saturate(1.7);backdrop-filter:blur(22px) 
             <a href="https://www.linkedin.com/in/asanyamekye/" target="_blank" rel="noopener" class="contact-link"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg> linkedin.com/in/asanyamekye</a>
             <a href="https://github.com/KofiNyamekye" target="_blank" rel="noopener" class="contact-link"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg> github.com/KofiNyamekye</a>
             
-            <a href="https://www.google.com/maps/place/Kumasi" target="_blank" rel="noopener" class="contact-link"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg> Kumasi, Ghana</a>
+            <a href="https://www.google.com/maps/place/Ghana" target="_blank" rel="noopener" class="contact-link"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg> Ghana</a>
           </div>
         </div>
 
@@ -2538,19 +2551,25 @@ document.addEventListener("pointermove",function(e){var g=e.target.closest&&e.ta
 <script>
 (function(){
   var stage=document.getElementById('stage');if(!stage)return;
-  var cur={yt:'5gTR4wTdkT4',cover:'assets/flyers/lomo.jpg'};
-  function bindFacade(){var f=document.getElementById('facade');if(f)f.addEventListener('click',function(){
-    stage.innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/'+cur.yt+'?rel=0&autoplay=1" title="Music video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; picture-in-picture" allowfullscreen loading="lazy"></iframe>';});}
-  bindFacade();
-  document.querySelectorAll('button.track').forEach(function(b){b.addEventListener('click',function(){
-    document.querySelectorAll('button.track').forEach(function(o){o.setAttribute('aria-pressed','false');o.querySelector('.go').textContent='play';});
-    b.setAttribute('aria-pressed','true');b.querySelector('.go').textContent='playing';
-    cur={yt:b.dataset.yt,cover:b.dataset.cover};
-    document.getElementById('pTitle').innerHTML=b.dataset.title;
-    document.getElementById('pSub').textContent=b.dataset.sub;
-    document.getElementById('pLink').setAttribute('href',b.dataset.page);
-    stage.innerHTML='<button class="player-facade" id="facade" style="background-image:url(\''+cur.cover+'\')" aria-label="Play video"><span class="play-btn"><svg width="26" height="26" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span></button>';
-    bindFacade();});});
+  var tracks=[].slice.call(document.querySelectorAll('button.track'));
+  var mV=document.getElementById('modeVideo'),mA=document.getElementById('modeAudio');
+  var cur=tracks[0],mode='video';
+  var PLAY='<span class="play-btn"><svg width="26" height="26" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>';
+  function frame(src){var i=document.createElement('iframe');i.src=src;i.title=cur.dataset.title;i.setAttribute('allow','autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture');i.setAttribute('allowfullscreen','');stage.textContent='';stage.appendChild(i);}
+  function showFacade(){stage.className='player-stage';stage.textContent='';var b=document.createElement('button');b.type='button';b.className='player-facade';b.style.backgroundImage='url('+cur.dataset.cover+')';b.setAttribute('aria-label','Play video');b.innerHTML=PLAY;b.addEventListener('click',function(){frame('https://www.youtube-nocookie.com/embed/'+cur.dataset.yt+'?rel=0&autoplay=1');});stage.appendChild(b);}
+  function render(){
+    document.getElementById('pTitle').innerHTML=cur.dataset.title;
+    document.getElementById('pSub').textContent=cur.dataset.sub;
+    document.getElementById('pLink').setAttribute('href',cur.dataset.page);
+    tracks.forEach(function(t){var on=t===cur;t.setAttribute('aria-pressed',on?'true':'false');t.querySelector('.go').textContent=on?'playing':'play';});
+    mV.setAttribute('aria-pressed',mode==='video'?'true':'false');mA.setAttribute('aria-pressed',mode==='audio'?'true':'false');
+    if(mode==='audio'){stage.className='player-stage audio';frame('https://audiomack.com/embed/song/asanyamekye/'+cur.dataset.am);}
+    else showFacade();
+  }
+  tracks.forEach(function(t){t.addEventListener('click',function(){cur=t;render();});});
+  mV.addEventListener('click',function(){mode='video';render();});
+  mA.addEventListener('click',function(){mode='audio';render();});
+  stage.querySelector('.player-facade').addEventListener('click',function(){frame('https://www.youtube-nocookie.com/embed/'+cur.dataset.yt+'?rel=0&autoplay=1');});
 })();
 </script>
 </body>
