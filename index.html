@@ -1760,21 +1760,28 @@ nav{-webkit-backdrop-filter:blur(22px) saturate(1.7);backdrop-filter:blur(22px) 
 .hl-links a:hover{border-color:var(--green-border);transform:translateX(4px);}
 .hl-links span{color:var(--muted);font-weight:400;font-size:0.74rem;}
 </style>
+<style>
+/* tools marquee: fade the edges with a mask instead of opaque --bg boxes, and keep the pills light (no per-pill blur on a moving strip) */
+.tool-strip-wrap{background:none;-webkit-mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent);mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent);}
+.tool-strip-wrap::before,.tool-strip-wrap::after{display:none;}
+.tool-strip-wrap .tool-pill{-webkit-backdrop-filter:none;backdrop-filter:none;background-image:none;box-shadow:none;background:rgba(255,255,255,0.07);}
+html[data-theme="light"] .tool-strip-wrap .tool-pill{background:rgba(255,255,255,0.75);}
+</style>
 </head>
 
 <body>
 <div class="orbs" aria-hidden="true"><span class="orb o1"></span><span class="orb o2"></span><span class="orb o3"></span></div>
   <nav>
-    <a href="#hero" class="logo">Nyamekye<span>.</span></a>
+    <a href="/" class="logo">Nyamekye<span>.</span></a>
 
     <ul class="nav-links" id="navLinks">
-      <li><a href="#about">About</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#blog">Blog</a></li>
-      <li><a href="#contact" class="nav-cta">Contact</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/skills">Skills</a></li>
+      <li><a href="/projects">Projects</a></li>
+      <li><a href="/experience">Experience</a></li>
+      <li><a href="/services">Services</a></li>
+      <li><a href="/blog">Blog</a></li>
+      <li><a href="/contact" class="nav-cta">Contact</a></li>
     </ul>
 
     <div class="nav-actions">
@@ -1794,16 +1801,16 @@ nav{-webkit-backdrop-filter:blur(22px) saturate(1.7);backdrop-filter:blur(22px) 
       <p class="muted">Work, skills, projects and every way to reach me — all in one place.</p>
 
       <nav class="overlay-links" aria-label="All pages">
-        <a href="#hero">Home <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
-        <a href="#about">About <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
-        <a href="#skills">Skills <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
-        <a href="#tools">Tools <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
+        <a href="/">Home <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
+        <a href="/about">About <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
+        <a href="/skills">Skills <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
+        <a href="/tools">Tools <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
         <a href="/projects">Projects <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
-        <a href="#services">Services <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
-        <a href="#experience">Experience <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
+        <a href="/services">Services <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
+        <a href="/experience">Experience <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
       <a href="certificates">Certificates <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
-        <a href="#blog">Blog <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
-        <a href="#contact">Contact <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
+        <a href="/blog">Blog <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
+        <a href="/contact">Contact <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
       </nav>
 
       <div class="nav-overlay-footer">
@@ -1840,8 +1847,8 @@ nav{-webkit-backdrop-filter:blur(22px) saturate(1.7);backdrop-filter:blur(22px) 
             <div class="status-line"><span class="status-arrow">→</span> location = Ghana</div>
           </div>
           <div class="btn-row">
-            <a href="#projects" class="btn btn-primary"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2M12 12v.01M8 12v.01M16 12v.01"/></svg> See My Work →</a>
-            <a href="#contact" class="btn btn-secondary"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg> Let's Build Together</a>
+            <a href="/work" class="btn btn-primary"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2M12 12v.01M8 12v.01M16 12v.01"/></svg> See My Work →</a>
+            <a href="/contact" class="btn btn-secondary"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg> Let's Build Together</a>
             
           </div>
         </div>
@@ -2071,7 +2078,7 @@ nav{-webkit-backdrop-filter:blur(22px) saturate(1.7);backdrop-filter:blur(22px) 
   
   
 
-<section id="projects">
+<section id="work">
   <div class="container">
     <div class="section-head">
       <div><span class="section-label">// featured work</span><h2>Selected projects</h2></div>
@@ -2088,10 +2095,10 @@ nav{-webkit-backdrop-filter:blur(22px) saturate(1.7);backdrop-filter:blur(22px) 
     <h3 class="fade-up" style="margin:3rem 0 0.4rem;font-family:var(--font-display);letter-spacing:-0.04em;font-size:1.6rem">Four ways I build</h3>
     <p class="muted gallery-intro">Pick a lane to open it in the project hub.</p>
     <div class="fw-cats">
-      <a href="/projects#ai" class="fw-cat fade-up"><h3>AI Content</h3><p>AI music, AI-powered video ads and AI-assisted builds, directed end to end.</p><div class="skill-tags"><span class="tag">6 projects</span><span class="tag">Music</span><span class="tag">Video</span></div><span class="fw-open">Open category <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg></span></a>
-      <a href="/projects#design" class="fw-cat fade-up"><h3>Flyers &amp; Design</h3><p>Campaign flyers, advertisements and apparel concepts for brands, courses and events.</p><div class="skill-tags"><span class="tag">3 collections</span><span class="tag">Canva</span><span class="tag">Branding</span></div><span class="fw-open">Open category <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg></span></a>
-      <a href="/projects#web" class="fw-cat fade-up"><h3>Web &amp; Brand</h3><p>Websites and brand identities for a diagnostics clinic and a food startup, built with AI-assisted workflows.</p><div class="skill-tags"><span class="tag">2 websites</span><span class="tag">SEO</span><span class="tag">Brand</span></div><span class="fw-open">Open category <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg></span></a>
-      <a href="/projects#data" class="fw-cat fw-cat-wip fade-up"><h3>Data <span class="fw-wip"><span class="pulse-dot"></span>In progress</span></h3><p>SQL, Power BI and Python projects are being built now and will be published with their method and findings.</p><div class="skill-tags"><span class="tag">SQL</span><span class="tag">Power BI</span><span class="tag">Python</span></div><span class="fw-open">See what is coming <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg></span></a>
+      <a href="/projects/ai" class="fw-cat fade-up"><h3>AI Content</h3><p>AI music, AI-powered video ads and AI-assisted builds, directed end to end.</p><div class="skill-tags"><span class="tag">6 projects</span><span class="tag">Music</span><span class="tag">Video</span></div><span class="fw-open">Open category <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg></span></a>
+      <a href="/projects/design" class="fw-cat fade-up"><h3>Flyers &amp; Design</h3><p>Campaign flyers, advertisements and apparel concepts for brands, courses and events.</p><div class="skill-tags"><span class="tag">3 collections</span><span class="tag">Canva</span><span class="tag">Branding</span></div><span class="fw-open">Open category <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg></span></a>
+      <a href="/projects/web" class="fw-cat fade-up"><h3>Web &amp; Brand</h3><p>Websites and brand identities for a diagnostics clinic and a food startup, built with AI-assisted workflows.</p><div class="skill-tags"><span class="tag">2 websites</span><span class="tag">SEO</span><span class="tag">Brand</span></div><span class="fw-open">Open category <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg></span></a>
+      <a href="/projects/data" class="fw-cat fw-cat-wip fade-up"><h3>Data <span class="fw-wip"><span class="pulse-dot"></span>In progress</span></h3><p>SQL, Power BI and Python projects are being built now and will be published with their method and findings.</p><div class="skill-tags"><span class="tag">SQL</span><span class="tag">Power BI</span><span class="tag">Python</span></div><span class="fw-open">See what is coming <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg></span></a>
     </div>
   </div>
 </section>
@@ -2152,7 +2159,7 @@ nav{-webkit-backdrop-filter:blur(22px) saturate(1.7);backdrop-filter:blur(22px) 
             Right now, I am expanding my analytics portfolio with SQL, Excel and Power BI projects, while exploring automation and AI-assisted workflows. I am also building a stronger bridge between my engineering background, safety training, data analytics growth and creative design work.
           </p>
           <div class="term"><div><span class="pulse-dot"></span> data.projects = <strong>in_progress</strong></div><div>→ SQL analytics showcase</div><div>→ Power BI dashboard</div><div>→ Python regression study</div></div>
-          <div class="hl-links"><a href="/projects#data">Follow the data projects <span>project hub</span></a><a href="/certificates">Certificates <span>DataCamp SQL &amp; Power BI, IBM badge</span></a></div>
+          <div class="hl-links"><a href="/projects/data">Follow the data projects <span>project hub</span></a><a href="/certificates">Certificates <span>DataCamp SQL &amp; Power BI, IBM badge</span></a></div>
         </div>
       </div>
     </div>
@@ -2209,11 +2216,11 @@ nav{-webkit-backdrop-filter:blur(22px) saturate(1.7);backdrop-filter:blur(22px) 
         <span class="section-label">// credentials</span>
         <h2>Certifications</h2>
         <div class="cert-pills">
-          <a href="certificates#ibm-skills-badge" class="cert-pill"><span class="cert-pill-issuer">IBM</span> Skills Badge</a>
-          <a href="certificates#intermediate-sql" class="cert-pill"><span class="cert-pill-issuer">DataCamp</span> Intermediate SQL</a>
-          <a href="certificates#intro-power-bi" class="cert-pill"><span class="cert-pill-issuer">DataCamp</span> Introduction to Power BI</a>
-          <a href="certificates#intro-sql" class="cert-pill"><span class="cert-pill-issuer">DataCamp</span> Introduction to SQL</a>
-          <a href="certificates#understanding-ai" class="cert-pill"><span class="cert-pill-issuer">DataCamp</span> Understanding AI</a>
+          <a href="/certificates/ibm-skills-badge" class="cert-pill"><span class="cert-pill-issuer">IBM</span> Skills Badge</a>
+          <a href="/certificates/intermediate-sql" class="cert-pill"><span class="cert-pill-issuer">DataCamp</span> Intermediate SQL</a>
+          <a href="/certificates/intro-power-bi" class="cert-pill"><span class="cert-pill-issuer">DataCamp</span> Introduction to Power BI</a>
+          <a href="/certificates/intro-sql" class="cert-pill"><span class="cert-pill-issuer">DataCamp</span> Introduction to SQL</a>
+          <a href="/certificates/understanding-ai" class="cert-pill"><span class="cert-pill-issuer">DataCamp</span> Understanding AI</a>
         </div>
         <div class="certs-cta">
           <a href="certificates" class="btn btn-primary">View All Certificates →</a>
@@ -2246,7 +2253,7 @@ nav{-webkit-backdrop-filter:blur(22px) saturate(1.7);backdrop-filter:blur(22px) 
             <span class="xp-tag">Ongoing</span>
             <h3>AI Music Artist &amp; Producer</h3>
             <p class="xp-org">Kofi Nyamekye</p>
-            <p>An independent, AI-assisted music project covering songwriting direction, production, artwork, video and distribution across Audiomack and YouTube. <a class="xp-link" href="/projects#ai">See the catalogue →</a></p>
+            <p>An independent, AI-assisted music project covering songwriting direction, production, artwork, video and distribution across Audiomack and YouTube. <a class="xp-link" href="/projects/ai">See the catalogue →</a></p>
           </li>
           <li class="xp-item fade-up">
             <span class="xp-tag">Teaching</span>
@@ -2362,8 +2369,8 @@ nav{-webkit-backdrop-filter:blur(22px) saturate(1.7);backdrop-filter:blur(22px) 
   <div class="container">
     <div class="footer-map">
       <div><h4>// nyamekye</h4><p>Creative director building AI content, brands, websites and data work in Ghana.</p></div>
-      <div><h4>// explore</h4><a href="/">Home</a><a href="/projects">All projects</a><a href="/certificates">Certificates</a><a href="/#contact">Contact</a></div>
-      <div><h4>// websites</h4><a href="/evemed">Evemed Diagnostics</a><a href="/lactadelle">Lactadelle</a><a href="/projects#web">Web &amp; Brand</a><a href="/projects#design">Flyers &amp; Design</a></div>
+      <div><h4>// explore</h4><a href="/">Home</a><a href="/projects">All projects</a><a href="/certificates">Certificates</a><a href="/contact">Contact</a></div>
+      <div><h4>// websites</h4><a href="/evemed">Evemed Diagnostics</a><a href="/lactadelle">Lactadelle</a><a href="/projects/web">Web &amp; Brand</a><a href="/projects/design">Flyers &amp; Design</a></div>
       <div><h4>// music</h4><a href="/lomo">LOMO</a><a href="/rise-again">Rise Again</a><a href="/wo-ne-me">Wo Ne Me</a><a href="/anthem">World Cup Anthem</a></div>
     </div>
     <div class="footer-line">
@@ -2570,6 +2577,27 @@ document.addEventListener("pointermove",function(e){var g=e.target.closest&&e.ta
   mV.addEventListener('click',function(){mode='video';render();});
   mA.addEventListener('click',function(){mode='audio';render();});
   stage.querySelector('.player-facade').addEventListener('click',function(){frame('https://www.youtube-nocookie.com/embed/'+cur.dataset.yt+'?rel=0&autoplay=1');});
+})();
+</script>
+<script>
+/* hash-free section URLs: /about, /skills, /contact ... (vercel.json rewrites serve this page for each) */
+(function(){
+  var IDS={about:1,skills:1,tools:1,work:1,music:1,learning:1,services:1,certifications:1,experience:1,blog:1,contact:1};
+  function seg(path){return path.replace(/\/+$/,'').replace(/^\//,'');}
+  function go(id,smooth){
+    if(!id){window.scrollTo({top:0,behavior:smooth?'smooth':'auto'});return;}
+    var el=document.getElementById(id);if(el)el.scrollIntoView({behavior:smooth?'smooth':'auto',block:'start'});
+  }
+  var start=seg(location.pathname);
+  if(IDS[start]){window.addEventListener('load',function(){setTimeout(function(){go(start,false);},80);});}
+  document.addEventListener('click',function(e){
+    var a=e.target.closest&&e.target.closest('a[href]');if(!a||e.defaultPrevented||e.metaKey||e.ctrlKey||e.shiftKey||a.target==='_blank')return;
+    var u;try{u=new URL(a.href,location.href);}catch(x){return;}
+    if(u.origin!==location.origin||u.search)return;
+    var p=seg(u.pathname);
+    if(p===''||IDS[p]){e.preventDefault();go(p,true);try{history.pushState(null,'',p?'/'+p:'/');}catch(x){}}
+  });
+  window.addEventListener('popstate',function(){go(seg(location.pathname),true);});
 })();
 </script>
 </body>

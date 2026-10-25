@@ -1,5 +1,10 @@
 {
   "cleanUrls": true,
+  "rewrites": [
+    { "source": "/(about|skills|tools|work|music|learning|services|certifications|experience|blog|contact)", "destination": "/" },
+    { "source": "/projects/(ai|design|web|data)", "destination": "/projects" },
+    { "source": "/certificates/(ibm-skills-badge|intermediate-sql|intro-power-bi|intro-sql|understanding-ai)", "destination": "/certificates" }
+  ],
   "trailingSlash": false,
   "headers": [
     {
