@@ -1,340 +1,186 @@
-# AI-Assisted Portfolio Website
+# Nyamekye Samuel Asamoah — Portfolio
 
-A modern responsive portfolio showcasing my work across:
+An AI-assisted portfolio and live case study of human-AI collaboration. It brings together my AI music and video, brand and web projects, flyers and campaign design, and data work in SQL, Power BI and Python.
 
-- Data Science
-- AI-Assisted Development
-- Creative Direction
-- AI Music Production
-- AI Video Production
-- Digital Media
-- Graphic Design
-- Educational Campaigns
-- Data Analytics
-
-🔗 Live Portfolio: https://nsasamoah.vercel.app/  
-🔗 GitHub Repository: https://github.com/KofiNyamekye/Portfolio/
+🔗 **Live site:** https://nsasamoah.vercel.app/
+🔗 **Repository:** https://github.com/KofiNyamekye/Portfolio/
 
 ---
 
-# About The Project
+## About the project
 
-This portfolio was built as an evolving AI-assisted personal brand and project showcase.
+I direct the creative and technical vision. AI tools do the heavy lifting under that direction: structured prompting, iterative refinement and debugging, rather than hand-writing every section.
 
-The project combines:
-- AI-assisted development workflows
-- creative direction
-- data storytelling
-- digital media production
-- analytics and design
-- modern responsive web design
+The site is both:
 
-The site serves as both:
-1. A professional portfolio
-2. A live case study of human-AI collaborative workflows
+1. A professional portfolio.
+2. A working example of how I plan, direct and ship with AI.
 
-Instead of manually building every section traditionally, I used structured prompting, iterative refinement, debugging, and AI-assisted development workflows while directing the overall creative and technical vision myself.
+It is plain HTML, CSS and JavaScript with no build step, deployed on Vercel.
 
 ---
 
-# Current Portfolio Structure
+## Site structure
 
-The portfolio now uses a cleaner project hub system.
+```
+Homepage  →  Projects hub (4 tabs)  →  Individual project pages
+```
 
-Homepage → Projects Hub → Individual Project Pages
+Every page has the same glass-style design, the same navigation and a sitemap footer. The grid icon in the nav opens a full-page **System Navigation** overlay with links to every section and page.
 
-Every page also opens a full-page **System Navigation** overlay (via the grid icon in the nav) with direct links to every section and page on the site, so navigation isn't limited to the in-page anchor menu.
+### Pages
 
-This makes the website:
-- cleaner
-- faster
-- easier to scale
-- more professional
-- easier to navigate
+| Page | Path | What it is |
+|---|---|---|
+| `index.html` | `/` | Homepage: hero, about, skills, tools, featured work, music player, learning, services, certifications, experience, writing and contact |
+| `projects.html` | `/projects` | Projects hub with four tabs: **AI Content**, **Flyers & Design**, **Web & Brand**, **Data** (in progress) |
+| `evemed.html` | `/evemed` | Case study: Evemed Diagnostics website (24/7 ultrasound clinic) |
+| `lactadelle.html` | `/lactadelle` | Case study: Lactadelle brand and website (formerly LactAfrica) |
+| `lomo.html` | `/lomo` | LOMO — League of My Own (AI hip-hop single) |
+| `rise-again.html` | `/rise-again` | Rise Again (AI hiplife / hip-hop single) |
+| `wo-ne-me.html` | `/wo-ne-me` | Wo Ne Me (AI Ghanapiano single) |
+| `anthem.html` | `/anthem` | All for One, One for All (World Cup anthem) |
+| `englishplay.html` | `/englishplay` | EnglishPLAY AI video ad campaign |
+| `gallery.html` | `/gallery` | CodeDevPay campaign gallery (11 designs) |
+| `ads.html` | `/ads` | Campaigns and advertisements |
+| `tshirts.html` | `/tshirts` | Apparel and T-shirt design concepts |
+| `certificates.html` | `/certificates` | Certificates: IBM Skills badge (Credly) and DataCamp PDFs |
+| `landing.html` | `/landing` | `noindex` holding page for large site updates, linking to every live page |
 
----
+### Clean URLs, no `#`
 
-# Main Pages
+All links are real paths, not hash anchors:
 
-- `index.html` → Main homepage
-- `projects.html` → Dedicated projects hub
-- `anthem.html` → World Cup anthem project
-- `englishplay.html` → EnglishPLAY campaign project
-- `gallery.html` → CodeDevPay campaign gallery
-- `ads.html` → Advertisements & campaign gallery
-- `tshirts.html` → Apparel & T-shirt design gallery
-- `certificates.html` → Certifications & credentials (IBM Skills Badge via Credly, DataCamp certificates)
-- `landing.html` → `noindex` holding page shown during larger site updates, linking out to every live page so visitors are never stuck
+- Homepage sections: `/about`, `/skills`, `/tools`, `/work`, `/music`, `/learning`, `/services`, `/certifications`, `/experience`, `/blog`, `/contact`
+- Project tabs: `/projects/ai`, `/projects/design`, `/projects/web`, `/projects/data`
+- Certificates: `/certificates/ibm-skills-badge`, `/certificates/intro-sql`, and so on
 
----
-
-# Featured Projects
-
-## 1. All for One, One for All — World Cup Anthem
-
-### Artist
-Kofi Nyamekye
-
-### Category
-AI Music Production | Creative Direction | Digital Media
-
-### Overview
-A fully AI-produced World Cup anthem conceived, directed, and released independently by Kofi Nyamekye.
-
-From lyrics to melody direction, cinematic music video to cover art and digital distribution — every element was built using AI tools under complete human creative direction.
-
-Released June 2026 ahead of the FIFA World Cup, the song captures the spirit of unity, resilience, and the beautiful game for every nation on Earth.
-
-### Technologies & AI Tools Used
-- Claude AI
-- Suno AI
-- Veo 3
-- OpenArt
-- ChatGPT
-- Clipchamp
-
-### Included In Project Page
-- Project overview
-- AI production workflow
-- Music production breakdown
-- Embedded YouTube link
-- Creative process documentation
+Vercel serves the right page through the `rewrites` in `vercel.json`, and a small script scrolls to the right section or selects the right tab. Old `#` links still work and are cleaned up to the new path.
 
 ---
 
-## 2. EnglishPLAY — Premium English Immersion Ad Campaign
+## Featured projects
 
-### Category
-AI-Powered Video Ad Production
+### Websites (built with AI-assisted workflows, directed by me)
 
-### Role
-Creative Director & AI Producer
+- **Evemed Diagnostics** — a 24/7 ultrasound clinic site with clean-URL service pages, a mobile home-visit section, work videos, one-tap WhatsApp booking and SEO foundations. Live at https://evemeddiagnostics.com
+- **Lactadelle** — brand identity and trade-partner website for NutriPudding™, a plant-based, shelf-stable tiger-nut pudding made in Ghana. Live at https://lactadelle.netlify.app
 
-### Overview
-A fully AI-produced 60-second advertisement for EnglishPLAY, a Turkish premium English immersion platform that connects children with native English-speaking playsisters for play-based language learning.
+### AI music (as Kofi Nyamekye)
 
-The campaign was built entirely using AI workflows:
-- creative strategy
-- image generation
-- scene generation
-- AI video production
-- scripting
-- post-production
+- **LOMO — League of My Own** — bilingual Twi/English hip-hop single
+- **Rise Again** — hiplife / hip-hop testimony track, with a visualizer video
+- **Wo Ne Me** — Ghanapiano single
+- **All for One, One for All** — World Cup anthem, with a cinematic music video and cover art
 
-with zero traditional filming or studio costs.
+### AI video
 
-### Technologies & AI Tools Used
-- Claude AI
-- Gemini
-- Veo 3
-- Clipchamp
+- **EnglishPLAY** — a 60-second AI-produced ad for a premium English immersion platform. No filming and no studio costs.
 
-### Included In Project Page
-- Embedded Cloudinary video
-- Project breakdown
-- AI workflow explanation
-- Production stack documentation
+### Design collections
+
+- **CodeDevPay Campaign Gallery** — course publicity flyers (Python, JavaScript, Excel, Word, Canva, Photoshop, Generative AI)
+- **Campaigns & Advertisements** — product ads, awareness campaigns and business flyers
+- **T-Shirt Design Concepts** — apparel branding, reunion shirts and typography-led visuals
+
+### Data (in progress)
+
+SQL analytics showcase, Power BI dashboard and Python regression study. They will be published with their method and findings.
 
 ---
 
-# Other Project Collections
+## Features
 
-## CodeDevPay Campaign Gallery
-A collection of educational campaign visuals and course publicity materials for:
-- Python
-- JavaScript
-- Excel
-- Microsoft Word
-- Canva
-- Adobe Photoshop
-- Generative AI
-
----
-
-## Campaigns & Advertisements
-Commercial campaign designs including:
-- product advertisements
-- awareness campaigns
-- business flyers
-- social media campaigns
-- promotional designs
-
----
-
-## T-Shirt Design Concepts
-A collection of:
-- apparel branding
-- reunion shirt concepts
-- typography-driven fashion visuals
-- event identity concepts
-
----
-
-# Features
-
-- Responsive mobile-first layout
-- Premium modern UI
-- Site-wide System Navigation overlay (full-page menu to every section and page)
-- Terminal/systems-inspired UI accents (JetBrains Mono, status indicators)
-- Dedicated Certifications page with an embedded Credly badge widget and inline PDF certificate viewers
-- Dedicated project hub
-- Individual project pages
-- Embedded video playback
-- AI workflow documentation
-- Dark/light mode support
-- SEO optimization
-- Google indexing support
-- Vercel Analytics integration
-- Vercel Speed Insights integration
+- Responsive, mobile-first layout
+- Liquid-glass design with dark and light themes
+- Terminal-inspired accents (JetBrains Mono, status indicators, typewriter hero)
+- Site-wide System Navigation overlay and consistent sitemap footer
+- Projects hub with keyboard-accessible tabs
+- Homepage music player: pick a song, then switch between YouTube video and Audiomack audio
+- Click-to-play YouTube embeds on the AI music project pages (`youtube-nocookie`, loaded only when played)
+- Site previews for web projects, with a built-in mockup until a screenshot is added
+- Certificates page with a Credly badge and inline PDF viewers
+- SEO: per-page metadata, Open Graph and Twitter cards with each page's own cover image, JSON-LD, `sitemap.xml`, `robots.txt`
+- Vercel Analytics and Speed Insights
 - Lazy-loaded media
-- Performance optimization
-- Mobile optimization
-- GitHub deployment workflow
 
 ---
 
-# AI-Assisted Development Workflow
+## Project layout
 
-This portfolio was built using AI-assisted workflows where I:
+```
+.
+├── index.html, projects.html, evemed.html, lactadelle.html, ...
+├── landing.html            holding page (noindex)
+├── vercel.json             clean URLs, rewrites and security headers
+├── sitemap.xml, robots.txt
+├── image.png, hero.png     profile and hero images
+└── assets/
+    ├── flyers/             covers, flyers and campaign images
+    ├── certificates/       DataCamp PDFs
+    └── web/                evemed.jpg, lactadelle.jpg (site screenshots)
+```
 
-- planned the website architecture
-- directed the visual style
-- guided feature development
-- refined layouts iteratively
-- debugged outputs
-- organized project structures
-- created AI-assisted project documentation
-- improved responsiveness
-- optimized performance
-- structured project storytelling
-- managed deployment workflows
+### Adding site previews
 
-The project reflects modern:
-- Human-AI collaboration
-- Prompt engineering
-- AI-assisted creativity
-- AI-assisted development
-- Rapid prototyping
-- Creative problem solving
+Add screenshots at `assets/web/evemed.jpg` and `assets/web/lactadelle.jpg` (about 1600×1000, top of the homepage). They replace the built-in mockups on the homepage, the projects hub and the case-study pages automatically.
 
 ---
 
-# Tools & Technologies
+## Configuration notes
 
-## AI & Creative Tools
-- ChatGPT
-- Claude AI
-- Suno AI
-- Veo 3
-- OpenArt
-- Gemini
-- Clipchamp
+`vercel.json` does three things:
 
-## Analytics & Data
-- Python
-- SQL
-- Power BI
-- Excel
-- Jupyter Notebook
-- Anaconda
-
-## Development
-- HTML
-- CSS
-- JavaScript
-- GitHub
-- Vercel
-- VS Code
-
-## Design & Media
-- Canva
-- Photoshop
-- Graphic Design
-- Creative Direction
-- Digital Media
-- Content Development
-- Typography (Syne, DM Sans, JetBrains Mono)
+1. **Clean URLs:** `cleanUrls: true`, so `/lomo` serves `lomo.html`.
+2. **Rewrites:** the section, tab and certificate paths above serve the homepage, projects hub or certificates page.
+3. **Content Security Policy:** third-party embeds must be allowed in `frame-src`. Currently allowed: Credly, `youtube-nocookie.com` and `audiomack.com`. If you add another embed, add its domain there or the browser will block it.
 
 ---
 
-# Performance & SEO
+## Run locally
 
-Implemented optimizations include:
-- lazy loading
-- responsive media
-- performance-focused layout structure
-- sitemap.xml
-- robots.txt
-- Google Search Console verification
-- Vercel Speed Insights
-- Vercel Analytics
-- SEO metadata
-- Open Graph tags
+There is no build step. Any static server works, but the clean URLs and rewrites only work on Vercel or the Vercel CLI:
+
+```bash
+npm i -g vercel
+vercel dev
+```
+
+Opening the HTML files directly also works, except for the clean-URL paths.
 
 ---
 
-# Current Learning Focus
+## Tools & technologies
 
-Currently learning and building projects in:
-- Data Science
-- Advanced SQL
-- Advanced Power BI
-- Automation
-- AI-Assisted Development
-- AI Video Production
+**AI and creative:** ChatGPT, Claude AI, Suno AI, Veo 3, OpenArt, Gemini, Clipchamp, HeyGen, Higgsfield
+**Analytics and data:** Python, SQL, Power BI, Excel, Jupyter Notebook, Anaconda
+**Development:** HTML, CSS, JavaScript, GitHub, Vercel, VS Code
+**Design and media:** Canva, Photoshop, graphic design, creative direction, digital media
+**Typography:** Syne, DM Sans, JetBrains Mono
 
 ---
 
-# Future Plans
+## AI-assisted workflow
 
-Planned additions include:
-- SQL projects
-- Power BI dashboards
-- Excel analytics case studies
-- Data storytelling projects
-- Automation workflows
-- Additional AI-generated media projects
-- Interactive analytics dashboards
-- Expanded creative campaign collections
+I plan the architecture, direct the visual style, guide each feature, review the output, debug, and manage deployment. The AI writes and refines code and copy under that direction. The result is a portfolio that also shows prompt engineering and human-AI collaboration in practice.
 
 ---
 
-# Key Learning Outcomes
+## Current focus and plans
 
-Through this project, I practiced and improved:
-- responsive web development
-- AI-assisted workflows
-- prompt engineering
-- project storytelling
-- digital branding
-- UI refinement
-- performance optimization
-- media organization
-- SEO implementation
-- AI creative production
-- project documentation
-- deployment workflows
+- **Now:** Advanced SQL, Advanced Power BI, Python, automation and AI-assisted development
+- **Next:** SQL showcase, Power BI dashboards, Excel case studies, data storytelling, automation workflows, more AI media projects and website case studies
 
 ---
 
-# Author
+## Author
 
-## Nyamekye Samuel Asamoah
+**Nyamekye Samuel Asamoah** — Creative Director, AI/Prompt Engineering tutor and data analytics learner, based in Ghana. As **Kofi Nyamekye**, an AI-assisted music artist.
 
-Data Science learner and creative technologist with experience across:
-- AI-assisted workflows
-- digital media
-- analytics
-- creative direction
-- educational campaigns
-- graphic design
-
-🔗 LinkedIn: https://www.linkedin.com/in/asanyamekye/  
-🔗 GitHub: https://github.com/KofiNyamekye  
+🔗 LinkedIn: https://www.linkedin.com/in/asanyamekye/
+🔗 GitHub: https://github.com/KofiNyamekye
 📧 Email: asanyamekye@gmail.com
 
 ---
 
-# Note
-
-This portfolio is under continuous development and will continue evolving as more analytics, AI, automation, and creative media projects are added.
+*This portfolio is under continuous development and keeps growing as more analytics, AI, automation and creative projects are added.*
