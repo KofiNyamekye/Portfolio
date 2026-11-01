@@ -34,7 +34,7 @@ Every page has the same glass-style design, the same navigation and a sitemap fo
 |---|---|---|
 | `index.html` | `/` | Homepage: hero, about, skills, tools, featured work, music player, learning, services, certifications, experience, writing and contact |
 | `projects.html` | `/projects` | Projects hub with four tabs: **AI Content**, **Flyers & Design**, **Web & Brand**, **Data** (in progress) |
-| `evemed.html` | `/evemed` | Case study: Evemed Diagnostics website (24/7 ultrasound clinic) |
+| `evemed.html` | `/evemed` | Case study: Evemed Diagnostics website (24/7 ultrasound clinic, installable and offline-ready) |
 | `lactadelle.html` | `/lactadelle` | Case study: Lactadelle brand and website (formerly LactAfrica) |
 | `lomo.html` | `/lomo` | LOMO — League of My Own (AI hip-hop single) |
 | `rise-again.html` | `/rise-again` | Rise Again (AI hiplife / hip-hop single) |
@@ -63,7 +63,7 @@ Vercel serves the right page through the `rewrites` in `vercel.json`, and a smal
 
 ### Websites (built with AI-assisted workflows, directed by me)
 
-- **Evemed Diagnostics** — a 24/7 ultrasound clinic site with clean-URL service pages, a mobile home-visit section, work videos, one-tap WhatsApp booking and SEO foundations. Live at https://evemeddiagnostics.com
+- **Evemed Diagnostics** — a 10-page website for a 24/7 ultrasound clinic in Ghana. It has clean-URL service pages, a mobile home-visit service, work videos, one-tap WhatsApp booking, structured data and an llms.txt so Google and AI assistants can read its facts, loading, offline and slow-network states, and Add to Home Screen. Live at https://evemeddiagnostics.com
 - **Lactadelle** — brand identity and trade-partner website for NutriPudding™, a plant-based, shelf-stable tiger-nut pudding made in Ghana. Live at https://lactadelle.netlify.app
 
 ### AI music (as Kofi Nyamekye)
