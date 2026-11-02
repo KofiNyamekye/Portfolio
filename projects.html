@@ -520,19 +520,21 @@ html[data-theme="light"] .orb{opacity:0.22;}
 @keyframes drift{to{transform:translate3d(40px,30px,0) scale(1.12);}}
 @media (prefers-reduced-motion:reduce){.orb{animation:none;}}
 
-/* ── SITE PREVIEW FRAME (browser mock; real screenshot drops in via the <img>) ── */
-.sp{position:relative;width:100%;height:100%;min-height:170px;border-radius:inherit;overflow:hidden;background:linear-gradient(135deg,var(--c1,#111936),var(--c2,#24d36b));}
-.sp-bar{position:absolute;top:10px;left:10px;right:10px;z-index:3;display:flex;align-items:center;gap:0.4rem;padding:0.4rem 0.7rem;border-radius:999px;
-  background:rgba(255,255,255,0.14);border:1px solid rgba(255,255,255,0.22);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
+/* ── SITE PREVIEW FRAME: slim browser bar ABOVE a whole, uncropped screenshot; brand-gradient mockup only when no screenshot exists ── */
+.sp{position:relative;display:flex;flex-direction:column;width:100%;height:100%;border-radius:inherit;overflow:hidden;background:linear-gradient(135deg,var(--c1,#111936),var(--c2,#24d36b));}
+.sp-bar{position:static;flex:0 0 auto;z-index:3;display:flex;align-items:center;gap:0.4rem;padding:0.5rem 0.85rem;
+  background:rgba(7,11,31,0.42);border-bottom:1px solid rgba(255,255,255,0.16);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
   font-family:var(--font-mono);font-size:0.68rem;color:rgba(255,255,255,0.92);}
-.sp-bar i{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,0.55);display:block;flex-shrink:0;}
-.sp-bar span{margin-left:0.4rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-.sp img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;z-index:2;display:block;}
-.sp-mock{position:absolute;inset:0;z-index:1;display:flex;flex-direction:column;justify-content:center;padding:3.4rem 1.6rem 1.4rem;color:#fff;}
+.sp-bar i{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.5);display:block;flex-shrink:0;}
+.sp-bar span{margin-left:0.45rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.sp img{display:block;position:static;width:100%;height:auto;flex:0 0 auto;margin:auto 0;}
+.sp-mock{display:none;position:static;flex:1;flex-direction:column;justify-content:center;padding:1.4rem 1.6rem;color:#fff;min-height:170px;}
+.sp.noshot .sp-mock{display:flex;}
 .sp-mock b{font-family:var(--font-display);font-size:clamp(1.3rem,3vw,2rem);letter-spacing:-0.05em;line-height:1.05;text-shadow:0 4px 24px rgba(0,0,0,0.35);max-width:15ch;}
 .sp-mock em{font-style:normal;font-size:0.78rem;opacity:0.85;margin-top:0.55rem;max-width:30ch;}
 .sp-mock .sp-btn{margin-top:0.9rem;align-self:flex-start;padding:0.4rem 0.9rem;border-radius:999px;background:rgba(255,255,255,0.92);color:#0b1230;font-weight:800;font-size:0.72rem;}
-.sp-frame{aspect-ratio:16/10;border-radius:var(--radius);border:1px solid var(--border);box-shadow:var(--shadow);overflow:hidden;}
+.sp-frame{border-radius:var(--radius);border:1px solid var(--border);box-shadow:var(--shadow);overflow:hidden;}
+.sp-frame .sp{height:auto;}
 
 /* ── SITEMAP FOOTER ── */
 .footer-map{display:grid;grid-template-columns:1.3fr repeat(3,1fr);gap:2rem;padding-bottom:2rem;margin-bottom:1.5rem;border-bottom:1px solid var(--border);}
@@ -543,7 +545,7 @@ html[data-theme="light"] .orb{opacity:0.22;}
 @media(max-width:800px){.footer-map{grid-template-columns:1fr 1fr;}}
 @media(max-width:480px){.footer-map{grid-template-columns:1fr;}}
 </style>
-<style>.project-thumb-wrap .sp{position:absolute;inset:0;min-height:0;}.project-thumb-wrap .sp-mock{justify-content:flex-end;padding:3rem 1.2rem 1.1rem;}.project-thumb-wrap .sp-mock b{font-size:1.1rem;max-width:20ch;}.project-thumb-wrap .sp-mock em,.project-thumb-wrap .sp-mock .sp-btn{display:none;}</style>
+<style>.project-thumb-wrap.shot{aspect-ratio:auto;}.project-thumb-wrap.shot .sp{height:auto;}.project-thumb-wrap.shot .sp-mock{padding:1.1rem 1.2rem;min-height:150px;}.project-thumb-wrap.shot .sp-mock b{font-size:1.1rem;max-width:20ch;}.project-thumb-wrap.shot .sp-mock em,.project-thumb-wrap.shot .sp-mock .sp-btn{display:none;}</style>
 
 <style>
 /* ── SITE-WIDE GLASS CONSISTENCY (applies the same material to every existing card) ── */
@@ -556,6 +558,8 @@ html[data-theme="light"] :is(.card,.fw-cat,.blog-card,.highlight-box,.status-pan
   background-image:linear-gradient(135deg,rgba(255,255,255,0.9),rgba(255,255,255,0.4));box-shadow:inset 0 1px 0 #fff,var(--shadow-soft);}
 nav{-webkit-backdrop-filter:blur(22px) saturate(1.7);backdrop-filter:blur(22px) saturate(1.7);}
 .fw-cats{grid-template-columns:repeat(auto-fit,minmax(240px,1fr)) !important;}
+.work-card .wc-media .sp{position:absolute;inset:0;height:100%;}
+.work-card .wc-media .sp-mock{padding:1.2rem;}
 .term{font-family:var(--font-mono);font-size:0.82rem;line-height:2;color:var(--muted);margin-top:1rem;}
 .term strong{color:var(--green);font-weight:600;}
 .hl-links{display:flex;flex-direction:column;gap:0.5rem;margin-top:1rem;}
@@ -785,7 +789,7 @@ nav{-webkit-backdrop-filter:blur(22px) saturate(1.7);backdrop-filter:blur(22px) 
       <div class="projects-grid">
         <a href="evemed" class="project-card fade-up">
           <div class="card-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg></div>
-          <div class="project-thumb-wrap"><div class="sp" style="--c1:#0d4ba6;--c2:#1d7be0;"><div class="sp-bar"><i></i><i></i><i></i><span>evemeddiagnostics.com</span></div><div class="sp-mock"><b>Ultrasound scans at our clinic or at your door</b><em>Open 24/7 · Mobile home visits</em><span class="sp-btn">Book on WhatsApp</span></div><img src="assets/web/evemed.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div></div>
+          <div class="project-thumb-wrap shot"><div class="sp" style="--c1:#0d4ba6;--c2:#1d7be0;"><div class="sp-bar"><i></i><i></i><i></i><span>evemeddiagnostics.com</span></div><div class="sp-mock"><b>Ultrasound scans at our clinic or at your door</b><em>Open 24/7 · Mobile home visits</em><span class="sp-btn">Book on WhatsApp</span></div><img src="assets/web/evemed.jpg" width="1882" height="820" alt="Screenshot of the evemeddiagnostics.com website" loading="lazy" onerror="this.style.display='none';this.parentNode.classList.add('noshot')"></div></div>
           <div class="project-body">
             <p class="project-type">Website · Healthcare</p>
             <h3 class="project-title">Evemed Diagnostics</h3>
@@ -796,7 +800,7 @@ nav{-webkit-backdrop-filter:blur(22px) saturate(1.7);backdrop-filter:blur(22px) 
 
         <a href="lactadelle" class="project-card fade-up">
           <div class="card-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg></div>
-          <div class="project-thumb-wrap"><div class="sp" style="--c1:#004D40;--c2:#0e8a6f;"><div class="sp-bar"><i></i><i></i><i></i><span>lactadelle.netlify.app</span></div><div class="sp-mock"><b>The pudding Africa deserves</b><em>NutriPudding™ · plant-based, shelf-stable</em><span class="sp-btn">Express interest</span></div><img src="assets/web/lactadelle.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div></div>
+          <div class="project-thumb-wrap shot"><div class="sp" style="--c1:#004D40;--c2:#0e8a6f;"><div class="sp-bar"><i></i><i></i><i></i><span>lactadelle.netlify.app</span></div><div class="sp-mock"><b>The pudding Africa deserves</b><em>NutriPudding™ · plant-based, shelf-stable</em><span class="sp-btn">Express interest</span></div><img src="assets/web/lactadelle.jpg" width="1887" height="840" alt="Screenshot of the lactadelle.netlify.app website" loading="lazy" onerror="this.style.display='none';this.parentNode.classList.add('noshot')"></div></div>
           <div class="project-body">
             <p class="project-type">Brand + Website · Food</p>
             <h3 class="project-title">Lactadelle (formerly LactAfrica)</h3>
