@@ -35,15 +35,6 @@ All images are WebP in `assets/img/` (`name.webp` up to 1600px, `name-sm.webp` u
 
 To add a project image: export a 1600px-wide WebP and a 720px `-sm` copy into `assets/img/...`.
 
-## To do before going fully live
-
-- [ ] Add 2–3 real testimonials: uncomment the block in `index.html` (search for `TESTIMONIALS`)
-- [ ] Replace the low-resolution Rise Again and Wo Ne Me covers (currently 320×180)
-- [ ] Add mobile screenshots for Evemed and Lactadelle case studies
-- [ ] Add a résumé PDF (footer links to LinkedIn for now)
-- [ ] Publish the first finished data project on `/data`
-- [ ] Send one test inquiry through `/contact` (FormSubmit sends to asanyamekye@gmail.com)
-
 ## Contact
 
 asanyamekye@gmail.com · [LinkedIn](https://www.linkedin.com/in/asanyamekye/) · [GitHub](https://github.com/KofiNyamekye)
