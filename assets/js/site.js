@@ -98,3 +98,96 @@
   var y = document.querySelector("[data-year]");
   if (y) y.textContent = new Date().getFullYear();
 })();
+
+/* Light / dark mode: follows the device until the visitor picks one; the choice is saved per browser */
+(function () {
+  "use strict";
+  var root = document.documentElement;
+  var mq = window.matchMedia ? window.matchMedia("(prefers-color-scheme: dark)") : null;
+  var current = function () {
+    var t = root.getAttribute("data-theme");
+    if (t === "light" || t === "dark") return t;
+    return mq && mq.matches ? "dark" : "light";
+  };
+  var paint = function () {
+    var t = current();
+    document.querySelectorAll('meta[name="theme-color"]').forEach(function (m) {
+      m.setAttribute("content", t === "dark" ? "#101114" : "#f5f3ef");
+    });
+    document.querySelectorAll(".theme-toggle").forEach(function (b) {
+      b.setAttribute("aria-label", t === "dark" ? "Switch to light mode" : "Switch to dark mode");
+    });
+  };
+  document.querySelectorAll(".theme-toggle").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var next = current() === "dark" ? "light" : "dark";
+      document.body.classList.add("theme-anim");
+      root.setAttribute("data-theme", next);
+      try { localStorage.setItem("theme", next); } catch (e) {}
+      paint();
+      setTimeout(function () { document.body.classList.remove("theme-anim"); }, 400);
+    });
+  });
+  if (mq) {
+    var onChange = function () { paint(); };
+    if (mq.addEventListener) mq.addEventListener("change", onChange); else if (mq.addListener) mq.addListener(onChange);
+  }
+  paint();
+})();
+
+/* Flyer slideshow: hover (or keyboard focus) cycles through the collection.
+   On touch screens it plays slowly while the card is on screen. Off for reduced motion. */
+(function () {
+  "use strict";
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var canHover = window.matchMedia && window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+  document.querySelectorAll("[data-slides]").forEach(function (box) {
+    var srcs = box.dataset.slides.split(","), imgs = box.querySelectorAll("img"), n = srcs.length;
+    if (reduce || n <= imgs.length) return;
+    var card = box.closest(".card"), offset = 0, timer = null, loaded = false;
+    var groups = Math.ceil(n / imgs.length);
+    var dots = document.createElement("span");
+    dots.className = "slide-dots"; dots.setAttribute("aria-hidden", "true");
+    for (var d = 0; d < groups; d++) dots.appendChild(document.createElement("i"));
+    box.appendChild(dots);
+    var mark = function () {
+      var g = Math.floor(offset / imgs.length) % groups;
+      dots.querySelectorAll("i").forEach(function (el, i) { el.classList.toggle("on", i === g); });
+    };
+    mark();
+    var preload = function () {
+      if (loaded) return; loaded = true;
+      srcs.forEach(function (s) { var im = new Image(); im.src = s; });
+    };
+    var step = function () {
+      offset = (offset + imgs.length) % (groups * imgs.length);
+      imgs.forEach(function (im, i) {
+        setTimeout(function () {
+          im.classList.add("is-swapping");
+          setTimeout(function () {
+            im.removeAttribute("srcset"); im.removeAttribute("sizes");
+            im.src = srcs[(offset + i) % n];
+            im.classList.remove("is-swapping");
+          }, 300);
+        }, i * 110);
+      });
+      mark();
+    };
+    var start = function (delay) {
+      if (timer) return; preload(); box.classList.add("is-playing");
+      timer = setInterval(step, delay);
+      setTimeout(step, 450);
+    };
+    var stop = function () { clearInterval(timer); timer = null; box.classList.remove("is-playing"); };
+    if (canHover) {
+      card.addEventListener("mouseenter", function () { start(1700); });
+      card.addEventListener("mouseleave", stop);
+      card.addEventListener("focus", function () { start(1700); });
+      card.addEventListener("blur", stop);
+    } else if ("IntersectionObserver" in window) {
+      new IntersectionObserver(function (es) {
+        es.forEach(function (e) { if (e.isIntersecting && e.intersectionRatio > .6) start(2600); else stop(); });
+      }, { threshold: [0, .6] }).observe(box);
+    }
+  });
+})();
