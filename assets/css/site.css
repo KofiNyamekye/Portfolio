@@ -677,3 +677,11 @@ fieldset.field { border: 0; padding: 0; margin: 0; }
   *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
   .js .reveal { opacity: 1; transform: none; }
 }
+
+/* ---------- Embedded FlowPard form ---------- */
+.embed-frame { border: 1px solid var(--rule); border-radius: var(--radius-lg); overflow: hidden; background: #f7f7f5; }
+.embed-frame iframe { width: 100%; height: 760px; border: 0; display: block; }
+.embed-alt { margin-top: 14px; font-size: 14px; color: var(--muted); }
+.embed-alt a { color: var(--accent-text); }
+.embed-alt svg { width: 12px; height: 12px; display: inline; vertical-align: -1px; }
+@media (max-width: 640px) { .embed-frame iframe { height: 820px; } }
